@@ -1,0 +1,30 @@
+\begin{table}[ht]
+\centering
+\caption{UC-01: Initial App Onboarding}
+
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|p{2em}|p{14cm}|}
+\hline
+\textbf{Dependencies} & \multicolumn{2}{|p{14cm}|}{User has never opened the app before} \\ 
+\hline
+\textbf{Description} & \multicolumn{2}{|p{14cm}|}{The system will behave in the following use case when the user initially opens the app.} \\
+\hline
+\textbf{Precondition} & \multicolumn{2}{|p{14cm}|}{The user has downloaded the app from the app store and goes to use it.} \\
+\hline
+\multirow{7}{4em}{\textbf{Ordinary Sequence}} & \textbf{Step} & \textbf{Action} \\
+& 
+1 & Application displays a screen, with a button to get started \\
+& 2 & User taps the “Get Started” button \\
+& 3 & Application displays a screen with basic information for the user to fill out: Name, Birthdate, Allergens, Preferences, Share Data with Apple Health, Protect Application with FaceID \\
+& 4 & User fills out the necessary information: Name, Birthdate, Allergens, Preferences, Share Data with Apple Health, Protect Application with FaceID \\
+& 5 & User taps “Get Started” button \\
+& 6 & Application saves information, sets a flag that the user has opened the application before, and then displays the tabbed application \\
+\hline
+\textbf{Postcondition} & \multicolumn{2}{|p{14cm}|}{The user will be able to use the application.} \\
+\hline
+\textbf{Exceptions} & 6 & If the user hasn’t filled out all of the necessary information, then an alert will be displayed to complete the information, and the user won’t be able to proceed until everything’s completed. \\
+\hline
+\textbf{Comments} & \multicolumn{2}{|p{14cm}|}{The information entered here will be displayed in the profile section of the app and will be editable.} \\
+\hline
+\end{tabular}
+\end{table}
