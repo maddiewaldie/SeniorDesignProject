@@ -1,0 +1,30 @@
+\begin{table}[ht]
+\centering
+\caption{Use Case 02: Sharing Data with Apple Health}
+
+\hspace{1em}
+\renewcommand{\arraystretch}{1.7}
+
+\begin{tabular}{|c|p{2em}|p{14cm}|}
+\hline
+\textbf{Dependencies} & \multicolumn{2}{|p{14cm}|}{User hasn’t enabled sharing data with Apple health yet} \\ 
+\hline
+\textbf{Description} & \multicolumn{2}{|p{14cm}|}{The system will behave in the following use case when the user enables sharing data with Apple health.} \\
+\hline
+\textbf{Precondition} & \multicolumn{2}{|p{14cm}|}{The user is going through the setup page.} \\
+\hline
+\multirow{6}{4em}{\textbf{Ordinary Sequence}} & \textbf{Step} & \textbf{Action} \\
+& 1 & Application displays a screen with basic information for the user to fill out: Name, Birthdate, Allergens, Preferences, Share Data with Apple Health, Protect Application with FaceID \\
+& 2 & User taps the “Share Data with Apple Health” toggle, toggling it on \\
+& 3 & Application displays a pop up sheet, asking the user if they would like to share data with the Apple Health app. It will list out every symptom / thing that it will be reading from Apple Health / writing to Apple Health. \\
+& 4 & User goes through all of the options and decides whether or not they would like to share that data, tapping on the toggles. \\
+& 5 & User taps “Done” \\
+\hline
+\textbf{Postcondition} & \multicolumn{2}{|p{14cm}|}{The user will have all of the selected data shared with Apple Health.} \\
+\hline
+\textbf{Exceptions} & 0 & If the user has already gone through the onboarding process, they can edit their permissions in the Profile section, and then follow the ordinary sequence. \\
+\hline
+\textbf{Comments} & \multicolumn{2}{|p{14cm}|}{The user doesn’t have to select all of the categories, if they’re uncomfortable sharing that information.} \\
+\hline
+\end{tabular}
+\end{table}

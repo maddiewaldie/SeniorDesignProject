@@ -5,6 +5,8 @@
 \usepackage{txfonts}	% for using the Times-Roman font
 \usepackage{multirow}
 \usepackage{multicol}
+\usepackage{arydshln}
+\usepackage{float}
 
 % These must be set first ... the rest of the thesis commands rely on them.
 
@@ -32,6 +34,7 @@
 \include{abstract}
 
 \tableofcontents
+\listoftables
 \listoffigures
 
 \mainmatter
@@ -41,10 +44,14 @@
 \include{thesis/chapters/4-designOverview}
 \include{thesis/chapters/5-softwareDesign}
 \include{thesis/chapters/6-constraintsAndStandards}
-\include{thesis/chapters/7-implementation}
-\include{thesis/chapters/8-testing}
-\include{thesis/chapters/9-societalIssues}
-\include{thesis/chapters/10-conclusion}
+\include{thesis/chapters/7-schedule}
+\include{thesis/chapters/7-riskAnalysis}
+% \include{thesis/chapters/7-implementation}
+% \include{thesis/chapters/8-testing}
+% \include{thesis/chapters/9-societalIssues}
+% \include{thesis/chapters/10-conclusion}
+
+\input{thesis/bibliography}
 
 \backmatter
 \end{document}
