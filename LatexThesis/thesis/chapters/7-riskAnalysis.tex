@@ -1,0 +1,38 @@
+\chapter{Risk Analysis}
+
+The development process is inherently complex, marked by uncertainties and challenges that have the potential to influence the successful completion of any project. In recognizing the dynamic nature of software development, it becomes crucial to proactively identify and analyze potential risks. This approach not only facilitates early detection but also enables the formulation of effective mitigation strategies to safeguard the project's trajectory.
+
+Risk analysis is an indispensable component of project management, providing a structured framework for understanding, assessing, and addressing potential threats. It involves a systematic evaluation of uncertainties that could impact project objectives, timelines, and deliverables. By undertaking a comprehensive risk analysis, project teams can anticipate, prioritize, and respond to potential issues, minimizing the likelihood of disruptions and ensuring a smoother project progression.
+
+The risk analysis table presented below serves as a strategic tool for capturing and categorizing risks that may manifest at various stages of the project lifecycle. Each entry in the table delineates a specific risk, accompanied by its probability of occurrence, severity, potential consequences, and recommended preventative measures. The probability is quantified on a scale from 0 to 1, severity is ranked from 1 to 10, and the impact is calculated as the product of probability and severity.
+
+\begin{table} [H]
+    \centering
+    \hspace{1em}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|p{10em}|c|c|c|p{10em}|p{10em}|}
+        \hline
+        \textbf{Risk} & \textbf{Probability} & \textbf{Severity} & \textbf{Impact} & \textbf{Consequences} & \textbf{Prevention} \\
+         \hline
+         Constraints are not met & 0.5 & 8 & 4 & Application is incomplete & Consult with advisor for clarification, and check initial progress before proceeding \\
+         \hline
+         Unable to integrate with Apple HealthKit & 0.2 & 10 & 2 & User is unable to view their data in the Health app, or share data with their doctor & Research HealthKit, and abstract the HealthKit portion of the code, so that if this area isn't implemented, the app still works \\
+         \hline
+         Unable to implement feature(s) & 0.7 & 8 & 3.2 & Code is unfinished, or is finished, but with less features than originally planned & Ask for assistance to keep up with timeline, and prioritize tasks, so that lower priority items can be dropped if needed \\
+         \hline
+         App store policies are not met & 0.05 & 10 & 0.5 & Unable to submit the application to the App Store & Regularly check App Store policies, and update app criteria as needed \\
+         \hline
+         Application is not compatible with iPhone model & 0.1 & 10 & 1 & User is unable to use the application & Ensure that the APIs and technologies used have an appropriate minimum iOS, and that the code is tested on various iPhone models \\
+         \hline
+         Source control error & 0.4 & 4 & 1.6 & Setback in development, due to loss of work & Back up work in GitHub, and ensure code is pushed after major code changes \\
+         \hline
+         Not enough time & 0.5 & 7 & 1.05 & Unable to complete the project by the due date & Allow for more time than expected for development, and keep to the schedule defined in the previous chapter \\
+         \hline
+         Bugs & 1.0 & 4 & 3 & Subpar user experience, and implementation not working fully & Develop unit and UI tests as features are developed, and check functionality of each feature before continuing to the next \\
+         \hline
+         Developer unable to contribute & 0.2 & 10 & 2 & Progress on the project becomes stagnant, as there is only a single developer & Regularly check in with advisor on progress, and prioritize tasks, so that if the developer becomes indisposed for a period of time, lower priority items can be dropped \\
+         \hline
+    \end{tabular}
+    \caption{Risk Analysis Table}
+    \label{tab:risk_analysis}
+\end{table}

@@ -1,0 +1,53 @@
+\chapter{Constraints and Standards}
+
+Before diving into the development process, it is important to recognize and address the various constraints and standards that shape and govern the project, so that I can plan for them. This section delves into the constraints that have influenced the project's trajectory, ranging from time limitations imposed by academic schedules to legal considerations in ensuring the utmost user privacy. Simultaneously, the section explores the standards adhered to throughout the development process, aligning the project with recognized benchmarks in software engineering, accessibility, and interoperability. By understanding and adhering to these constraints and standards, my application will not only fit within the confines of practical realities but also conform to industry best practices, fostering a robust and ethically sound healthcare solution.
+
+\section{Constraints}
+
+Developing a software application as a solo endeavor brings its own set of challenges, and recognizing and navigating these constraints is paramount for success. While financial considerations are mitigated in this context, time and legal factors emerge as critical constraints that demand careful attention.
+
+\begin{itemize}
+    \item \textbf{Time:} The timeline of the senior capstone experience and academic deadlines impose significant time constraints on all phases of the project. Structuring the project plan and development process within these allocated timeframes is essential for meeting deliverables and achieving project goals.
+    \item \textbf{Legal:} Legal considerations, particularly healthcare privacy regulations such as HIPAA, stand as significant factors influencing the project. Ensuring strict compliance with these regulations is non-negotiable to safeguard patient data and uphold legal standards. This legal awareness adds complexity to the development process, demanding meticulous attention to detail.
+    \item \textbf{Maintenance Considerations:} Planning for the long-term maintenance of the project post-deployment is a critical aspect of the development process. Designing the system with foresight for future updates and enhancements ensures that ongoing maintenance can be executed seamlessly. This forward-thinking approach aims to maximize the application's lifespan and adaptability, addressing potential challenges before they arise.
+\end{itemize}
+
+In navigating these constraints, a strategic allocation of resources and a proactive approach to time management will be key to the success of the project. By addressing these challenges head-on, I hope to lay the foundation for a robust and sustainable software solution.
+
+\section{Standards}
+
+Ensuring that the developed application aligns with established industry standards is paramount for creating a robust, reliable, and inclusive healthcare solution. The adherence to specific standards across various facets of the project speaks to a commitment to excellence and user-centric design.
+
+\begin{itemize}
+    \item \textbf{Unified Modeling Language (UML) Standards}: Unified Modeling Language (UML) Standards constitute a crucial framework for expressing and communicating the structural and behavioral aspects of a software system in a standardized visual notation. UML provides a common language for software developers, analysts, and designers to collaboratively conceptualize, design, and document complex systems. These standards encompass a variety of diagram types, including class diagrams, sequence diagrams, and use case diagrams, each serving a distinct purpose in capturing different facets of system architecture and functionality \cite{UML}. In creating my diagrams and plans for this project, I've utilized UML standards, ensuring ease of readability in the software engineering community.
+    \item \textbf{IEEE Standards:} Adhering to a suite of IEEE standards has been integral to the development process. Particularly, in the realm of software engineering practices, these standards have acted as guiding principles \cite{IEEEStd}. I've outlined some of the IEE standards I've followed below:
+        \begin{itemize}
+        \item \textbf{IEEE 830 - Software Requirements Specification:}
+        This standard provides guidelines for preparing a software requirements specification document, ensuring clarity and completeness in documenting the functional and non-functional requirements of the software.
+        \item \textbf{IEEE 1016 - Software Design Descriptions:}
+        This standard outlines the structure and content of software design descriptions, aiding in the effective communication of design details among project stakeholders.
+        \item \textbf{IEEE 1471 - Architecture Description:}
+        Focused on architectural descriptions, this standard offers guidance on documenting and presenting system architectures, helping to ensure consistency and comprehensibility.
+        \item \textbf{IEEE 830.1 - Recommended Practice for Software Requirements Specifications Extensions:}
+        This standard offers additional guidance on extending and customizing IEEE 830 for specific project needs, potentially useful in tailoring requirements specifications.
+        \end{itemize}
+    \item \textbf{ISO Standards:} The application also adheres to ISO standards, encompassing programming languages and design methodologies, some of which are listed below.
+        \begin{itemize}
+        \item \textbf{ISO/IEC 9126 - Software Engineering - Product Quality:} This standard provides a framework for defining and evaluating software quality characteristics, including functionality, reliability, usability, efficiency, maintainability, and portability.
+        \item \textbf{ISO/IEC 25000 - Systems and software engineering - Systems and software Quality Requirements and Evaluation (SQuaRE):} This series of standards provides guidance on the application of the ISO/IEC 9126 quality model and defines a set of quality requirements and evaluation standards for software products \cite{ISO}.
+        \item \textbf{ISO 9241-171:} This ISO standard provides guidelines for designing software that is accessible to people with disabilities. It covers aspects like visual, auditory, and cognitive accessibility.
+        \end{itemize}
+    \item \textbf{Apple Standards}: Because I am creating an iPhone application, it is important to follow the Apple-specific standards listed below.
+        \begin{itemize}
+            \item \textbf{Human Interface Guidelines (HIG):} Apple's HIG provides design principles and recommendations for creating a consistent and intuitive user experience across iOS, macOS, watchOS, and tvOS. When designing the UI of my application, I closely followed the HIG \cite{HIG}.
+            \item \textbf{App Store Review Guidelines:} These guidelines outline the criteria that apps must meet to be accepted on the App Store. It covers various aspects including app functionality, design, security, and more \cite{AppStore}.
+            \item \textbf{Accessibility Guidelines:} Apple provides comprehensive accessibility guidelines for developers. This includes guidance on designing accessible user interfaces, providing alternative content for multimedia, and ensuring compatibility with VoiceOver, Apple's built-in screen reader \cite{AppleAccessibility}.
+        \end{itemize}
+    \item \textbf{Health Insurance Portability and Accountability Act (HIPAA) Compliance Standards:} HIPAA sets the standard for protecting sensitive patient data and defines how this information should be handled, stored, and transmitted \cite{HIPPA}.
+    \begin{itemize}
+        \item \textbf{Secure Data Transmission:} Ensure that all patient data transmitted between the application and any backend servers or databases is encrypted. HIPAA requires the use of secure communication protocols, such as TLS, to protect patient information during transmission.
+        \item \textbf{Data Storage and Encryption:} Implement robust encryption mechanisms for stored patient data. This includes data at rest on servers or devices. Encryption helps safeguard patient information in the event of unauthorized access.
+        \item \textbf{Access Controls:} Enforce strict access controls to limit who can access patient data within the application. Implement user authentication and authorization mechanisms to ensure that only authorized personnel can view or modify sensitive information.
+    \end{itemize}
+    
+\end{itemize}
