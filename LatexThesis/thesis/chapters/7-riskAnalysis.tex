@@ -12,13 +12,13 @@ The risk analysis table presented below serves as a strategic tool for capturing
     \renewcommand{\arraystretch}{1.5}
     \begin{tabular}{|p{10em}|c|c|c|p{10em}|p{10em}|}
         \hline
-        \textbf{Risk} & \textbf{Probability} & \textbf{Severity} & \textbf{Impact} & \textbf{Consequences} & \textbf{Prevention} \\
+        \textbf{Risk} & \textbf{Probability} & \textbf{Severity} & \textbf{Impact} & \textbf{Consequences} & \textbf{Mitigation} \\
          \hline
          Constraints are not met & 0.5 & 8 & 4 & Application is incomplete & Consult with advisor for clarification, and check initial progress before proceeding \\
          \hline
          Unable to integrate with Apple HealthKit & 0.2 & 10 & 2 & User is unable to view their data in the Health app, or share data with their doctor & Research HealthKit, and abstract the HealthKit portion of the code, so that if this area isn't implemented, the app still works \\
          \hline
-         Unable to implement feature(s) & 0.7 & 8 & 3.2 & Code is unfinished, or is finished, but with less features than originally planned & Ask for assistance to keep up with timeline, and prioritize tasks, so that lower priority items can be dropped if needed \\
+         Unable to implement feature(s) & 0.7 & 8 & 5.6 & Code is unfinished, or is finished, but with less features than originally planned & Ask for assistance to keep up with timeline, and prioritize tasks, so that lower priority items can be dropped if needed \\
          \hline
          App store policies are not met & 0.05 & 10 & 0.5 & Unable to submit the application to the App Store & Regularly check App Store policies, and update app criteria as needed \\
          \hline
@@ -26,9 +26,9 @@ The risk analysis table presented below serves as a strategic tool for capturing
          \hline
          Source control error & 0.4 & 4 & 1.6 & Setback in development, due to loss of work & Back up work in GitHub, and ensure code is pushed after major code changes \\
          \hline
-         Not enough time & 0.5 & 7 & 1.05 & Unable to complete the project by the due date & Allow for more time than expected for development, and keep to the schedule defined in the previous chapter \\
+         Not enough time & 0.5 & 7 & 3.5 & Unable to complete the project by the due date & Allow for more time than expected for development, and keep to the schedule defined in the previous chapter \\
          \hline
-         Bugs & 1.0 & 4 & 3 & Subpar user experience, and implementation not working fully & Develop unit and UI tests as features are developed, and check functionality of each feature before continuing to the next \\
+         Bugs & 1.0 & 4 & 4 & Subpar user experience, and implementation not working fully & Develop unit and UI tests as features are developed, and check functionality of each feature before continuing to the next \\
          \hline
          Developer unable to contribute & 0.2 & 10 & 2 & Progress on the project becomes stagnant, as there is only a single developer & Regularly check in with advisor on progress, and prioritize tasks, so that if the developer becomes indisposed for a period of time, lower priority items can be dropped \\
          \hline
