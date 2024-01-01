@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct GetSetUpView: View {
+    @EnvironmentObject var profileViewModel: ProfileViewModel
+    @EnvironmentObject var healthKitViewModel: HealthKitViewModel
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
@@ -19,7 +22,8 @@ struct GetSetUpView: View {
                     .padding(.top, 1)
 
                 SettingsView()
-                    .environmentObject(HealthKitViewModel())
+                    .environmentObject(profileViewModel)
+                    .environmentObject(healthKitViewModel)
 
                 Spacer()
 
@@ -45,5 +49,7 @@ struct GetSetUpView: View {
 struct GetSetUpView_Previews: PreviewProvider {
     static var previews: some View {
         GetSetUpView()
+            .environmentObject(ProfileViewModel())
+            .environmentObject(HealthKitViewModel())
     }
 }

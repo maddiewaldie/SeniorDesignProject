@@ -8,22 +8,90 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var profileViewModel: ProfileViewModel
+    @EnvironmentObject var healthKitViewModel: HealthKitViewModel
     @State private var selectedDate = Date()
+    @State private var selectedColorIndex: Int?
     @State private var weekView = true
     @State private var logSymptoms = false
     @State private var logDose = false
+    @State private var selectedSymptoms: Set<String> = []
+    @State private var dayOfTreatment = 1 // Initial value
+    @ObservedObject var symptomDataManager = SymptomDataManager()
+    var symptomsForSelectedDate: [String] {
+        return symptomDataManager.symptomRecords[selectedDate] ?? []
+    }
+
+    func saveSymptomsForSelectedDate() {
+        symptomDataManager.saveSymptoms(for: selectedDate, symptoms: Array(selectedSymptoms))
+    }
+
+    func calculateDayOfTreatment() -> Int {
+        if let firstSymptomDate = symptomDataManager.symptomRecords.keys.sorted().first,
+           let firstDoseDate = healthKitViewModel.doseRecords.keys.sorted().first {
+            let firstDate = min(firstSymptomDate, firstDoseDate, selectedDate)
+
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.day], from: firstDate, to: selectedDate)
+            return (components.day ?? 0) + 1 // Adding 1 to start from Day 1
+        }
+
+        return 1 // Default to 1 if no symptom or dose data is available
+    }
+
+
+
+    let symptomEmojis: [String: String] = [
+        "HKCategoryTypeIdentifierAbdominalCramps": "🤢",
+        "HKCategoryTypeIdentifierBloating": "😣",
+        "HKCategoryTypeIdentifierConstipation": "💩",
+        "HKCategoryTypeIdentifierDiarrhea": "💩",
+        "HKCategoryTypeIdentifierHeartburn": "🔥",
+        "HKCategoryTypeIdentifierNausea": "🤢",
+        "HKCategoryTypeIdentifierVomiting": "🤮",
+        "HKCategoryTypeIdentifierAppetiteChanges": "🍽️",
+        "HKCategoryTypeIdentifierChills": "🥶",
+        "HKCategoryTypeIdentifierDizziness": "😵",
+        "HKCategoryTypeIdentifierFainting": "😵‍💫",
+        "HKCategoryTypeIdentifierFatigue": "😴",
+        "HKCategoryTypeIdentifierFever": "🤒",
+        "HKCategoryTypeIdentifierGeneralizedBodyAche": "🤕",
+        "HKCategoryTypeIdentifierHotFlashes": "🥵",
+        "HKCategoryTypeIdentifierChestTightnessOrPain": "💔",
+        "HKCategoryTypeIdentifierCoughing": "🤧",
+        "HKCategoryTypeIdentifierRapidPoundingOrFlutteringHeartbeat": "💓",
+        "HKCategoryTypeIdentifierShortnessOfBreath": "🫁",
+        "HKCategoryTypeIdentifierSkippedHeartbeat": "💔",
+        "HKCategoryTypeIdentifierWheezing": "🫁",
+        "HKCategoryTypeIdentifierLowerBackPain": "🦵",
+        "HKCategoryTypeIdentifierHeadache": "🤕",
+        "HKCategoryTypeIdentifierMemoryLapse": "🧠",
+        "HKCategoryTypeIdentifierMoodChanges": "😡",
+        "HKCategoryTypeIdentifierLossOfSmell": "👃",
+        "HKCategoryTypeIdentifierLossOfTaste": "👅",
+        "HKCategoryTypeIdentifierRunnyNose": "🤧",
+        "HKCategoryTypeIdentifierSoreThroat": "🤒",
+        "HKCategoryTypeIdentifierSinusCongestion": "😤",
+        "HKCategoryTypeIdentifierAcne": "🤕",
+        "HKCategoryTypeIdentifierDrySkin": "🥵",
+        "HKCategoryTypeIdentifierHairLoss": "👴",
+        "HKCategoryTypeIdentifierNightSweats": "🌙",
+        "HKCategoryTypeIdentifierSleepChanges": "😴",
+        "HKCategoryTypeIdentifierBladderIncontinence": "🚽"
+    ]
 
     var body: some View {
         NavigationView {
             VStack {
                 HStack {
-                    NavigationLink(destination: SettingsView().environmentObject(HealthKitViewModel())) {
-                        Image(systemName: "person.circle.fill")
-                            .resizable()
-                            .frame(width: 35, height: 35)
-                            .foregroundColor(.secondary)
-                    }
-                    .padding(.leading, 16)
+                    NavigationLink(destination: SettingsView().environmentObject(profileViewModel)
+                        .environmentObject(healthKitViewModel)){
+                            Image(systemName: "person.circle.fill")
+                                .resizable()
+                                .frame(width: 35, height: 35)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(.leading, 16)
                     Spacer()
 
                     HStack {
@@ -39,13 +107,16 @@ struct HomeView: View {
                         weekView.toggle()
                     }
                 }
-                    VStack {
+                VStack {
+                    if weekView {
+                        WeeklyScrollCalendarView
+                            .padding(.bottom, -10)
+                            .onAppear {
+                                selectedDate = startOfWeek
+                            }
+                    }
+                    ScrollView {
                         if weekView {
-                            WeeklyScrollCalendarView
-                                .padding(.bottom, -10)
-                        }
-                        ScrollView {
-                            if weekView {
                             Circle()
                                 .padding(.leading, 20)
                                 .padding(.trailing, 20)
@@ -58,7 +129,7 @@ struct HomeView: View {
                                             .foregroundColor(.black)
                                             .bold()
                                             .padding(.top, 30)
-                                        Text("365")
+                                        Text("\(dayOfTreatment)")
                                             .font(.system(size: 70))
                                             .foregroundColor(.black)
                                             .bold()
@@ -77,9 +148,16 @@ struct HomeView: View {
                                                 .cornerRadius(30)
                                         }
                                         .sheet(isPresented: $logDose) {
-                                            DosingPopUp()
+                                            DosingPopUp(selectedDate: selectedDate)
                                         }
                                         .padding()
+                                        .onAppear {
+                                                    // Start a timer to update the day of treatment periodically (every second in this example)
+                                            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+                                                        // Calculate and update the day of treatment
+                                                        dayOfTreatment = calculateDayOfTreatment()
+                                                    }
+                                                }
                                     }
                                 )
                         } else {
@@ -88,34 +166,83 @@ struct HomeView: View {
                                 .padding()
                                 .tint(Color.lightTeal)
                         }
-                        AboutYourDoseView()
+                        if let dose = healthKitViewModel.doseRecords[selectedDate] {
+                            AboutYourDoseView(allergenDoses: dose)
+                        }
                         HStack {
-                            Button(action: {
-                                logSymptoms.toggle()
-                            }) {
-                                VStack {
-                                    Text("Log your Symptoms")
-                                        .foregroundColor(.black)
-                                        .padding(.bottom, 20)
-                                    Image(systemName: "plus")
-                                        .foregroundColor(.black)
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                ScrollViewReader { proxy in
+                                    HStack(spacing: 10) {
+                                        Button(action: {
+                                            logSymptoms.toggle()
+                                            selectedSymptoms = []
+                                        }) {
+                                            VStack {
+                                                Text("Log your Symptoms")
+                                                    .foregroundColor(.black)
+                                                    .padding(.bottom, 20)
+                                                Image(systemName: "plus")
+                                                    .foregroundColor(.black)
+                                            }
+                                            .frame(width: 130, height: 150)
+                                            .background(Color.lightTeal)
+                                            .cornerRadius(20)
+                                        }
+                                        .sheet(isPresented: $logSymptoms) {
+                                            NavigationView {
+                                                SymptomsPopUp(selectedSymptoms: $selectedSymptoms, selectedDate: selectedDate)
+                                                    .navigationBarItems(trailing: Button("Done") {
+                                                        logSymptoms = false
+                                                        saveSymptomsForSelectedDate()
+                                                    })
+                                            }
+                                        }
+
+                                        ForEach(Array(symptomsForSelectedDate), id: \.self) { symptom in
+                                            Button(action: {
+                                                // Handle tapping on a selected symptom if needed
+                                            }) {
+                                                VStack {
+                                                    Text(formatSymptomName(symptom))
+                                                        .foregroundColor(.black)
+                                                        .padding(.bottom, 10)
+                                                    if let emoji = symptomEmojis[symptom] {
+                                                        Text(emoji)
+                                                            .font(.largeTitle)
+                                                            .padding(.top, 5)
+                                                    }
+                                                }
+                                                .frame(width: 130, height: 150)
+                                                .background(Color.lightTeal)
+                                                .cornerRadius(20)
+                                            }
+                                            .id(symptom) // Assign an ID to scroll to the added symptom if needed
+                                        }
+                                    }
                                 }
-                                .frame(width: 130, height: 150)
-                                .background(Color.lightTeal)
-                                .cornerRadius(20)
                             }
-                            .sheet(isPresented: $logSymptoms) {
-                                SymptomsPopUp()
-                            }
-                            Spacer()
                         }
                         .padding()
-                        Spacer()
-                        
+
+
                     }
                 }
             }
         }
+
+    }
+
+    func formatSymptomName(_ identifier: String) -> String {
+        let trimmed = identifier.replacingOccurrences(of: "HKCategoryTypeIdentifier", with: "")
+        var formatted = ""
+        for char in trimmed {
+            if char.isUppercase {
+                formatted += " " + String(char)
+            } else {
+                formatted += String(char)
+            }
+        }
+        return formatted.trimmingCharacters(in: .whitespaces)
     }
 
     var WeeklyScrollCalendarView: some View {
@@ -124,8 +251,7 @@ struct HomeView: View {
                 HStack(alignment: .center, spacing: 14) {
                     ForEach(0..<7, id: \.self) { index in
                         let day = Calendar.current.date(byAdding: .day, value: index, to: startOfWeek)!
-
-                        CalendarDayView(date: day, isSelected: day == selectedDate)
+                        CalendarDayView(date: day, selectedDate: $selectedDate, selectedColorIndex: $selectedColorIndex, index: index)
                     }
                 }
             }
@@ -164,6 +290,8 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             HomeView()
+                .environmentObject(ProfileViewModel())
+                .environmentObject(HealthKitViewModel())
         }
     }
 }

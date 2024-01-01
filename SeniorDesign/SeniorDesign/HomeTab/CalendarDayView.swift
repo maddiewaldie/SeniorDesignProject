@@ -6,10 +6,15 @@
 //
 
 import SwiftUI
-
 struct CalendarDayView: View {
     var date: Date
-    var isSelected: Bool
+    @Binding var selectedDate: Date
+    @Binding var selectedColorIndex: Int?
+
+    var index: Int
+    var isSelected: Bool {
+        selectedDate == date
+    }
 
     var body: some View {
         VStack {
@@ -25,9 +30,10 @@ struct CalendarDayView: View {
                         .bold()
                 )
                 .onTapGesture {
-                    //                    selectedDate = day
+                    selectedDate = date
+                    selectedColorIndex = index // Set the index of the tapped circle
                 }
-                .foregroundColor(isSelected ? Color.darkTeal : Color.lightTeal)
+                .foregroundColor(circleColor)
                 .cornerRadius(8)
         }
     }
@@ -42,5 +48,15 @@ struct CalendarDayView: View {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "d"
         return dateFormatter.string(from: date)
+    }
+
+    var circleColor: Color {
+        if isSelected {
+            return Color.darkTeal // Color for selected circle
+        } else if let selectedColorIndex = selectedColorIndex, selectedColorIndex == index {
+            return Color.lightTeal // Color for previously tapped circle
+        } else {
+            return Color.lightTeal // Default color for other circles
+        }
     }
 }

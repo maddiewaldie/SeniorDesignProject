@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AboutYourDoseView: View {
+    let allergenDoses: DoseRecord
+
     var body: some View {
         ZStack {
             VStack {
@@ -20,35 +22,33 @@ struct AboutYourDoseView: View {
                         .padding(.bottom, 5)
                     Spacer()
                 }
-                HStack {
-                    Text("Peanut")
-                        .padding(.leading, 20)
-                    Text("•")
-                    Text("1500 mg")
+
+                    VStack(alignment: .leading) {
+                        ForEach(allergenDoses.doses.sorted(by: { $0.key < $1.key }), id: \.key) { (allergen, dose) in
+                            HStack {
+                                Text("\(allergen) • \(dose) mg")
+                                    .foregroundColor(.black)
+                                    .padding(.leading, 20)
+                                    .padding(.bottom, 5)
+                                Spacer()
+                            }
+                        }
+                    }
                     Spacer()
-                }
-                .foregroundColor(.black)
-                HStack {
-                    Text("Milk")
-                        .padding(.leading, 20)
-                    Text("•")
-                    Text("100 mg")
-                    Spacer()
-                }
-                .foregroundColor(.black)
-                .padding(.bottom, 10)
-                HStack {
-                    Text("7:30pm")
-                        .foregroundColor(.black)
-                        .padding(.leading, 20)
-                        .padding(.bottom, 10)
-                    Spacer()
-                }
-                Spacer()
+
+                    HStack {
+                        Text(dateFormatter.string(from: allergenDoses.time))
+                            .foregroundColor(.black)
+                            .padding(.leading, 20)
+                            .padding(.bottom, 10)
+                        Spacer()
+                    }
             }
-            .frame(width: UIScreen.main.bounds.width - 40, height: 150)
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
             .background(Color.lightTeal)
             .cornerRadius(20)
+            .padding()
+
             HStack {
                 Spacer()
                 Image(systemName: "pills.fill")
@@ -56,11 +56,13 @@ struct AboutYourDoseView: View {
                     .foregroundColor(Color.darkTeal)
                     .padding(.trailing, 35)
             }
-
         }
     }
-}
 
-#Preview {
-    AboutYourDoseView()
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
+        return formatter
+    }()
 }

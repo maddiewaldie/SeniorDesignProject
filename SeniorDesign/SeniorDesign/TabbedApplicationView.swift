@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct TabbedApplicationView: View {
+    @EnvironmentObject var profileViewModel: ProfileViewModel
+    @EnvironmentObject var healthKitViewModel: HealthKitViewModel
+    
     var body: some View {
         TabView {
             NavigationView {
                 HomeView()
+                    .environmentObject(profileViewModel)
+                    .environmentObject(healthKitViewModel)
             }
             .tabItem {
                 Label("Today", systemImage: "calendar")
@@ -19,6 +24,8 @@ struct TabbedApplicationView: View {
 
             NavigationView {
                 InsightsView()
+                    .environmentObject(profileViewModel)
+                    .environmentObject(healthKitViewModel)
             }
             .tabItem {
                 Label("Insights", systemImage: "chart.line.uptrend.xyaxis")
@@ -26,6 +33,8 @@ struct TabbedApplicationView: View {
 
             NavigationView {
                DosingView()
+                    .environmentObject(profileViewModel)
+                    .environmentObject(healthKitViewModel)
            }
            .tabItem {
                Label("Dosing", systemImage: "pills.fill")
@@ -33,6 +42,8 @@ struct TabbedApplicationView: View {
 
             NavigationView {
                EducationView()
+                    .environmentObject(profileViewModel)
+                    .environmentObject(healthKitViewModel)
            }
            .tabItem {
                Label("Education", systemImage: "graduationcap.fill")
@@ -44,4 +55,7 @@ struct TabbedApplicationView: View {
 
 #Preview {
     TabbedApplicationView()
+        .environmentObject(ProfileViewModel())
+        .environmentObject(HealthKitViewModel())
+
 }

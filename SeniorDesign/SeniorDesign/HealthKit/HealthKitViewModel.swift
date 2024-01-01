@@ -14,6 +14,11 @@ class HealthKitViewModel: ObservableObject {
     private var healthKitManager = HealthKitManager()
     @Published var isAuthorized = false
 
+    @Published var doseRecords: [Date: DoseRecord] = [:]
+    func saveDoseRecord(_ doseRecord: DoseRecord) {
+        doseRecords[doseRecord.date] = doseRecord
+    }
+
     init() {
         changeAuthorizationStatus()
     }
