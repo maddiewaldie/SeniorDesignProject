@@ -9,6 +9,8 @@ import Foundation
 import HealthKit
 
 class HealthKitManager {
+    let healthStore = HKHealthStore()
+    
     // MARK: Symptoms Array
     public let symptoms: [HKSampleType] = [
         HKObjectType.categoryType(forIdentifier: .abdominalCramps)!,

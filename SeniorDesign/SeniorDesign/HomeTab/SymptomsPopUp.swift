@@ -5,41 +5,24 @@
 //  Created by Maddie on 10/18/23.
 //
 
-import SwiftUI
 import HealthKit
+import SwiftUI
 
 struct SymptomsPopUp: View {
-    
-    @Binding var selectedSymptoms: Set<String>
-    
+    // MARK: Variables
     @ObservedObject var symptomDataManager = SymptomDataManager()
+    @Binding var selectedSymptoms: Set<String>
     let selectedDate: Date
     let healthKitManager = HealthKitManager()
-    
+    let columns: [GridItem] = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+
+    // MARK: Initializer
     init(selectedSymptoms: Binding<Set<String>>, selectedDate: Date) {
         self._selectedSymptoms = selectedSymptoms
         self.selectedDate = selectedDate
     }
-    
-    func formatSymptomName(_ identifier: String) -> String {
-        let trimmed = identifier.replacingOccurrences(of: "HKCategoryTypeIdentifier", with: "")
-        var formatted = ""
-        for char in trimmed {
-            if char.isUppercase {
-                formatted += " " + String(char)
-            } else {
-                formatted += String(char)
-            }
-        }
-        return formatted.trimmingCharacters(in: .whitespaces)
-    }
-    
-    let columns: [GridItem] = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
-    
+
+    // MARK: Symptoms Pop Up View
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 10) {
@@ -68,19 +51,30 @@ struct SymptomsPopUp: View {
         }
         .padding(10)
     }
-    
-    func saveSymptomsForSelectedDate() {
+
+    // MARK: Functions
+    private func formatSymptomName(_ identifier: String) -> String {
+        let trimmed = identifier.replacingOccurrences(of: "HKCategoryTypeIdentifier", with: "")
+        var formatted = ""
+        for char in trimmed {
+            if char.isUppercase {
+                formatted += " " + String(char)
+            } else {
+                formatted += String(char)
+            }
+        }
+        return formatted.trimmingCharacters(in: .whitespaces)
+    }
+
+    private func saveSymptomsForSelectedDate() {
         symptomDataManager.saveSymptoms(for: selectedDate, symptoms: Array(selectedSymptoms))
     }
     
     private func toggleSymptom(_ identifier: String) {
         if selectedSymptoms.contains(identifier) {
-            selectedSymptoms.remove(identifier) // Deselect symptom if already selected
+            selectedSymptoms.remove(identifier)
         } else {
-            selectedSymptoms.insert(identifier) // Select symptom if not selected
+            selectedSymptoms.insert(identifier)
         }
-        
-        // Print selected symptoms
-        print("Selected symptoms: \(selectedSymptoms)")
     }
 }

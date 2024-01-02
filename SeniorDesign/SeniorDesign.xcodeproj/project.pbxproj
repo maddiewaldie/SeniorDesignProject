@@ -14,6 +14,8 @@
 		0933A81B2AE091A700734501 /* SymptomsPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0933A81A2AE091A700734501 /* SymptomsPopUp.swift */; };
 		0933A81D2AE091C000734501 /* DosingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0933A81C2AE091C000734501 /* DosingView.swift */; };
 		0933A81F2AE091FB00734501 /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0933A81E2AE091FB00734501 /* InsightsView.swift */; };
+		0945E3CB2B43A3F200983001 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945E3CA2B43A3F200983001 /* SectionHeaderView.swift */; };
+		0945E3CD2B43A91F00983001 /* EducationViewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945E3CC2B43A91F00983001 /* EducationViewContent.swift */; };
 		0966A7D52AC21E0400D0BFFF /* GetSetUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966A7D42AC21E0400D0BFFF /* GetSetUpView.swift */; };
 		0966A7D72AC21F1900D0BFFF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966A7D62AC21F1900D0BFFF /* Extensions.swift */; };
 		097EA4C72AE303700035B8AE /* ArticleRichLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097EA4C62AE303700035B8AE /* ArticleRichLink.swift */; };
@@ -65,6 +67,8 @@
 		0933A81A2AE091A700734501 /* SymptomsPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsPopUp.swift; sourceTree = "<group>"; };
 		0933A81C2AE091C000734501 /* DosingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DosingView.swift; sourceTree = "<group>"; };
 		0933A81E2AE091FB00734501 /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
+		0945E3CA2B43A3F200983001 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		0945E3CC2B43A91F00983001 /* EducationViewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationViewContent.swift; sourceTree = "<group>"; };
 		0966A7D42AC21E0400D0BFFF /* GetSetUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSetUpView.swift; sourceTree = "<group>"; };
 		0966A7D62AC21F1900D0BFFF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		097EA4C62AE303700035B8AE /* ArticleRichLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRichLink.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				097EA4CA2AE3085F0035B8AE /* AboutYourDoseView.swift */,
 				0933A8182AE0919400734501 /* DosingPopUp.swift */,
 				0933A8162AE0908700734501 /* SettingsView.swift */,
+				0945E3CA2B43A3F200983001 /* SectionHeaderView.swift */,
 				0933A81A2AE091A700734501 /* SymptomsPopUp.swift */,
 			);
 			path = HomeTab;
@@ -176,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				0933A8142AE0758400734501 /* EducationView.swift */,
+				0945E3CC2B43A91F00983001 /* EducationViewContent.swift */,
 				097EA4C62AE303700035B8AE /* ArticleRichLink.swift */,
 				097EA4C82AE3037B0035B8AE /* ArticleView.swift */,
 			);
@@ -395,6 +401,7 @@
 				0933A8192AE0919400734501 /* DosingPopUp.swift in Sources */,
 				097EA4CB2AE3085F0035B8AE /* AboutYourDoseView.swift in Sources */,
 				099993A02B4356480064643B /* DoseViewModel.swift in Sources */,
+				0945E3CD2B43A91F00983001 /* EducationViewContent.swift in Sources */,
 				0966A7D52AC21E0400D0BFFF /* GetSetUpView.swift in Sources */,
 				09C1583F2A930CCD00B3D25E /* SeniorDesignApp.swift in Sources */,
 				0933A8152AE0758400734501 /* EducationView.swift in Sources */,
@@ -403,6 +410,7 @@
 				09E8EB262AE3A70E0013ED66 /* ProfileViewModel.swift in Sources */,
 				0933A81D2AE091C000734501 /* DosingView.swift in Sources */,
 				09AA87AA2AE1C47600E898A5 /* HealthKitManager.swift in Sources */,
+				0945E3CB2B43A3F200983001 /* SectionHeaderView.swift in Sources */,
 				097EA4CD2AE308A40035B8AE /* CalendarDayView.swift in Sources */,
 				0966A7D72AC21F1900D0BFFF /* Extensions.swift in Sources */,
 				09EDCBEA2B3E53EA0004DAFC /* SymptomRecord.swift in Sources */,

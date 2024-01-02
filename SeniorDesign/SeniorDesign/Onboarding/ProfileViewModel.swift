@@ -5,9 +5,7 @@
 //  Created by Maddie on 10/20/23.
 //
 
-import Foundation
 import Combine
-
 import Foundation
 
 class ProfileData: ObservableObject, Codable {

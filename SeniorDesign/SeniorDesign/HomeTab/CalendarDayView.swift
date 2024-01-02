@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+
 struct CalendarDayView: View {
     // MARK: Variables
     @Binding var selectedDate: Date

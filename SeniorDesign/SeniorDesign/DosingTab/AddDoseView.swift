@@ -8,15 +8,18 @@
 import SwiftUI
 
 struct AddDoseView: View {
-    @Environment(\.presentationMode) var presentationMode
+    // MARK: View Models
     @EnvironmentObject var doseViewModel: DoseViewModel
     @EnvironmentObject var profileViewModel: ProfileViewModel
-    
+
+    // MARK: Variables
+    @Environment(\.presentationMode) var presentationMode
     @State private var selectedAllergen = ""
     @State private var doseName = ""
-    @State private var doseAmount = "" // Changed from selectedDosageIndex
-    @State private var isCurrentDose = false // Added State for Toggle
-    
+    @State private var doseAmount = ""
+    @State private var isCurrentDose = false
+
+    // MARK: Add Dose View
     var body: some View {
         NavigationView {
             Form {
@@ -28,7 +31,7 @@ struct AddDoseView: View {
                     }
                     .pickerStyle(DefaultPickerStyle())
                 }
-                
+
                 Section(header: Text("Dose Information")) {
                     TextField("Dose Name", text: $doseName)
                     HStack {
@@ -41,29 +44,20 @@ struct AddDoseView: View {
                         Text("mg")
                     }
                 }
-                
+
                 Section(header: Text("Mark as Current Dose")) {
                     Toggle("Current Dose", isOn: $isCurrentDose)
                 }
             }
             .navigationTitle("Add Dose")
             .navigationBarItems(trailing:
-                                    Button("Save") {
-                if let dosage = Double(doseAmount), !doseAmount.isEmpty {
-                    doseViewModel.addDose(allergen: selectedAllergen, doseType: doseName, doseAmount: dosage, isCurrentDose: isCurrentDose)
-                    presentationMode.wrappedValue.dismiss()
-                } else {
-                    // Handle invalid dosage input
-                    // Optionally, show an alert or perform another action
+                Button("Save") {
+                    if let dosage = Double(doseAmount), !doseAmount.isEmpty {
+                        doseViewModel.addDose(allergen: selectedAllergen, doseType: doseName, doseAmount: dosage, isCurrentDose: isCurrentDose)
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 }
-            }
             )
         }
     }
 }
-
-#Preview {
-    AddDoseView()
-}
-
-

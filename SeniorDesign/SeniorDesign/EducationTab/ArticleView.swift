@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct ArticleView: View {
+    // MARK: Variables
     var articleTitle: String
     var articleDescription: String
     var image: String
+
+    // MARK: Article View
     var body: some View {
         ScrollView {
             VStack {
@@ -37,7 +40,3 @@ struct ArticleView: View {
         }
     }
 }
-
-//#Preview {
-//    ArticleView()
-//}

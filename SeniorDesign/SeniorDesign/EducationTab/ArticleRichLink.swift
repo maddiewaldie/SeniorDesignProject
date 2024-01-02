@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ArticleRichLink: View {
+    // MARK: Variables
+    @State private var isShowingArticle = false
     var articleTitle: String
     var articleDescription: String
     var articleContent: String
     var image: String
-    @State private var isShowingArticle = false
-    
+
+    // MARK: Article Rich Link View
     var body: some View {
         Button(action: {
             isShowingArticle.toggle()

@@ -5,113 +5,124 @@
 //  Created by Maddie on 10/18/23.
 //
 
-import SwiftUI
 import HealthKit
-
-let healthStore = HKHealthStore()
+import SwiftUI
 
 struct SettingsView: View {
+    // MARK: View Models
     @EnvironmentObject var profileViewModel: ProfileViewModel
-    @EnvironmentObject var vm: HealthKitViewModel
-    
+    @EnvironmentObject var healthKitViewModel: HealthKitViewModel
+
+    // MARK: Variables
     let commonAllergens = ["Peanuts", "Milk", "Eggs", "Fish", "Shellfish", "Soy", "Tree Nuts", "Almonds", "Brazil Nuts", "Cashews", "Hazelnuts", "Macadamia Nuts", "Pecans", "Pine Nuts", "Pistachios", "Walnuts", "Wheat", "Sesame"]
-    
+
+    // MARK: UI Elements
+    var personalInformationSection: some View {
+        Section(header: Text("Personal Information").font(.title3).bold()) {
+            HStack {
+                Text("Name")
+                    .font(.body.bold())
+                    .padding(.leading, 5)
+                    .padding(.trailing, 5)
+                TextField("Name", text: $profileViewModel.profileData.name)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding(.trailing, 5)
+                    .onChange(of: profileViewModel.profileData.name) { _ in
+                        profileViewModel.saveProfileData()
+                    }
+            }
+
+            DatePicker("Birthdate", selection: $profileViewModel.profileData.dateOfBirth, displayedComponents: .date)
+                .datePickerStyle(CompactDatePickerStyle())
+                .padding(.leading, 5)
+                .padding(.trailing, 5)
+                .font(.body.bold())
+                .onChange(of: profileViewModel.profileData.dateOfBirth) { _ in
+                    profileViewModel.saveProfileData()
+                }
+
+        }
+        .padding(.top, 10)
+    }
+
+    var allergensSection: some View {
+        Section(header: SectionHeaderView(title: "Allergens")) {
+            ForEach(profileViewModel.allergens.indices, id: \.self) { index in
+                HStack {
+                    Picker("Select an Allergen", selection: $profileViewModel.allergens[index]) {
+                        ForEach(commonAllergens, id: \.self) { allergen in
+                            Text(allergen).tag(allergen)
+                        }
+                        Text("Other").tag("Other")
+                    }
+                    .pickerStyle(DefaultPickerStyle())
+                    .padding(.bottom, 10)
+                    .onChange(of: profileViewModel.allergens[index]) { newValue in
+                        // Check if the new value already exists in the list before appending
+                        if !profileViewModel.profileData.allergens.contains(newValue) {
+                            profileViewModel.profileData.allergens.append(newValue)
+                            profileViewModel.saveProfileData()
+                        }
+                    }
+
+                    Button(action: {
+                        profileViewModel.removeSelectedAllergen(at: index)
+                        profileViewModel.saveProfileData()
+                    }) {
+                        Image(systemName: "minus.circle").foregroundColor(.red)
+                    }
+                }
+            }
+
+            Button(action: {
+                profileViewModel.profileData.allergens.append("Peanuts")
+                profileViewModel.allergens.append("Peanuts")
+                profileViewModel.saveProfileData()
+            }) {
+                HStack {
+                    Image(systemName: "plus.circle")
+                        .foregroundColor(Color.darkTeal)
+                    Text("Add Allergen")
+                }
+            }
+        }.padding(.top, 10)
+    }
+
+    var shareDataWithHealthToggle: some View {
+        Toggle("Share Data with Apple Health", isOn: $profileViewModel.profileData.shareDataWithAppleHealth)
+            .toggleStyle(SwitchToggleStyle(tint: Color.darkTeal))
+            .onChange(of: profileViewModel.profileData.shareDataWithAppleHealth) { newValue in
+                healthKitViewModel.healthRequest()
+                profileViewModel.saveProfileData()
+            }
+    }
+
+    var protectDataWithFaceID: some View {
+        Toggle("Protect data with FaceID", isOn: $profileViewModel.profileData.useFaceID)
+            .toggleStyle(SwitchToggleStyle(tint: Color.darkTeal))
+            .onChange(of: profileViewModel.profileData.useFaceID) { newValue in
+                profileViewModel.saveProfileData()
+            }
+    }
+
+    var preferencesSection: some View {
+        Section(header: Text("Preferences").font(.title3).bold()) {
+            shareDataWithHealthToggle
+            protectDataWithFaceID
+        }.padding(.top, 10)
+    }
+
+    // MARK: Settings View
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
                 VStack(alignment: .leading) {
-                    Section(header: Text("Personal Information").font(.title3).bold()) {
-                        HStack {
-                            Text("Name")
-                                .font(.body.bold())
-                                .padding(.leading, 5)
-                                .padding(.trailing, 5)
-                            TextField("Name", text: $profileViewModel.profileData.name)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .padding(.trailing, 5)
-                                .onChange(of: profileViewModel.profileData.name) { _ in
-                                    profileViewModel.saveProfileData()
-                                }
-                        }
-                        
-                        DatePicker("Birthdate", selection: $profileViewModel.profileData.dateOfBirth, displayedComponents: .date)
-                            .datePickerStyle(CompactDatePickerStyle())
-                            .padding(.leading, 5)
-                            .padding(.trailing, 5)
-                            .font(.body.bold())
-                            .onChange(of: profileViewModel.profileData.dateOfBirth) { _ in
-                                profileViewModel.saveProfileData()
-                            }
-                        
-                    }
-                    .padding(.top, 10)
-                    
+                    personalInformationSection
                     Divider().padding()
-                    
-                    Section(header: SectionHeaderView(title: "Allergens")) {
-                        ForEach(profileViewModel.allergens.indices, id: \.self) { index in
-                            HStack {
-                                Picker("Select an Allergen", selection: $profileViewModel.allergens[index]) {
-                                    ForEach(commonAllergens, id: \.self) { allergen in
-                                        Text(allergen).tag(allergen)
-                                    }
-                                    Text("Other").tag("Other")
-                                }
-                                .pickerStyle(DefaultPickerStyle())
-                                .padding(.bottom, 10)
-                                .onChange(of: profileViewModel.allergens[index]) { newValue in
-                                    // Check if the new value already exists in the list before appending
-                                    if !profileViewModel.profileData.allergens.contains(newValue) {
-                                        profileViewModel.profileData.allergens.append(newValue)
-                                        profileViewModel.saveProfileData()
-                                    }
-                                }
-                                
-                                Button(action: {
-                                    profileViewModel.removeSelectedAllergen(at: index)
-                                    profileViewModel.saveProfileData()
-                                }) {
-                                    Image(systemName: "minus.circle")
-                                        .foregroundColor(.red)
-                                }
-                            }
-                        }
-                        
-                        Button(action: {
-                            profileViewModel.profileData.allergens.append("Peanuts")
-                            profileViewModel.allergens.append("Peanuts")
-                            profileViewModel.saveProfileData()
-                        }) {
-                            HStack {
-                                Image(systemName: "plus.circle")
-                                    .foregroundColor(Color.darkTeal)
-                                Text("Add Allergen")
-                            }
-                        }
-                    }
-                    .padding(.top, 10)
+                    allergensSection
                     Spacer()
-                    
-                    Divider()
-                        .padding()
-                    
-                    Section(header: Text("Preferences").font(.title3).bold()) {
-                        Toggle("Share Data with Apple Health", isOn: $profileViewModel.profileData.shareDataWithAppleHealth)
-                            .toggleStyle(SwitchToggleStyle(tint: Color.darkTeal))
-                            .onChange(of: profileViewModel.profileData.shareDataWithAppleHealth) { newValue in
-                                vm.healthRequest()
-                                profileViewModel.saveProfileData()
-                            }
-                        
-                        Toggle("Protect data with FaceID", isOn: $profileViewModel.profileData.useFaceID)
-                            .toggleStyle(SwitchToggleStyle(tint: Color.darkTeal))
-                            .onChange(of: profileViewModel.profileData.useFaceID) { newValue in
-                                profileViewModel.saveProfileData()
-                            }
-                    }
-                    .padding(.top, 10)
-                    .padding(.leading, 10)
-                    .padding(.trailing, 10)
+                    Divider().padding()
+                    preferencesSection
                     Spacer()
                 }
                 .padding()
@@ -124,21 +135,7 @@ struct SettingsView: View {
     }
 }
 
-struct SectionHeaderView: View {
-    let title: String
-    
-    var body: some View {
-        HStack {
-            Text(title)
-                .font(.title3.bold())
-                .foregroundColor(.primary)
-            Spacer()
-        }
-        .padding(.vertical, 8)
-    }
-}
-
-
+// MARK: Preview
 #Preview {
     SettingsView()
         .environmentObject(HealthKitViewModel())
