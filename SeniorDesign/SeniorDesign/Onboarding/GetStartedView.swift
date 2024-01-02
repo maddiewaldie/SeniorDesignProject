@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GetStartedView: View {
+    // MARK: UI Elements
     var getStartedButton: some View {
         NavigationLink(destination: GetSetUpView().navigationBarBackButtonHidden(true)) {
             Text("Get Started         ")
@@ -35,6 +36,7 @@ struct GetStartedView: View {
         }
     }
 
+    // MARK: Get Started View
     var body: some View {
         NavigationView {
             VStack {
@@ -42,24 +44,11 @@ struct GetStartedView: View {
                     Color.darkTeal
                         .frame(maxHeight: .infinity)
                     appTitle
-                    VStack {
-                        Spacer()
-                        Text("OIT")
-                            .font(.largeTitle.bold().monospaced())
-                            .foregroundColor(.white)
-                            .padding(.bottom, 1)
-                        Text("oral immunotherapy tracker")
-                            .font(.callout.lowercaseSmallCaps())
-                            .fontDesign(.rounded)
-                            .foregroundColor(.white)
-                            .padding(.bottom, 20)
-                    }
                 }
                 VStack {}
                 ZStack {
                     Color.lightTeal
                         .frame(maxHeight: .infinity)
-
                     VStack {
                         getStartedButton
                         Spacer()
@@ -71,8 +60,7 @@ struct GetStartedView: View {
     }
 }
 
-struct GetStartedView_Previews: PreviewProvider {
-    static var previews: some View {
-        GetStartedView()
-    }
+// MARK: Preview
+#Preview {
+    GetStartedView()
 }

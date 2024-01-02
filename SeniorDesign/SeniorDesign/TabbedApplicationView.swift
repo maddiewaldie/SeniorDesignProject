@@ -8,54 +8,65 @@
 import SwiftUI
 
 struct TabbedApplicationView: View {
+    // MARK: View Models
     @EnvironmentObject var profileViewModel: ProfileViewModel
     @EnvironmentObject var healthKitViewModel: HealthKitViewModel
+    @EnvironmentObject var doseViewModel: DoseViewModel
     
     var body: some View {
         TabView {
+            // MARK: Home Tab
             NavigationView {
                 HomeView()
                     .environmentObject(profileViewModel)
                     .environmentObject(healthKitViewModel)
+                    .environmentObject(doseViewModel)
             }
             .tabItem {
                 Label("Today", systemImage: "calendar")
             }
-
+            
+            // MARK: Insights Tab
             NavigationView {
                 InsightsView()
                     .environmentObject(profileViewModel)
                     .environmentObject(healthKitViewModel)
+                    .environmentObject(doseViewModel)
             }
             .tabItem {
                 Label("Insights", systemImage: "chart.line.uptrend.xyaxis")
             }
-
+            
+            // MARK: Dosing Tab
             NavigationView {
-               DosingView()
+                DosingView()
                     .environmentObject(profileViewModel)
                     .environmentObject(healthKitViewModel)
-           }
-           .tabItem {
-               Label("Dosing", systemImage: "pills.fill")
-           }
-
+                    .environmentObject(doseViewModel)
+            }
+            .tabItem {
+                Label("Dosing", systemImage: "pills.fill")
+            }
+            
+            // MARK: Education Tab
             NavigationView {
-               EducationView()
+                EducationView()
                     .environmentObject(profileViewModel)
                     .environmentObject(healthKitViewModel)
-           }
-           .tabItem {
-               Label("Education", systemImage: "graduationcap.fill")
-           }
+                    .environmentObject(doseViewModel)
+            }
+            .tabItem {
+                Label("Education", systemImage: "graduationcap.fill")
+            }
         }
         .tint(Color.darkTeal)
     }
 }
 
+// MARK: Preview
 #Preview {
     TabbedApplicationView()
         .environmentObject(ProfileViewModel())
         .environmentObject(HealthKitViewModel())
-
+        .environmentObject(DoseViewModel())
 }

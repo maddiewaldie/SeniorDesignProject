@@ -10,20 +10,22 @@ import SwiftUI
 struct ArticleRichLink: View {
     var articleTitle: String
     var articleDescription: String
+    var articleContent: String
+    var image: String
     @State private var isShowingArticle = false
-
+    
     var body: some View {
         Button(action: {
             isShowingArticle.toggle()
         }) {
             ZStack(alignment: .bottom) {
-                VStack {
-                }
-                .frame(width: UIScreen.main.bounds.width - 30, height: 250)
-                .background(Color.lightTeal)
-                .cornerRadius(20)
                 VStack(alignment: .leading) {
                     VStack(alignment: .leading) {
+                        Image(image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: UIScreen.main.bounds.width - 30, height: 200)
+                            .padding(.top, 0)
                         HStack {
                             Text(articleTitle)
                                 .font(.title2.bold())
@@ -37,13 +39,13 @@ struct ArticleRichLink: View {
                             .padding(.leading, 20)
                     }
                 }
-                .frame(width: UIScreen.main.bounds.width - 30, height: 100)
+                .frame(width: UIScreen.main.bounds.width - 30, height: 280)
                 .background(Color.grey)
                 .cornerRadius(20)
             }
         }
         .sheet(isPresented: $isShowingArticle) {
-            ArticleView()
+            ArticleView(articleTitle: articleTitle, articleDescription: articleContent, image: image)
         }
     }
 }

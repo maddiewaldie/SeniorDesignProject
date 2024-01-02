@@ -21,6 +21,10 @@
 		097EA4CB2AE3085F0035B8AE /* AboutYourDoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097EA4CA2AE3085F0035B8AE /* AboutYourDoseView.swift */; };
 		097EA4CD2AE308A40035B8AE /* CalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097EA4CC2AE308A30035B8AE /* CalendarDayView.swift */; };
 		097EA4CF2AE309F60035B8AE /* AddDoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097EA4CE2AE309F60035B8AE /* AddDoseView.swift */; };
+		099993982B424A5B0064643B /* CareKit in Frameworks */ = {isa = PBXBuildFile; productRef = 099993972B424A5B0064643B /* CareKit */; };
+		0999939A2B424A5B0064643B /* CareKitStore in Frameworks */ = {isa = PBXBuildFile; productRef = 099993992B424A5B0064643B /* CareKitStore */; };
+		0999939C2B424A5B0064643B /* CareKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0999939B2B424A5B0064643B /* CareKitUI */; };
+		099993A02B4356480064643B /* DoseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999939F2B4356480064643B /* DoseViewModel.swift */; };
 		09AA87AA2AE1C47600E898A5 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AA87A92AE1C47600E898A5 /* HealthKitManager.swift */; };
 		09AA87AC2AE1C4D800E898A5 /* HealthKitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AA87AB2AE1C4D800E898A5 /* HealthKitViewModel.swift */; };
 		09C1583F2A930CCD00B3D25E /* SeniorDesignApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1583E2A930CCD00B3D25E /* SeniorDesignApp.swift */; };
@@ -32,7 +36,7 @@
 		09C1585C2A930CCE00B3D25E /* SeniorDesignUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1585B2A930CCE00B3D25E /* SeniorDesignUITestsLaunchTests.swift */; };
 		09C158692A93100600B3D25E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C158682A93100600B3D25E /* HomeView.swift */; };
 		09E8EB262AE3A70E0013ED66 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E8EB252AE3A70E0013ED66 /* ProfileViewModel.swift */; };
-		09EDCBEA2B3E53EA0004DAFC /* SymptomRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EDCBE92B3E53E90004DAFC /* SymptomRecords.swift */; };
+		09EDCBEA2B3E53EA0004DAFC /* SymptomRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EDCBE92B3E53E90004DAFC /* SymptomRecord.swift */; };
 		09EDCBEC2B3E5B660004DAFC /* DoseRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EDCBEB2B3E5B660004DAFC /* DoseRecords.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +72,7 @@
 		097EA4CA2AE3085F0035B8AE /* AboutYourDoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutYourDoseView.swift; sourceTree = "<group>"; };
 		097EA4CC2AE308A30035B8AE /* CalendarDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayView.swift; sourceTree = "<group>"; };
 		097EA4CE2AE309F60035B8AE /* AddDoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDoseView.swift; sourceTree = "<group>"; };
+		0999939F2B4356480064643B /* DoseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoseViewModel.swift; sourceTree = "<group>"; };
 		09AA87A92AE1C47600E898A5 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		09AA87AB2AE1C4D800E898A5 /* HealthKitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitViewModel.swift; sourceTree = "<group>"; };
 		09AA87AE2AE1CEBA00E898A5 /* SeniorDesign.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeniorDesign.entitlements; sourceTree = "<group>"; };
@@ -83,7 +88,7 @@
 		09C1585B2A930CCE00B3D25E /* SeniorDesignUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeniorDesignUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		09C158682A93100600B3D25E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		09E8EB252AE3A70E0013ED66 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		09EDCBE92B3E53E90004DAFC /* SymptomRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomRecords.swift; sourceTree = "<group>"; };
+		09EDCBE92B3E53E90004DAFC /* SymptomRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomRecord.swift; sourceTree = "<group>"; };
 		09EDCBEB2B3E5B660004DAFC /* DoseRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoseRecords.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +97,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0999939A2B424A5B0064643B /* CareKitStore in Frameworks */,
+				099993982B424A5B0064643B /* CareKit in Frameworks */,
+				0999939C2B424A5B0064643B /* CareKitUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +134,7 @@
 			children = (
 				09C158682A93100600B3D25E /* HomeView.swift */,
 				09EDCBEB2B3E5B660004DAFC /* DoseRecords.swift */,
-				09EDCBE92B3E53E90004DAFC /* SymptomRecords.swift */,
+				09EDCBE92B3E53E90004DAFC /* SymptomRecord.swift */,
 				097EA4CC2AE308A30035B8AE /* CalendarDayView.swift */,
 				097EA4CA2AE3085F0035B8AE /* AboutYourDoseView.swift */,
 				0933A8182AE0919400734501 /* DosingPopUp.swift */,
@@ -158,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				0933A81C2AE091C000734501 /* DosingView.swift */,
+				0999939F2B4356480064643B /* DoseViewModel.swift */,
 				097EA4CE2AE309F60035B8AE /* AddDoseView.swift */,
 			);
 			path = DosingTab;
@@ -253,6 +262,11 @@
 			dependencies = (
 			);
 			name = SeniorDesign;
+			packageProductDependencies = (
+				099993972B424A5B0064643B /* CareKit */,
+				099993992B424A5B0064643B /* CareKitStore */,
+				0999939B2B424A5B0064643B /* CareKitUI */,
+			);
 			productName = SeniorDesign;
 			productReference = 09C1583B2A930CCD00B3D25E /* SeniorDesign.app */;
 			productType = "com.apple.product-type.application";
@@ -325,6 +339,9 @@
 				Base,
 			);
 			mainGroup = 09C158322A930CCD00B3D25E;
+			packageReferences = (
+				099993962B4249E80064643B /* XCRemoteSwiftPackageReference "CareKit" */,
+			);
 			productRefGroup = 09C1583C2A930CCD00B3D25E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -377,6 +394,7 @@
 				0933A8172AE0908700734501 /* SettingsView.swift in Sources */,
 				0933A8192AE0919400734501 /* DosingPopUp.swift in Sources */,
 				097EA4CB2AE3085F0035B8AE /* AboutYourDoseView.swift in Sources */,
+				099993A02B4356480064643B /* DoseViewModel.swift in Sources */,
 				0966A7D52AC21E0400D0BFFF /* GetSetUpView.swift in Sources */,
 				09C1583F2A930CCD00B3D25E /* SeniorDesignApp.swift in Sources */,
 				0933A8152AE0758400734501 /* EducationView.swift in Sources */,
@@ -387,7 +405,7 @@
 				09AA87AA2AE1C47600E898A5 /* HealthKitManager.swift in Sources */,
 				097EA4CD2AE308A40035B8AE /* CalendarDayView.swift in Sources */,
 				0966A7D72AC21F1900D0BFFF /* Extensions.swift in Sources */,
-				09EDCBEA2B3E53EA0004DAFC /* SymptomRecords.swift in Sources */,
+				09EDCBEA2B3E53EA0004DAFC /* SymptomRecord.swift in Sources */,
 				097EA4C72AE303700035B8AE /* ArticleRichLink.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -716,6 +734,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		099993962B4249E80064643B /* XCRemoteSwiftPackageReference "CareKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/carekit-apple/CareKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		099993972B424A5B0064643B /* CareKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 099993962B4249E80064643B /* XCRemoteSwiftPackageReference "CareKit" */;
+			productName = CareKit;
+		};
+		099993992B424A5B0064643B /* CareKitStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 099993962B4249E80064643B /* XCRemoteSwiftPackageReference "CareKit" */;
+			productName = CareKitStore;
+		};
+		0999939B2B424A5B0064643B /* CareKitUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 099993962B4249E80064643B /* XCRemoteSwiftPackageReference "CareKit" */;
+			productName = CareKitUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 09C158332A930CCD00B3D25E /* Project object */;
 }

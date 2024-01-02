@@ -8,34 +8,45 @@
 import SwiftUI
 
 struct GetSetUpView: View {
+    // MARK: View Models
     @EnvironmentObject var profileViewModel: ProfileViewModel
     @EnvironmentObject var healthKitViewModel: HealthKitViewModel
 
+    // MARK: UI Elements
+    var setUpTitle: some View {
+        Text("Set Up")
+            .font(.largeTitle.bold())
+    }
+
+    var setUpInstructions: some View {
+        Text("Fill out the following information to get started.")
+            .font(.subheadline)
+            .padding(.top, 1)
+    }
+
+    var getStartedButton: some View {
+        Text("Get Started                    ")
+            .font(.caption)
+            .foregroundColor(Color.white)
+            .padding()
+            .background(Color.darkTeal)
+            .cornerRadius(30)
+    }
+
+    // MARK: Get Set Up View
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                Text("Set Up")
-                    .font(.largeTitle.bold())
-
-                Text("Fill out the following information to get started.")
-                    .font(.subheadline)
-                    .padding(.top, 1)
-
+                setUpTitle
+                setUpInstructions
                 SettingsView()
                     .environmentObject(profileViewModel)
                     .environmentObject(healthKitViewModel)
-
                 Spacer()
-
                 HStack(alignment: .center) {
                     NavigationLink(destination: TabbedApplicationView().navigationBarBackButtonHidden(true)) {
                         Spacer()
-                        Text("Get Started                    ")
-                            .font(.caption)
-                            .foregroundColor(Color.white)
-                            .padding()
-                            .background(Color.darkTeal)
-                            .cornerRadius(30)
+                        getStartedButton
                         Spacer()
                     }
                 }
@@ -46,10 +57,9 @@ struct GetSetUpView: View {
     }
 }
 
-struct GetSetUpView_Previews: PreviewProvider {
-    static var previews: some View {
-        GetSetUpView()
-            .environmentObject(ProfileViewModel())
-            .environmentObject(HealthKitViewModel())
-    }
+// MARK: Preview
+#Preview {
+    GetSetUpView()
+        .environmentObject(ProfileViewModel())
+        .environmentObject(HealthKitViewModel())
 }

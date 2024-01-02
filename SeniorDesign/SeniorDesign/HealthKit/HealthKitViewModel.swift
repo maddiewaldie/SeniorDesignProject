@@ -9,21 +9,23 @@ import Foundation
 import HealthKit
 
 class HealthKitViewModel: ObservableObject {
-
+    // MARK: Variables
+    @Published var isAuthorized = false
+    @Published var doseRecords: [Date: DoseRecord] = [:]
     private var healthStore = HKHealthStore()
     private var healthKitManager = HealthKitManager()
-    @Published var isAuthorized = false
 
-    @Published var doseRecords: [Date: DoseRecord] = [:]
-    func saveDoseRecord(_ doseRecord: DoseRecord) {
-        doseRecords[doseRecord.date] = doseRecord
-    }
-
+    // MARK: Initializer
     init() {
         changeAuthorizationStatus()
     }
 
-    //MARK: - HealthKit Authorization Request Method
+    // MARK: Dose Functions
+    func saveDoseRecord(_ doseRecord: DoseRecord) {
+        doseRecords[doseRecord.date] = doseRecord
+    }
+
+    //MARK: - HealthKit Authorization Request Methods
     func healthRequest() {
         healthKitManager.setUpHealthRequest(healthStore: healthStore) {
             self.changeAuthorizationStatus()

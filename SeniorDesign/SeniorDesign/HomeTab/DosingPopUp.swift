@@ -14,20 +14,20 @@ struct DosingPopUp: View {
     @State private var selectedDoses: [String: String] = [:]
     @State private var doseTime = Date()
     let selectedDate: Date
-
+    
     private var selectedAllergensArray: [String] {
         Array(profileViewModel.selectedAllergens)
     }
-
+    
     init(selectedDate: Date) {
         self.selectedDate = selectedDate
     }
-
+    
     @State private var notes = ""
     @State private var antihistamines: [String] = ["Benadryl", "Pepcid", "Zyrtec", "Other"]
     @State private var hidden: [Bool] = [true, true, true, true]
     @State private var dose: String = ""
-
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -38,30 +38,30 @@ struct DosingPopUp: View {
                             .padding()
                         Spacer()
                     }
-
+                    
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
-                            ForEach(profileViewModel.allergens, id: \.self) { allergen in
-                                Button(action: {
-                                    profileViewModel.toggleAllergenSelection(allergen)
-                                }) {
-                                    VStack {
-                                        Text(profileViewModel.allergenEmojiMap[allergen] ?? "")
-                                            .padding(.bottom, 10)
-                                            .font(.title)
-                                        Text(allergen)
-                                            .bold()
-                                            .foregroundColor(profileViewModel.isSelected(allergen) ? Color.white : Color.black)
-                                    }
-                                    .frame(width: 80, height: 100)
-                                    .padding()
-                                    .background(profileViewModel.isSelected(allergen) ? Color.darkTeal : Color.lightTeal)
-                                    .cornerRadius(20)
+                        ForEach(profileViewModel.profileData.allergens, id: \.self) { allergen in
+                            Button(action: {
+                                profileViewModel.toggleAllergenSelection(allergen)
+                            }) {
+                                VStack {
+                                    Text(profileViewModel.allergenEmojiMap[allergen] ?? "")
+                                        .padding(.bottom, 10)
+                                        .font(.title)
+                                    Text(allergen)
+                                        .bold()
+                                        .foregroundColor(profileViewModel.isSelected(allergen) ? Color.white : Color.black)
                                 }
+                                .frame(width: 80, height: 100)
+                                .padding()
+                                .background(profileViewModel.isSelected(allergen) ? Color.darkTeal : Color.lightTeal)
+                                .cornerRadius(20)
                             }
                         }
+                    }
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
-
+                    
                     HStack {
                         Text("Time")
                             .font(.headline)
@@ -74,7 +74,7 @@ struct DosingPopUp: View {
                         .labelsHidden()
                         .padding(.leading, 20)
                         .tint(Color.darkTeal)
-
+                    
                     HStack {
                         Text("Did you pre-dose any antihistamines before your oral immunotherapy dose?")
                             .font(.headline)
@@ -108,14 +108,14 @@ struct DosingPopUp: View {
                             .padding(.leading, 20)
                             .padding(.trailing, 20)
                     }
-
+                    
                     HStack {
                         Text("Dosage for Allergens")
                             .font(.headline)
                             .padding()
                         Spacer()
                     }
-
+                    
                     ForEach(selectedAllergensArray, id: \.self) { allergen in
                         HStack {
                             Text(allergen)
@@ -135,13 +135,13 @@ struct DosingPopUp: View {
                             }
                             .pickerStyle(WheelPickerStyle())
                             .frame(width: 120)
-
+                            
                         }
                         .padding(.leading, 20)
                         .padding(.trailing, 20)
                         .padding(.bottom, 10)
                     }
-
+                    
                     HStack {
                         Text("Notes")
                             .font(.headline)
@@ -162,18 +162,19 @@ struct DosingPopUp: View {
             }
         }
     }
-
+    
     func saveDoseInformation() {
-            // Here you can create and save a DoseRecord using the doseTime, notes, and other selected data
+        // Here you can create and save a DoseRecord using the doseTime, notes, and other selected data
         let newDoseRecord = DoseRecord(date: selectedDate, time: doseTime, notes: notes, selectedAllergens: profileViewModel.selectedAllergens, doses: selectedDoses)
-
-            // Example: Assuming you have a function to save DoseRecords in your HealthKitViewModel
-            healthKitViewModel.saveDoseRecord(newDoseRecord)
-
-            // Perform any other actions needed after saving the dose record
-        }
+        
+        // Example: Assuming you have a function to save DoseRecords in your HealthKitViewModel
+        healthKitViewModel.saveDoseRecord(newDoseRecord)
+        
+        // Perform any other actions needed after saving the dose record
+    }
 }
 
+// MARK: Preview
 #Preview {
     DosingPopUp(selectedDate: Date())
         .environmentObject(ProfileViewModel())
