@@ -52,37 +52,11 @@ struct DosingView: View {
             ForEach(doseViewModel.allergensWithDoses) { allergenWithDoses in
                 Section(header: Text(allergenWithDoses.allergen).font(.title2).bold().foregroundColor(.black)) {
                     ForEach(allergenWithDoses.doses) { dose in
-                        VStack(alignment: .leading) {
-                            HStack {
-                                Text(dose.doseType)
-                                    .font(.headline)
-                                if dose.isCurrentDose {
-                                    Image(systemName: "star.circle.fill")
-                                        .foregroundColor(Color.darkTeal)
-                                }
-                            }
-                            if let formattedDosage = numberFormatter.string(for: dose.doseAmount) {
-                                Text("Dosage: \(formattedDosage) mg")
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray)
-                            }
-                        }
-                        .padding(.vertical, 5)
-
-                        if let halfDosage = numberFormatter.string(for: dose.halfDose) {
-                            VStack {
-                                HStack {
-                                    Text("Half Dose for \(dose.doseType)")
-                                        .font(.headline)
-                                    Spacer()
-                                }
-                                HStack {
-                                    Text("Dosage: \(halfDosage) mg")
-                                        .font(.subheadline)
-                                        .foregroundColor(.gray)
-                                    Spacer()
-                                }
-                            }
+                        DoseRowView(dose: dose, numberFormatter: numberFormatter, viewModel: doseViewModel)
+                    }
+                    .onDelete { indices in
+                        indices.forEach { index in
+                            doseViewModel.deleteDose(at: index)
                         }
                     }
                 }
@@ -103,6 +77,39 @@ struct DosingView: View {
         }
     }
 }
+
+struct DoseRowView: View {
+    let dose: Dose
+    let numberFormatter: NumberFormatter
+    let viewModel: DoseViewModel
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Text(dose.doseType)
+                    .font(.headline)
+                if dose.isCurrentDose {
+                    Image(systemName: "star.circle.fill")
+                        .foregroundColor(Color.darkTeal)
+                }
+            }
+            if let formattedDosage = numberFormatter.string(for: dose.doseAmount) {
+                Text("Dosage: \(formattedDosage) mg")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+            }
+        }
+        .swipeActions(edge: .leading) {
+           Button {
+               viewModel.setAsCurrentDose(dose)
+           } label: {
+               Label("Set as Current", systemImage: "star")
+           }
+           .tint(Color.darkTeal)
+       }
+    }
+}
+
 
 // MARK: Dose View Model Extension
 extension DoseViewModel {
