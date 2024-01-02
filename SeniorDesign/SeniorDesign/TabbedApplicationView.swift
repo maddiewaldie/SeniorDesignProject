@@ -60,6 +60,10 @@ struct TabbedApplicationView: View {
             }
         }
         .tint(Color.darkTeal)
+        .onAppear(perform: {
+            profileViewModel.loadProfileData()
+            doseViewModel.loadDoses()
+        })
     }
 }
 

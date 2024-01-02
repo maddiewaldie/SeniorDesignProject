@@ -11,6 +11,7 @@ struct DosingPopUp: View {
     // MARK: View Models
     @EnvironmentObject var profileViewModel: ProfileViewModel
     @EnvironmentObject var healthKitViewModel: HealthKitViewModel
+    @EnvironmentObject var doseViewModel: DoseViewModel
 
     // MARK: Variables
     @Environment(\.presentationMode) var presentationMode
@@ -141,25 +142,27 @@ struct DosingPopUp: View {
                 Spacer()
                 Picker("", selection: Binding(
                     get: {
-                        Int(selectedDoses[allergen] ?? "0") ?? 0
+                        selectedDoses[allergen] ?? ""
                     },
                     set: { newValue in
-                        selectedDoses[allergen] = "\(newValue)"
+                        selectedDoses[allergen] = newValue
                     }
                 )) {
-                    ForEach(0..<6) { dosage in
-                        Text("\(dosage * 10) mg").tag(dosage)
+                    let doseTypesForSelectedAllergens = doseViewModel.doseTypesForSelectedAllergens(selectedAllergens: [allergen])
+
+                    ForEach(doseTypesForSelectedAllergens, id: \.self) { doseType in
+                        Text(doseType)
                     }
                 }
-                .pickerStyle(WheelPickerStyle())
-                .frame(width: 120)
-
+                .pickerStyle(MenuPickerStyle())
             }
             .padding(.leading, 20)
             .padding(.trailing, 20)
             .padding(.bottom, 10)
         }
     }
+
+
 
     var notesHeader: some View {
         HStack {

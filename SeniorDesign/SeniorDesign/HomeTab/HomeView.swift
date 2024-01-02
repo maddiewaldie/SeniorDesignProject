@@ -209,7 +209,9 @@ struct HomeView: View {
             profileViewModel.loadProfileData()
             healthKitManager.loadSymptomsForSelectedDate(selectedDate: selectedDate, symptomDataManager: symptomDataManager) {
             }
+            doseViewModel.loadDoses()
         })
+        
         Spacer()
     }
 

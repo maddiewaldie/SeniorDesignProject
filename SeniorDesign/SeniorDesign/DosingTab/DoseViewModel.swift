@@ -61,18 +61,33 @@ class DoseViewModel: ObservableObject {
         saveDoses()
     }
 
-    func deleteDose(at index: Int) {
-        doses.remove(at: index)
+    func deleteDose(_ dose: Dose) {
+        if let index = doses.firstIndex(where: { $0.id == dose.id }) {
+            doses.remove(at: index)
+            saveDoses()
+        }
     }
 
     func setAsCurrentDose(_ dose: Dose) {
         for index in 0..<doses.count {
-            if doses[index].id == dose.id {
-                doses[index].isCurrentDose = true
-            } else {
-                doses[index].isCurrentDose = false
+            if doses[index].allergen == dose.allergen {
+                doses[index].isCurrentDose = doses[index].id == dose.id
             }
         }
         saveDoses()
+    }
+
+    func doseTypesForSelectedAllergens(selectedAllergens: [String]) -> [String] {
+        var uniqueDoseTypes: [String] = []
+
+        for allergen in selectedAllergens {
+            let dosesForAllergen = doses.filter { $0.allergen == allergen }
+            print(dosesForAllergen)
+            let doseTypesForAllergen = Set(dosesForAllergen.map { "\($0.doseType) • \((Int($0.doseAmount * 10) / 10)) mg" })
+            print(doseTypesForAllergen)
+            uniqueDoseTypes.append(contentsOf: doseTypesForAllergen)
+        }
+
+        return Array(Set(uniqueDoseTypes))
     }
 }

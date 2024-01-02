@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DosingView: View {
     // MARK: View Models
-    @StateObject var doseViewModel = DoseViewModel()
+    @EnvironmentObject var doseViewModel: DoseViewModel
 
     // MARK: Variables
     @State private var createNewDose = false
@@ -55,10 +55,10 @@ struct DosingView: View {
                         DoseRowView(dose: dose, numberFormatter: numberFormatter, viewModel: doseViewModel)
                     }
                     .onDelete { indices in
-                        indices.forEach { index in
-                            doseViewModel.deleteDose(at: index)
-                        }
-                    }
+                                            indices.forEach { index in
+                                                doseViewModel.deleteDose(allergenWithDoses.doses[index])
+                                            }
+                                        }
                 }
             }
         }

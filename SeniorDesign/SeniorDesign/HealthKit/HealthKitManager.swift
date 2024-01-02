@@ -128,7 +128,8 @@ class HealthKitManager {
         }
         completion(symptomsData)
     }
-    
+
+
     func loadSymptomsForSelectedDate(selectedDate: Date, symptomDataManager: SymptomDataManager, completion: @escaping () -> Void) {
         fetchSymptomsForDate(selectedDate) { symptoms in
             symptomDataManager.symptomRecords[selectedDate] = symptoms
@@ -143,6 +144,29 @@ class HealthKitManager {
                 if success {
                 } else if error != nil {
                     print(error ?? "Error")
+                }
+            }
+        }
+    }
+
+    func saveSymptoms() {
+        let currentDate = Date()
+
+        for symptom in symptoms {
+            guard let symptomType = HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier(rawValue: symptom.identifier)) else {
+                // Handle failure to get the symptom type
+                continue
+            }
+
+            // Create a sample for the symptom at the current date
+            let sample = HKCategorySample(type: symptomType, value: HKCategoryValue.notApplicable.rawValue, start: currentDate, end: currentDate)
+
+            // Save the sample to HealthKit
+            healthStore.save(sample) { success, error in
+                if let error = error {
+                    print("Error saving symptom data for \(symptom.identifier): \(error.localizedDescription)")
+                } else {
+                    print("Symptom data saved successfully for \(symptom.identifier)")
                 }
             }
         }

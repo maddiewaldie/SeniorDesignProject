@@ -3,4 +3,54 @@
    uuid = "B58C2732-FF4A-4EF1-B976-11916347D0BD"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B57B7FF8-3222-483B-8BE2-E544AE29E54C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SeniorDesign/Onboarding/ProfileViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "loadProfileData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B57B7FF8-3222-483B-8BE2-E544AE29E54C - 930422a9b7210167"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SeniorDesign.ProfileViewModel.loadProfileData() -&gt; ()"
+                  moduleName = "SeniorDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/Onboarding/ProfileViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "656">
+               </Location>
+               <Location
+                  uuid = "B57B7FF8-3222-483B-8BE2-E544AE29E54C - 930422a9b7210167"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SeniorDesign.ProfileViewModel.loadProfileData() -&gt; ()"
+                  moduleName = "SeniorDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/Onboarding/ProfileViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "716">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

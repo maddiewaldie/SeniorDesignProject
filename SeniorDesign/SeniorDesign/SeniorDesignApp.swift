@@ -26,9 +26,10 @@ struct OITApp: App {
                     .environmentObject(profileViewModel)
                     .environmentObject(healthKitViewModel)
                     .environmentObject(doseViewModel)
-                    .onAppear {
+                    .onAppear(perform: {
                         profileViewModel.loadProfileData()
-                    }
+                        doseViewModel.loadDoses()
+                    })
             } else {
                 GetStartedView()
                     .environmentObject(profileViewModel)
@@ -37,6 +38,7 @@ struct OITApp: App {
                     .onAppear {
                         hasAppBeenOpenedBefore = true
                         profileViewModel.loadProfileData()
+                        doseViewModel.loadDoses()
                     }
             }
         }

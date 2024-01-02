@@ -48,7 +48,7 @@ class ProfileData: ObservableObject, Codable {
 class ProfileViewModel: ObservableObject {
     @Published var profileData = ProfileData()
     @Published var selectedAllergens: Set<String> = []
-    @Published var allergens: [String] = []
+    @Published var numAllergens = 0 // Variable to track the number of allergens
 
     func saveProfileData() {
         let encoder = JSONEncoder()
@@ -62,6 +62,7 @@ class ProfileViewModel: ObservableObject {
             let decoder = JSONDecoder()
             if let loadedProfile = try? decoder.decode(ProfileData.self, from: savedProfileData) {
                 profileData = loadedProfile
+                numAllergens = loadedProfile.allergens.count
             }
         }
     }
@@ -86,15 +87,20 @@ class ProfileViewModel: ObservableObject {
         "Sesame": "🌿",
     ]
 
-    // Function to remove an allergen
+    func addNewAllergen() {
+        profileData.allergens.append("Select an Allergen")
+        numAllergens += 1 // Increment the allergen count
+        saveProfileData()
+    }
+
     func removeSelectedAllergen(at index: Int) {
         if profileData.allergens.indices.contains(index) {
             profileData.allergens.remove(at: index)
-        }
-        if allergens.indices.contains(index) {
-            allergens.remove(at: index)
+            numAllergens -= 1 // Decrement the allergen count
+            saveProfileData()
         }
     }
+
 
     func toggleAllergenSelection(_ allergen: String) {
         if selectedAllergens.contains(allergen) {

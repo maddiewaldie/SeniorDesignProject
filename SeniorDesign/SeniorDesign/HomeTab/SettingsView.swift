@@ -12,6 +12,8 @@ struct SettingsView: View {
     // MARK: View Models
     @EnvironmentObject var profileViewModel: ProfileViewModel
     @EnvironmentObject var healthKitViewModel: HealthKitViewModel
+    @EnvironmentObject var doseViewModel: DoseViewModel
+
 
     // MARK: Variables
     let commonAllergens = ["Peanuts", "Milk", "Eggs", "Fish", "Shellfish", "Soy", "Tree Nuts", "Almonds", "Brazil Nuts", "Cashews", "Hazelnuts", "Macadamia Nuts", "Pecans", "Pine Nuts", "Pistachios", "Walnuts", "Wheat", "Sesame"]
@@ -47,37 +49,34 @@ struct SettingsView: View {
 
     var allergensSection: some View {
         Section(header: SectionHeaderView(title: "Allergens")) {
-            ForEach(profileViewModel.allergens.indices, id: \.self) { index in
-                HStack {
-                    Picker("Select an Allergen", selection: $profileViewModel.allergens[index]) {
-                        ForEach(commonAllergens, id: \.self) { allergen in
-                            Text(allergen).tag(allergen)
+            ForEach(0..<max(1, profileViewModel.numAllergens), id: \.self) { index in
+                if index < profileViewModel.numAllergens {
+                    HStack {
+                        Picker("Select an Allergen", selection: $profileViewModel.profileData.allergens[index]) {
+                            ForEach(commonAllergens, id: \.self) { allergen in
+                                Text(allergen).tag(allergen)
+                            }
+                            Text("Other").tag("Other")
                         }
-                        Text("Other").tag("Other")
-                    }
-                    .pickerStyle(DefaultPickerStyle())
-                    .padding(.bottom, 10)
-                    .onChange(of: profileViewModel.allergens[index]) { newValue in
-                        // Check if the new value already exists in the list before appending
-                        if !profileViewModel.profileData.allergens.contains(newValue) {
-                            profileViewModel.profileData.allergens.append(newValue)
-                            profileViewModel.saveProfileData()
+                        .pickerStyle(DefaultPickerStyle())
+                        .padding(.bottom, 10)
+                        .onChange(of: profileViewModel.profileData.allergens[index]) { newValue in
+                            if !profileViewModel.profileData.allergens.contains(newValue) {
+                                profileViewModel.profileData.allergens.append(newValue)
+                                profileViewModel.saveProfileData()
+                            }
                         }
-                    }
 
-                    Button(action: {
-                        profileViewModel.removeSelectedAllergen(at: index)
-                        profileViewModel.saveProfileData()
-                    }) {
-                        Image(systemName: "minus.circle").foregroundColor(.red)
+                        Button(action: {
+                            profileViewModel.removeSelectedAllergen(at: index)
+                        }) {
+                            Image(systemName: "minus.circle").foregroundColor(.red)
+                        }
                     }
                 }
             }
-
             Button(action: {
-                profileViewModel.profileData.allergens.append("Peanuts")
-                profileViewModel.allergens.append("Peanuts")
-                profileViewModel.saveProfileData()
+                profileViewModel.addNewAllergen()
             }) {
                 HStack {
                     Image(systemName: "plus.circle")
@@ -87,6 +86,8 @@ struct SettingsView: View {
             }
         }.padding(.top, 10)
     }
+
+
 
     var shareDataWithHealthToggle: some View {
         Toggle("Share Data with Apple Health", isOn: $profileViewModel.profileData.shareDataWithAppleHealth)
@@ -129,9 +130,13 @@ struct SettingsView: View {
             }
         }
         .onDisappear {
-            profileViewModel.profileData.allergens = profileViewModel.allergens.filter { !$0.isEmpty }
+            profileViewModel.profileData.allergens = profileViewModel.profileData.allergens.filter { !$0.isEmpty }
             profileViewModel.saveProfileData()
         }
+        .onAppear(perform: {
+            profileViewModel.loadProfileData()
+            doseViewModel.loadDoses()
+        })
     }
 }
 

@@ -16,4 +16,8 @@ class SymptomDataManager: ObservableObject {
     func saveSymptoms(for date: Date, symptoms: [String]) {
         symptomRecords[date] = symptoms
     }
+
+    func fetchSymptoms(for date: Date) -> [String] {
+        return symptomRecords[date] ?? []
+    }
 }
