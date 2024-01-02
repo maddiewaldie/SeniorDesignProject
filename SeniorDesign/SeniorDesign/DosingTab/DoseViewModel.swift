@@ -83,7 +83,7 @@ class DoseViewModel: ObservableObject {
         for allergen in selectedAllergens {
             let dosesForAllergen = doses.filter { $0.allergen == allergen }
             print(dosesForAllergen)
-            let doseTypesForAllergen = Set(dosesForAllergen.map { "\($0.doseType) • \((Int($0.doseAmount * 10) / 10)) mg" })
+            let doseTypesForAllergen = Set(dosesForAllergen.map { "\($0.doseType) • \((String(format: "%.1f", $0.doseAmount))) mg" })
             print(doseTypesForAllergen)
             uniqueDoseTypes.append(contentsOf: doseTypesForAllergen)
         }

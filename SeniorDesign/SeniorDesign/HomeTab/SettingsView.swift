@@ -66,6 +66,12 @@ struct SettingsView: View {
                                 profileViewModel.saveProfileData()
                             }
                         }
+                        .onAppear {
+                            if profileViewModel.profileData.allergens[index].isEmpty,
+                               let firstCommonAllergen = commonAllergens.first {
+                                profileViewModel.profileData.allergens[index] = firstCommonAllergen
+                            }
+                        }
 
                         Button(action: {
                             profileViewModel.removeSelectedAllergen(at: index)

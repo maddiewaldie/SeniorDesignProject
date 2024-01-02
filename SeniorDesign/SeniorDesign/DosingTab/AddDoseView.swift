@@ -29,6 +29,11 @@ struct AddDoseView: View {
                             Text(allergen)
                         }
                     }
+                    .onAppear {
+                        if selectedAllergen.isEmpty, let firstAllergen = profileViewModel.profileData.allergens.first {
+                            selectedAllergen = firstAllergen
+                        }
+                    }
                     .pickerStyle(DefaultPickerStyle())
                 }
 
@@ -38,7 +43,7 @@ struct AddDoseView: View {
                         Text("Dose")
                         Spacer()
                         TextField("", text: $doseAmount)
-                            .keyboardType(.numberPad)
+                            .keyboardType(.decimalPad)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .frame(width: 100)
                         Text("mg")
