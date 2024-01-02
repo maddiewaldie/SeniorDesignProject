@@ -39,6 +39,7 @@ struct ArticleRichLink: View {
                             .font(.body)
                             .foregroundColor(.black)
                             .padding(.leading, 20)
+                        Spacer()
                     }
                 }
                 .frame(width: UIScreen.main.bounds.width - 30, height: 280)

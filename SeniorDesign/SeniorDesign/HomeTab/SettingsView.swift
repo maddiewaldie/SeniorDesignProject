@@ -52,31 +52,39 @@ struct SettingsView: View {
             ForEach(0..<max(1, profileViewModel.numAllergens), id: \.self) { index in
                 if index < profileViewModel.numAllergens {
                     HStack {
-                        Picker("Select an Allergen", selection: $profileViewModel.profileData.allergens[index]) {
-                            ForEach(commonAllergens, id: \.self) { allergen in
-                                Text(allergen).tag(allergen)
+                        VStack {
+                            Picker("Select an Allergen", selection: $profileViewModel.profileData.allergens[index]) {
+                                ForEach(commonAllergens, id: \.self) { allergen in
+                                    Text(allergen).tag(allergen)
+                                }
+                                Text("Other").tag("Other")
+                                // TODO: Handle Other
                             }
-                            Text("Other").tag("Other")
-                        }
-                        .pickerStyle(DefaultPickerStyle())
-                        .padding(.bottom, 10)
-                        .onChange(of: profileViewModel.profileData.allergens[index]) { newValue in
-                            if !profileViewModel.profileData.allergens.contains(newValue) {
-                                profileViewModel.profileData.allergens.append(newValue)
-                                profileViewModel.saveProfileData()
+                            .pickerStyle(DefaultPickerStyle())
+                            .padding(.bottom, 10)
+                            .onChange(of: profileViewModel.profileData.allergens[index]) { newValue in
+                                if !profileViewModel.profileData.allergens.contains(newValue) {
+                                    profileViewModel.profileData.allergens.append(newValue)
+                                    profileViewModel.saveProfileData()
+                                }
                             }
-                        }
-                        .onAppear {
-                            if profileViewModel.profileData.allergens[index].isEmpty,
-                               let firstCommonAllergen = commonAllergens.first {
-                                profileViewModel.profileData.allergens[index] = firstCommonAllergen
+                            .onAppear {
+                                if profileViewModel.profileData.allergens[index].isEmpty,
+                                   let firstCommonAllergen = commonAllergens.first {
+                                    profileViewModel.profileData.allergens[index] = firstCommonAllergen
+                                }
                             }
+                            Spacer()
                         }
 
-                        Button(action: {
-                            profileViewModel.removeSelectedAllergen(at: index)
-                        }) {
-                            Image(systemName: "minus.circle").foregroundColor(.red)
+                        VStack {
+                            Button(action: {
+                                profileViewModel.removeSelectedAllergen(at: index)
+                            }) {
+                                Image(systemName: "minus.circle").foregroundColor(.red)
+                                    .padding(.top, 7)
+                            }
+                            Spacer()
                         }
                     }
                 }

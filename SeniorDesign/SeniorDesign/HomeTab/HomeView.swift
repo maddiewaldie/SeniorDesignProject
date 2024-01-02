@@ -121,7 +121,7 @@ struct HomeView: View {
         DatePicker("Select Date", selection: $selectedDate, in: ...Date(), displayedComponents: [.date])
             .datePickerStyle(GraphicalDatePickerStyle())
             .padding()
-            .tint(Color.lightTeal)
+            .tint(Color.darkTeal)
     }
 
     var logSymptomsButton: some View {
