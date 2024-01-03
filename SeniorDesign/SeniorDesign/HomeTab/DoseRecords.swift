@@ -55,24 +55,6 @@ class DosesTransformer: NSSecureUnarchiveFromDataTransformer {
 
 class SelectedAllergensTransformer: NSSecureUnarchiveFromDataTransformer {
     override static var allowedTopLevelClasses: [AnyClass] {
-        return [NSSet.self] // Assuming selectedAllergens is a Set<String>
+        return [NSSet.self]
     }
 }
-
-//struct DoseRecord {
-//    let date: Date
-//    let time: Date
-//    let notes: String
-//    let selectedAllergens: Set<String>
-//    let doses: [String: String] // Dictionary to store allergens and their doses
-//    let antihistamineDoses: [AntihistamineDose] // Array to store antihistamine doses
-//
-//    init(date: Date, time: Date, notes: String, selectedAllergens: Set<String>, doses: [String: String], antihistamineDoses: [AntihistamineDose]) {
-//        self.date = date
-//        self.time = time
-//        self.notes = notes
-//        self.selectedAllergens = selectedAllergens
-//        self.doses = doses
-//        self.antihistamineDoses = antihistamineDoses
-//    }
-//}
