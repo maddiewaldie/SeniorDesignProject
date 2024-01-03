@@ -1,16 +1,9 @@
-//
-//  SymptomsPopUp.swift
-//  SeniorDesign
-//
-//  Created by Maddie on 10/18/23.
-//
-
 import HealthKit
 import SwiftUI
 
 struct SymptomsPopUp: View {
     // MARK: Variables
-    @ObservedObject var symptomDataManager = SymptomDataManager()
+    @EnvironmentObject var symptomDataManager: SymptomDataManager
     @Binding var selectedSymptoms: Set<String>
     let selectedDate: Date
     let healthKitManager = HealthKitManager()
@@ -69,7 +62,7 @@ struct SymptomsPopUp: View {
     private func saveSymptomsForSelectedDate() {
         symptomDataManager.saveSymptoms(for: selectedDate, symptoms: Array(selectedSymptoms))
     }
-    
+
     private func toggleSymptom(_ identifier: String) {
         if selectedSymptoms.contains(identifier) {
             selectedSymptoms.remove(identifier)

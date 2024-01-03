@@ -62,10 +62,42 @@
             filePath = "SeniorDesign/HomeTab/HomeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "766867BB-7F09-4A61-9C1E-DA01B40248C3 - 63b754f091151a26"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekCircleView : some&gt;&gt;.0, &lt;&lt;opaque return type of SeniorDesign.HomeView.monthCalendarView : some&gt;&gt;.0&gt;, Swift.Optional&lt;Swift.Optional&lt;SeniorDesign.AboutYourDoseView&gt;&gt;, &lt;&lt;opaque return type of SeniorDesign.HomeView.symptomsScrollView : some&gt;&gt;.0)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekScrollView : some&gt;&gt;.0&gt;, SwiftUI.ScrollView&lt;SwiftUI.TupleView&lt;(SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekCircleView : some&gt;&gt;.0, &lt;&lt;opaque return type of SeniorDesign.HomeView.monthCalendarView : some&gt;&gt;.0&gt;, Swift.Optional&lt;Swift.Optional&lt;SeniorDesign.AboutYourDoseView&gt;&gt;, &lt;&lt;opaque return type of SeniorDesign.HomeView.symptomsScrollView : some&gt;&gt;.0)&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SeniorDesign.HomeView.header : some&gt;&gt;.0, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekScrollView : some&gt;&gt;.0&gt;, SwiftUI.ScrollView&lt;SwiftUI.TupleView&lt;(SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekCircleView : some&gt;&gt;.0, &lt;&lt;opaque return type of SeniorDesign.HomeView.monthCalendarView : some&gt;&gt;.0&gt;, Swift.Optional&lt;Swift.Optional&lt;SeniorDesign.AboutYourDoseView&gt;&gt;, &lt;&lt;opaque return type of SeniorDesign.HomeView.symptomsScrollView : some&gt;&gt;.0)&gt;&gt;)&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SeniorDesign.HomeView.header : some&gt;&gt;.0, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekScrollView : some&gt;&gt;.0&gt;, SwiftUI.ScrollView&lt;SwiftUI.TupleView&lt;(SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekCircleView : some&gt;&gt;.0, &lt;&lt;opaque return type of SeniorDesign.HomeView.monthCalendarView : some&gt;&gt;.0&gt;, Swift.Optional&lt;Swift.Optional&lt;SeniorDesign.AboutYourDoseView&gt;&gt;, &lt;&lt;opaque return type of SeniorDesign.HomeView.symptomsScrollView : some&gt;&gt;.0)&gt;&gt;)&gt;&gt;)&gt;&gt; in SeniorDesign.HomeView.body.getter : some"
+                  moduleName = "SeniorDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "201"
+                  endingLineNumber = "201"
+                  offsetFromSymbolStart = "2044">
+               </Location>
+               <Location
+                  uuid = "766867BB-7F09-4A61-9C1E-DA01B40248C3 - 63b754f091151a64"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekCircleView : some&gt;&gt;.0, &lt;&lt;opaque return type of SeniorDesign.HomeView.monthCalendarView : some&gt;&gt;.0&gt;, Swift.Optional&lt;Swift.Optional&lt;SeniorDesign.AboutYourDoseView&gt;&gt;, &lt;&lt;opaque return type of SeniorDesign.HomeView.symptomsScrollView : some&gt;&gt;.0)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekScrollView : some&gt;&gt;.0&gt;, SwiftUI.ScrollView&lt;SwiftUI.TupleView&lt;(SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekCircleView : some&gt;&gt;.0, &lt;&lt;opaque return type of SeniorDesign.HomeView.monthCalendarView : some&gt;&gt;.0&gt;, Swift.Optional&lt;Swift.Optional&lt;SeniorDesign.AboutYourDoseView&gt;&gt;, &lt;&lt;opaque return type of SeniorDesign.HomeView.symptomsScrollView : some&gt;&gt;.0)&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SeniorDesign.HomeView.header : some&gt;&gt;.0, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekScrollView : some&gt;&gt;.0&gt;, SwiftUI.ScrollView&lt;SwiftUI.TupleView&lt;(SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekCircleView : some&gt;&gt;.0, &lt;&lt;opaque return type of SeniorDesign.HomeView.monthCalendarView : some&gt;&gt;.0&gt;, Swift.Optional&lt;Swift.Optional&lt;SeniorDesign.AboutYourDoseView&gt;&gt;, &lt;&lt;opaque return type of SeniorDesign.HomeView.symptomsScrollView : some&gt;&gt;.0)&gt;&gt;)&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SeniorDesign.HomeView.header : some&gt;&gt;.0, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekScrollView : some&gt;&gt;.0&gt;, SwiftUI.ScrollView&lt;SwiftUI.TupleView&lt;(SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekCircleView : some&gt;&gt;.0, &lt;&lt;opaque return type of SeniorDesign.HomeView.monthCalendarView : some&gt;&gt;.0&gt;, Swift.Optional&lt;Swift.Optional&lt;SeniorDesign.AboutYourDoseView&gt;&gt;, &lt;&lt;opaque return type of SeniorDesign.HomeView.symptomsScrollView : some&gt;&gt;.0)&gt;&gt;)&gt;&gt;)&gt;&gt; in SeniorDesign.HomeView.body.getter : some"
+                  moduleName = "SeniorDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "2044">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -78,10 +110,42 @@
             filePath = "SeniorDesign/HomeTab/HomeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "73F87AF0-19EE-45BE-AD3D-E4A9C769EEC5 - 63b754f091151a05"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekCircleView : some&gt;&gt;.0, &lt;&lt;opaque return type of SeniorDesign.HomeView.monthCalendarView : some&gt;&gt;.0&gt;, Swift.Optional&lt;Swift.Optional&lt;SeniorDesign.AboutYourDoseView&gt;&gt;, &lt;&lt;opaque return type of SeniorDesign.HomeView.symptomsScrollView : some&gt;&gt;.0)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekScrollView : some&gt;&gt;.0&gt;, SwiftUI.ScrollView&lt;SwiftUI.TupleView&lt;(SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekCircleView : some&gt;&gt;.0, &lt;&lt;opaque return type of SeniorDesign.HomeView.monthCalendarView : some&gt;&gt;.0&gt;, Swift.Optional&lt;Swift.Optional&lt;SeniorDesign.AboutYourDoseView&gt;&gt;, &lt;&lt;opaque return type of SeniorDesign.HomeView.symptomsScrollView : some&gt;&gt;.0)&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SeniorDesign.HomeView.header : some&gt;&gt;.0, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekScrollView : some&gt;&gt;.0&gt;, SwiftUI.ScrollView&lt;SwiftUI.TupleView&lt;(SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekCircleView : some&gt;&gt;.0, &lt;&lt;opaque return type of SeniorDesign.HomeView.monthCalendarView : some&gt;&gt;.0&gt;, Swift.Optional&lt;Swift.Optional&lt;SeniorDesign.AboutYourDoseView&gt;&gt;, &lt;&lt;opaque return type of SeniorDesign.HomeView.symptomsScrollView : some&gt;&gt;.0)&gt;&gt;)&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SeniorDesign.HomeView.header : some&gt;&gt;.0, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekScrollView : some&gt;&gt;.0&gt;, SwiftUI.ScrollView&lt;SwiftUI.TupleView&lt;(SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekCircleView : some&gt;&gt;.0, &lt;&lt;opaque return type of SeniorDesign.HomeView.monthCalendarView : some&gt;&gt;.0&gt;, Swift.Optional&lt;Swift.Optional&lt;SeniorDesign.AboutYourDoseView&gt;&gt;, &lt;&lt;opaque return type of SeniorDesign.HomeView.symptomsScrollView : some&gt;&gt;.0)&gt;&gt;)&gt;&gt;)&gt;&gt; in SeniorDesign.HomeView.body.getter : some"
+                  moduleName = "SeniorDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "202"
+                  endingLineNumber = "202"
+                  offsetFromSymbolStart = "2176">
+               </Location>
+               <Location
+                  uuid = "73F87AF0-19EE-45BE-AD3D-E4A9C769EEC5 - 63b754f091151a5b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekCircleView : some&gt;&gt;.0, &lt;&lt;opaque return type of SeniorDesign.HomeView.monthCalendarView : some&gt;&gt;.0&gt;, Swift.Optional&lt;Swift.Optional&lt;SeniorDesign.AboutYourDoseView&gt;&gt;, &lt;&lt;opaque return type of SeniorDesign.HomeView.symptomsScrollView : some&gt;&gt;.0)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekScrollView : some&gt;&gt;.0&gt;, SwiftUI.ScrollView&lt;SwiftUI.TupleView&lt;(SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekCircleView : some&gt;&gt;.0, &lt;&lt;opaque return type of SeniorDesign.HomeView.monthCalendarView : some&gt;&gt;.0&gt;, Swift.Optional&lt;Swift.Optional&lt;SeniorDesign.AboutYourDoseView&gt;&gt;, &lt;&lt;opaque return type of SeniorDesign.HomeView.symptomsScrollView : some&gt;&gt;.0)&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SeniorDesign.HomeView.header : some&gt;&gt;.0, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekScrollView : some&gt;&gt;.0&gt;, SwiftUI.ScrollView&lt;SwiftUI.TupleView&lt;(SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekCircleView : some&gt;&gt;.0, &lt;&lt;opaque return type of SeniorDesign.HomeView.monthCalendarView : some&gt;&gt;.0&gt;, Swift.Optional&lt;Swift.Optional&lt;SeniorDesign.AboutYourDoseView&gt;&gt;, &lt;&lt;opaque return type of SeniorDesign.HomeView.symptomsScrollView : some&gt;&gt;.0)&gt;&gt;)&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SeniorDesign.HomeView.header : some&gt;&gt;.0, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekScrollView : some&gt;&gt;.0&gt;, SwiftUI.ScrollView&lt;SwiftUI.TupleView&lt;(SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SeniorDesign.HomeView.weekCircleView : some&gt;&gt;.0, &lt;&lt;opaque return type of SeniorDesign.HomeView.monthCalendarView : some&gt;&gt;.0&gt;, Swift.Optional&lt;Swift.Optional&lt;SeniorDesign.AboutYourDoseView&gt;&gt;, &lt;&lt;opaque return type of SeniorDesign.HomeView.symptomsScrollView : some&gt;&gt;.0)&gt;&gt;)&gt;&gt;)&gt;&gt; in SeniorDesign.HomeView.body.getter : some"
+                  moduleName = "SeniorDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "2176">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

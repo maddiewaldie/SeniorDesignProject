@@ -104,4 +104,14 @@ class HealthKitViewModel: ObservableObject {
             isAuthorized = false
         }
     }
+
+    func saveSymptomsToCoreData(for date: Date, symptoms: [String]) {
+            let symptomDataManager = SymptomDataManager()
+            symptomDataManager.saveSymptoms(for: date, symptoms: symptoms)
+        }
+
+        func fetchSymptomsFromCoreData(for date: Date) -> [String] {
+            let symptomDataManager = SymptomDataManager()
+            return symptomDataManager.fetchSymptoms(for: date)
+        }
 }

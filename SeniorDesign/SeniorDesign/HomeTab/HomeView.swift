@@ -24,8 +24,9 @@ struct HomeView: View {
     @State private var dayOfTreatment = 1 // Initial value
     @ObservedObject var symptomDataManager = SymptomDataManager()
     var symptomsForSelectedDate: [String] {
-        return symptomDataManager.symptomRecords[selectedDate] ?? []
+        return symptomDataManager.fetchSymptoms(for: selectedDate)
     }
+
 
     // MARK: UI Elements
     var profileButton: some View {
@@ -127,7 +128,7 @@ struct HomeView: View {
     var logSymptomsButton: some View {
         Button(action: {
             logSymptoms.toggle()
-            selectedSymptoms = []
+            selectedSymptoms = Set(symptomDataManager.fetchSymptoms(for: selectedDate))
         }) {
             VStack {
                 Text("Log your Symptoms")
@@ -141,14 +142,15 @@ struct HomeView: View {
             .cornerRadius(20)
         }
         .sheet(isPresented: $logSymptoms) {
-            NavigationView {
-                SymptomsPopUp(selectedSymptoms: $selectedSymptoms, selectedDate: selectedDate)
-                    .navigationBarItems(trailing: Button("Done") {
-                        logSymptoms = false
-                        saveSymptomsForSelectedDate()
-                    })
-            }
-        }
+                    NavigationView {
+                        SymptomsPopUp(selectedSymptoms: $selectedSymptoms, selectedDate: selectedDate)
+                            .navigationBarItems(trailing: Button("Done") {
+                                logSymptoms = false
+                                saveSymptomsForSelectedDate()
+                            })
+                            .environmentObject(symptomDataManager) // Pass SymptomDataManager here
+                    }
+                }
     }
 
     var symptomsScrollView: some View {
