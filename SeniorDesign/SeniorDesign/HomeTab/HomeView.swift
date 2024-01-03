@@ -198,7 +198,9 @@ struct HomeView: View {
                             monthCalendarView
                         }
                         if let dose = healthKitViewModel.doseRecords[selectedDate] {
-                            AboutYourDoseView(allergenDoses: dose)
+                            if dose.doses != nil {
+                                AboutYourDoseView(allergenDoses: dose)
+                            }
                         }
                         symptomsScrollView
                     }
@@ -209,6 +211,7 @@ struct HomeView: View {
             profileViewModel.loadProfileData()
             healthKitManager.loadSymptomsForSelectedDate(selectedDate: selectedDate, symptomDataManager: symptomDataManager) {
             }
+            healthKitViewModel.fetchDoseRecords()
             doseViewModel.loadDoses()
         })
         

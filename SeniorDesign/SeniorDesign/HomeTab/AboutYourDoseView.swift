@@ -26,20 +26,24 @@ struct AboutYourDoseView: View {
 
     private var dosesTaken: some View {
         VStack(alignment: .leading) {
-            ForEach(allergenDoses.doses.sorted(by: { $0.key < $1.key }), id: \.key) { (allergen, dose) in
-                HStack {
-                    Text("\(allergen) • \(dose) mg")
-                        .foregroundColor(.black)
-                        .padding(.leading, 20)
-                        .padding(.bottom, 5)
-                    Spacer()
+            if let data = allergenDoses.doses as? Data,
+               let doses = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [String: String] {
+                ForEach(doses.sorted(by: { $0.key < $1.key }), id: \.key) { (allergen, dose) in
+                    HStack {
+                        Text("\(allergen) • \(dose)")
+                            .foregroundColor(.black)
+                            .padding(.leading, 20)
+                            .padding(.bottom, 5)
+                        Spacer()
+                    }
                 }
             }
         }
     }
+
     private var timeOfDose: some View {
         HStack {
-            Text(timeFormatter.string(from: allergenDoses.time))
+            Text(timeFormatter.string(from: allergenDoses.time!))
                 .foregroundColor(.black)
                 .padding(.leading, 20)
                 .padding(.bottom, 10)
@@ -52,7 +56,11 @@ struct AboutYourDoseView: View {
         ZStack {
             VStack {
                 header
-                dosesTaken
+                HStack {
+                    dosesTaken
+                        .frame(width: 230)
+                    Spacer()
+                }
                 Spacer()
                 timeOfDose
             }

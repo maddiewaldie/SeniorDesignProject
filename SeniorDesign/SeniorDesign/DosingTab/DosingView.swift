@@ -50,7 +50,7 @@ struct DosingView: View {
     var listOfDoses: some View {
         List {
             ForEach(doseViewModel.allergensWithDoses) { allergenWithDoses in
-                Section(header: Text(allergenWithDoses.allergen).font(.title2).bold().foregroundColor(.black)) {
+                Section(header: Text(allergenWithDoses.allergen).font(.title2).bold().foregroundColor(colorScheme == .dark ? Color.white : Color.black)) {
                     ForEach(allergenWithDoses.doses) { dose in
                         DoseRowView(dose: dose, numberFormatter: numberFormatter, viewModel: doseViewModel)
                     }

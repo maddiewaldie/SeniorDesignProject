@@ -1,0 +1,7 @@
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23A344" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+<entity name="DoseRecord" representedClassName="DoseRecord" syncable="YES" codeGenerationType="class">
+    <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    <attribute name="notes" optional="YES" attributeType="String"/>
+    <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+</entity>
+</model>

@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B57B7FF8-3222-483B-8BE2-E544AE29E54C"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SeniorDesign/Onboarding/ProfileViewModel.swift"
@@ -48,6 +48,293 @@
                   startingLineNumber = "66"
                   endingLineNumber = "66"
                   offsetFromSymbolStart = "716">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "766867BB-7F09-4A61-9C1E-DA01B40248C3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SeniorDesign/HomeTab/HomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "73F87AF0-19EE-45BE-AD3D-E4A9C769EEC5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SeniorDesign/HomeTab/HomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C8D77675-B4FC-4D0A-8A44-7952FD42A38E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SeniorDesign/HomeTab/DosingPopUp.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
+            landmarkName = "saveDoseInformation()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C8D77675-B4FC-4D0A-8A44-7952FD42A38E - ed6734bc5442fcd5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SeniorDesign.DosingPopUp.saveDoseInformation() -&gt; ()"
+                  moduleName = "SeniorDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/DosingPopUp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "257"
+                  endingLineNumber = "257"
+                  offsetFromSymbolStart = "1504">
+               </Location>
+               <Location
+                  uuid = "C8D77675-B4FC-4D0A-8A44-7952FD42A38E - ed6734bc5442fcd5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SeniorDesign.DosingPopUp.saveDoseInformation() -&gt; ()"
+                  moduleName = "SeniorDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/DosingPopUp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "257"
+                  endingLineNumber = "257"
+                  offsetFromSymbolStart = "1776">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0A9C24C9-B353-4416-B5F5-CCCAB3B56C02"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SeniorDesign/HomeTab/DosingPopUp.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
+            landmarkName = "saveDoseInformation()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0A9C24C9-B353-4416-B5F5-CCCAB3B56C02 - ed6734bc5442fd29"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SeniorDesign.DosingPopUp.saveDoseInformation() -&gt; ()"
+                  moduleName = "SeniorDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/DosingPopUp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "261"
+                  endingLineNumber = "261"
+                  offsetFromSymbolStart = "1832">
+               </Location>
+               <Location
+                  uuid = "0A9C24C9-B353-4416-B5F5-CCCAB3B56C02 - ed6734bc5442fd29"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SeniorDesign.DosingPopUp.saveDoseInformation() -&gt; ()"
+                  moduleName = "SeniorDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/DosingPopUp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "261"
+                  endingLineNumber = "261"
+                  offsetFromSymbolStart = "2260">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E603E3B7-3DEC-40A4-A14F-DEB7971C1DE7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SeniorDesign/HomeTab/DosingPopUp.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
+            landmarkName = "saveDoseInformation()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E603E3B7-3DEC-40A4-A14F-DEB7971C1DE7 - ed6734bc5442fdad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SeniorDesign.DosingPopUp.saveDoseInformation() -&gt; ()"
+                  moduleName = "SeniorDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/DosingPopUp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "265"
+                  endingLineNumber = "265"
+                  offsetFromSymbolStart = "2316">
+               </Location>
+               <Location
+                  uuid = "E603E3B7-3DEC-40A4-A14F-DEB7971C1DE7 - ed6734bc5442fdad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SeniorDesign.DosingPopUp.saveDoseInformation() -&gt; ()"
+                  moduleName = "SeniorDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/DosingPopUp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "265"
+                  endingLineNumber = "265"
+                  offsetFromSymbolStart = "2752">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6F778E74-0D65-42C1-B066-A445984442E5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SeniorDesign/HomeTab/AboutYourDoseView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "dosesTaken"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "6F778E74-0D65-42C1-B066-A445984442E5 - d348e99f741582d9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; Swift.Optional&lt;SwiftUI.ForEach&lt;Swift.Array&lt;(key: Swift.String, value: Swift.String)&gt;, Swift.String, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt;&gt;&gt;&gt; in SeniorDesign.AboutYourDoseView.dosesTaken.getter : some"
+                  moduleName = "SeniorDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/AboutYourDoseView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "1132">
+               </Location>
+               <Location
+                  uuid = "6F778E74-0D65-42C1-B066-A445984442E5 - d348e99f741582d9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; Swift.Optional&lt;SwiftUI.ForEach&lt;Swift.Array&lt;(key: Swift.String, value: Swift.String)&gt;, Swift.String, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt;&gt;&gt;&gt; in SeniorDesign.AboutYourDoseView.dosesTaken.getter : some"
+                  moduleName = "SeniorDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/AboutYourDoseView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "1528">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7256A143-8142-4C30-9184-1349E7420B67"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SeniorDesign/HomeTab/AboutYourDoseView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "dosesTaken"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "7256A143-8142-4C30-9184-1349E7420B67 - d348e99f741582e6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; Swift.Optional&lt;SwiftUI.ForEach&lt;Swift.Array&lt;(key: Swift.String, value: Swift.String)&gt;, Swift.String, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt;&gt;&gt;&gt; in SeniorDesign.AboutYourDoseView.dosesTaken.getter : some"
+                  moduleName = "SeniorDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/AboutYourDoseView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "1544">
+               </Location>
+               <Location
+                  uuid = "7256A143-8142-4C30-9184-1349E7420B67 - c1833110739f7c7c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((key: Swift.String, value: Swift.String), (key: Swift.String, value: Swift.String)) -&gt; Swift.Bool in closure #1 () -&gt; Swift.Optional&lt;SwiftUI.ForEach&lt;Swift.Array&lt;(key: Swift.String, value: Swift.String)&gt;, Swift.String, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt;&gt;&gt;&gt; in SeniorDesign.AboutYourDoseView.dosesTaken.getter : some"
+                  moduleName = "SeniorDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/AboutYourDoseView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "116">
+               </Location>
+               <Location
+                  uuid = "7256A143-8142-4C30-9184-1349E7420B67 - 28cbc1d4377f51ee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.String, Swift.String) -&gt; SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt;&gt; in closure #1 () -&gt; Swift.Optional&lt;SwiftUI.ForEach&lt;Swift.Array&lt;(key: Swift.String, value: Swift.String)&gt;, Swift.String, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt;&gt;&gt;&gt; in SeniorDesign.AboutYourDoseView.dosesTaken.getter : some"
+                  moduleName = "SeniorDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/AboutYourDoseView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "132">
                </Location>
             </Locations>
          </BreakpointContent>

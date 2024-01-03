@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct DosingPopUp: View {
     // MARK: View Models
@@ -17,6 +18,7 @@ struct DosingPopUp: View {
     @Environment(\.presentationMode) var presentationMode
 
     @State private var selectedDoses: [String: String] = [:]
+    @State private var selectedAntihistamineDoses: [AntihistamineDose] = []
     @State private var doseTime = Date()
     @State private var notes = ""
     @State private var antihistamines: [String] = ["Benadryl", "Pepcid", "Zyrtec", "Other"]
@@ -36,13 +38,36 @@ struct DosingPopUp: View {
 
     // MARK: UI Elements
     var allergensSectionHeader: some View {
-        HStack {
-            Text("Allergens")
-                .font(.headline)
-                .padding()
-            Spacer()
+        VStack {
+            if (profileViewModel.profileData.allergens.count == 0) {
+                HStack {
+                    Text("Allergens")
+                        .font(.headline)
+                        .padding()
+                        .padding(.bottom, 0)
+                    Spacer()
+                }
+                HStack {
+                    Text("⚠️ You haven't recorded any allergens in your profile. To add allergens, go to your profile settings in the Home tab and update the allergens section.")
+                        .font(.body)
+                        .padding()
+                }
+                .frame(width: UIScreen.main.bounds.width-20, height: 130)
+                .background(Color.grey)
+                .opacity(0.7)
+                .padding(.top, 0)
+                .cornerRadius(15)
+            } else {
+                HStack {
+                    Text("Allergens")
+                        .font(.headline)
+                        .padding()
+                    Spacer()
+                }
+            }
         }
     }
+
     var allergensSection: some View {
         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
             ForEach(profileViewModel.profileData.allergens, id: \.self) { allergen in
@@ -70,7 +95,7 @@ struct DosingPopUp: View {
 
     var timeSectionHeader: some View {
         HStack {
-            Text("Time")
+            Text("Time of Dose")
                 .font(.headline)
                 .padding()
             Spacer()
@@ -97,40 +122,49 @@ struct DosingPopUp: View {
 
     var predoseSection: some View {
         VStack {
-            ForEach(0..<antihistamines.count) { med in
-                Divider()
-                    .padding(.leading, 20)
-                    .padding(.trailing, 20)
+            ForEach(antihistamines.indices, id: \.self) { index in
                 HStack {
-                    Text(antihistamines[med])
-                        .onTapGesture(perform: {
-                            hidden[med].toggle()
-                        })
-                    Spacer()
-                    Picker("\(antihistamines[med])", selection: $dose) {
-                        ForEach(1..<6) { dosage in
-                            Text("\(dosage * 10) mg")
+                    Text(antihistamines[index])
+                        .onTapGesture {
+                            hidden[index].toggle()
                         }
+                        .padding()
+                    Spacer()
+                    if !hidden[index] {
+                        let selectedDose = Binding<String>(
+                            get: {
+                                selectedDoses[antihistamines[index]] ?? ""
+                            },
+                            set: { newValue in
+                                selectedDoses[antihistamines[index]] = newValue
+                            }
+                        )
+                        Picker("\(antihistamines[index])", selection: selectedDose) {
+                            ForEach(1..<6, id: \.self) { dosage in
+                                Text("\(dosage * 10) mg").tag("\(dosage * 10) mg")
+                            }
+                        }
+                        .pickerStyle(DefaultPickerStyle())
+                        .tint(Color.darkTeal)
                     }
-                    .pickerStyle(DefaultPickerStyle())
-                    .tint(Color.darkTeal)
-                    .opacity(hidden[med] ? 0 : 1)
                 }
-                .padding(.leading, 20)
-                .padding(.trailing, 20)
+                .padding(.horizontal, 20)
             }
             Divider()
-                .padding(.leading, 20)
-                .padding(.trailing, 20)
+                .padding(.horizontal, 20)
         }
     }
 
+
+
     var dosageSectionHeader: some View {
         HStack {
-            Text("Dosage for Allergens")
-                .font(.headline)
-                .padding()
-            Spacer()
+            if selectedAllergensArray.count > 0 {
+                Text("Dosage for Allergens")
+                    .font(.headline)
+                    .padding()
+                Spacer()
+            }
         }
     }
 
@@ -174,8 +208,8 @@ struct DosingPopUp: View {
     }
 
     var notesSection: some View {
-        TextField("Enter any notes here.", text: $notes)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
+        TextField("Enter any notes about your dose here.", text: $notes)
+            .textFieldStyle(DefaultTextFieldStyle())
             .padding(.leading, 20)
             .padding(.trailing, 20)
     }
@@ -185,17 +219,17 @@ struct DosingPopUp: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading) {
-                    allergensSectionHeader
-                    allergensSection
-
                     timeSectionHeader
                     timePicker
 
-                    predoseHeader
-                    predoseSection
+                    allergensSectionHeader
+                    allergensSection
 
                     dosageSectionHeader
                     dosageSection
+
+                    predoseHeader
+                    predoseSection
 
                     notesHeader
                     notesSection
@@ -212,9 +246,38 @@ struct DosingPopUp: View {
 
     // MARK: Functions
     func saveDoseInformation() {
-        let newDoseRecord = DoseRecord(date: selectedDate, time: doseTime, notes: notes, selectedAllergens: profileViewModel.selectedAllergens, doses: selectedDoses)
-        healthKitViewModel.saveDoseRecord(newDoseRecord)
+        let context = healthKitViewModel.persistentContainer.viewContext
+        guard let entity = NSEntityDescription.entity(forEntityName: "DoseRecord", in: context) else { return }
+        let newDoseRecord = DoseRecord(entity: entity, insertInto: context)
+        newDoseRecord.date = selectedDate
+        newDoseRecord.time = doseTime
+        newDoseRecord.notes = notes
+
+        // Convert arrays to NSData or archive them before assigning to Core Data entity
+        if let allergenData = try? NSKeyedArchiver.archivedData(withRootObject: selectedAllergensArray, requiringSecureCoding: false) as NSData? {
+            newDoseRecord.selectedAllergens = allergenData
+        }
+
+        if let antihistamineData = try? NSKeyedArchiver.archivedData(withRootObject: selectedAntihistamineDoses, requiringSecureCoding: false) as NSData? {
+            newDoseRecord.antihistamineDoses = antihistamineData
+        }
+
+        if let doseData = try? NSKeyedArchiver.archivedData(withRootObject: selectedDoses, requiringSecureCoding: false) as NSData? {
+            newDoseRecord.doses = doseData
+        }
+
+        do {
+            try context.save()
+            print("DoseRecord saved successfully.")
+        } catch {
+            print("Failed to save DoseRecord: \(error.localizedDescription)")
+        }
+
+        // Dismiss the pop-up
+        presentationMode.wrappedValue.dismiss()
     }
+
+
 }
 
 // MARK: Preview

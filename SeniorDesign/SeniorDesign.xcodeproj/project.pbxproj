@@ -16,6 +16,7 @@
 		0933A81F2AE091FB00734501 /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0933A81E2AE091FB00734501 /* InsightsView.swift */; };
 		0945E3CB2B43A3F200983001 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945E3CA2B43A3F200983001 /* SectionHeaderView.swift */; };
 		0945E3CD2B43A91F00983001 /* EducationViewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945E3CC2B43A91F00983001 /* EducationViewContent.swift */; };
+		0945E3D32B45170900983001 /* DoseDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0945E3D12B45170900983001 /* DoseDataModel.xcdatamodeld */; };
 		0966A7D52AC21E0400D0BFFF /* GetSetUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966A7D42AC21E0400D0BFFF /* GetSetUpView.swift */; };
 		0966A7D72AC21F1900D0BFFF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966A7D62AC21F1900D0BFFF /* Extensions.swift */; };
 		097EA4C72AE303700035B8AE /* ArticleRichLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097EA4C62AE303700035B8AE /* ArticleRichLink.swift */; };
@@ -69,6 +70,7 @@
 		0933A81E2AE091FB00734501 /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
 		0945E3CA2B43A3F200983001 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		0945E3CC2B43A91F00983001 /* EducationViewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationViewContent.swift; sourceTree = "<group>"; };
+		0945E3D22B45170900983001 /* DoseDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DoseDataModel.xcdatamodel; sourceTree = "<group>"; };
 		0966A7D42AC21E0400D0BFFF /* GetSetUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSetUpView.swift; sourceTree = "<group>"; };
 		0966A7D62AC21F1900D0BFFF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		097EA4C62AE303700035B8AE /* ArticleRichLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRichLink.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				09AA87A92AE1C47600E898A5 /* HealthKitManager.swift */,
 				09AA87AB2AE1C4D800E898A5 /* HealthKitViewModel.swift */,
+				0945E3D12B45170900983001 /* DoseDataModel.xcdatamodeld */,
 			);
 			path = HealthKit;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				09C1583F2A930CCD00B3D25E /* SeniorDesignApp.swift in Sources */,
 				0933A8152AE0758400734501 /* EducationView.swift in Sources */,
 				0925CB0F2AC1FE5800032495 /* GetStartedView.swift in Sources */,
+				0945E3D32B45170900983001 /* DoseDataModel.xcdatamodeld in Sources */,
 				097EA4C92AE3037B0035B8AE /* ArticleView.swift in Sources */,
 				09E8EB262AE3A70E0013ED66 /* ProfileViewModel.swift in Sources */,
 				0933A81D2AE091C000734501 /* DosingView.swift in Sources */,
@@ -771,6 +775,19 @@
 			productName = CareKitUI;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		0945E3D12B45170900983001 /* DoseDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0945E3D22B45170900983001 /* DoseDataModel.xcdatamodel */,
+			);
+			currentVersion = 0945E3D22B45170900983001 /* DoseDataModel.xcdatamodel */;
+			path = DoseDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 09C158332A930CCD00B3D25E /* Project object */;
 }
