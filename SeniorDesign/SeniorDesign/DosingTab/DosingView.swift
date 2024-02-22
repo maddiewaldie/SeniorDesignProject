@@ -49,6 +49,11 @@ struct DosingView: View {
 
     var listOfDoses: some View {
         List {
+            if doseViewModel.allergensWithDoses.isEmpty {
+                Text("Click the + button to add a dose.")
+                    .foregroundColor(.gray)
+                    .padding()
+            }
             ForEach(doseViewModel.allergensWithDoses) { allergenWithDoses in
                 Section(header: Text(allergenWithDoses.allergen).font(.title2).bold().foregroundColor(colorScheme == .dark ? Color.white : Color.black)) {
                     ForEach(allergenWithDoses.doses) { dose in

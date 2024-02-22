@@ -268,6 +268,9 @@ struct DosingPopUp: View {
 
         do {
             try context.save()
+            healthKitViewModel.fetchSymptomsFromCoreData(for: selectedDate)
+            healthKitViewModel.fetchDoseRecords()
+            doseViewModel.loadDoses()
             print("DoseRecord saved successfully.")
         } catch {
             print("Failed to save DoseRecord: \(error.localizedDescription)")

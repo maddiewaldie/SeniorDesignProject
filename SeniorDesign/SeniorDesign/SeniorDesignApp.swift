@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LocalAuthentication
 
 let hasAppBeenOpenedBeforeKey = "HasAppBeenOpenedBefore"
 
@@ -17,7 +18,25 @@ struct OITApp: App {
     @StateObject var doseViewModel = DoseViewModel()
     
     @AppStorage(hasAppBeenOpenedBeforeKey) var hasAppBeenOpenedBefore: Bool = false
-    
+
+    @State private var isUnlocked = false
+
+    func authenticate() {
+        let context = LAContext()
+        var error: NSError?
+        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+            let reason = "Allow OIT to use a passcode, TouchID, or FaceID to protect your data."
+
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { success, authenticationError in
+                if success {
+                    isUnlocked = true
+                } else {
+                    // Error
+                }
+            }
+        }
+    }
+
     // MARK: View of App
     var body: some Scene {
         WindowGroup {
@@ -29,6 +48,12 @@ struct OITApp: App {
                     .onAppear(perform: {
                         profileViewModel.loadProfileData()
                         doseViewModel.loadDoses()
+                        if !isUnlocked && profileViewModel.profileData.useFaceID {
+                            authenticate()
+                        }
+                    })
+                    .onDisappear(perform: {
+                        isUnlocked = false
                     })
             } else {
                 GetStartedView()
