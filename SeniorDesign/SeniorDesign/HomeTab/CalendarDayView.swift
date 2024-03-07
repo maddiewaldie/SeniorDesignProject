@@ -36,7 +36,7 @@ struct CalendarDayView: View {
 
     private var circleColor: Color {
         if !isSelectable {
-            return Color.init(hex: "fafafa")
+            return Color.lightGrey
         }
         if isSelected {
             return Color.darkTeal // Color for selected circle
@@ -49,7 +49,7 @@ struct CalendarDayView: View {
 
     private var circleTextColor: Color {
         if !isSelectable {
-            return Color.init(hex: "d3d3d3")
+            return Color.mediumGrey
         }
         if isSelected {
             return Color.white

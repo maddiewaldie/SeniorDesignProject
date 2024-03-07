@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GetStartedView: View {
+    @EnvironmentObject var appState: AppState
     // MARK: UI Elements
     var getStartedButton: some View {
         NavigationLink(destination: GetSetUpView().navigationBarBackButtonHidden(true)) {

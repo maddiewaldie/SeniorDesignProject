@@ -11,6 +11,8 @@ struct GetSetUpView: View {
     // MARK: View Models
     @EnvironmentObject var profileViewModel: ProfileViewModel
     @EnvironmentObject var healthKitViewModel: HealthKitViewModel
+    @EnvironmentObject var appState: AppState
+
 
     // MARK: UI Elements
     var setUpTitle: some View {
@@ -47,6 +49,9 @@ struct GetSetUpView: View {
                     NavigationLink(destination: TabbedApplicationView().navigationBarBackButtonHidden(true)) {
                         Spacer()
                         getStartedButton
+                            .onTapGesture {
+                                appState.hasAppBeenOpenedBefore = true
+                            }
                         Spacer()
                     }
                 }

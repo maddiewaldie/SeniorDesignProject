@@ -32,7 +32,7 @@ struct LastReactionInsight: View {
             }
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-        .background(Color.init(hex: "e9f5f9"))
+        .background(Color.lightBlue)
         .cornerRadius(20)
     }
 }

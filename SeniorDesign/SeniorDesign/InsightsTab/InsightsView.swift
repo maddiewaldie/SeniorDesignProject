@@ -53,7 +53,7 @@ struct InsightsView: View {
                         Spacer()
                     }
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 50, maxHeight: .infinity, alignment: .topLeading)
-                    .background(Color.init(hex: "e9f5f9"))
+                    .background(Color.lightBlue)
                     .cornerRadius(20)
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
@@ -63,11 +63,7 @@ struct InsightsView: View {
                     .padding(.trailing, 20)
                     .padding(.bottom, 20)
                     VStack {
-                        if symptomDataManager.fetchAllSymptoms().isEmpty {
-                            Text("No data available for symptoms.")
-                                .foregroundColor(.gray)
-                                .padding()
-                        } else {
+                        if !symptomDataManager.fetchAllSymptoms().isEmpty {
                             HStack {
                                 Text("Symptoms").bold()
                                     .font(.title2)
@@ -83,7 +79,7 @@ struct InsightsView: View {
                         }
                     }
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-                    .background(Color.init(hex: "e9f5f9"))
+                    .background(Color.lightBlue)
                     .cornerRadius(20)
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
@@ -95,7 +91,7 @@ struct InsightsView: View {
                         .padding(.bottom, 20)
                     }
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-                    .background(Color.init(hex: "e9f5f9"))
+                    .background(Color.lightBlue)
                     .cornerRadius(20)
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
@@ -139,19 +135,19 @@ struct InsightsView: View {
 
             let calendar = Calendar.current
             let components = calendar.dateComponents([.day], from: minDate, to: Date())
-            return (components.day ?? 0) + 1 // Adding 1 to start from Day 1
+            return (components.day ?? 0) + 1
         }
 
         if let firstSymptomDate = symptomDataManager.symptomRecords.keys.sorted().first {
             let calendar = Calendar.current
             let components = calendar.dateComponents([.day], from: firstSymptomDate, to: Date())
-            return (components.day ?? 0) + 1 // Adding 1 to start from Day 1
+            return (components.day ?? 0) + 1
         }
 
         if let firstDoseDate = healthKitViewModel.doseRecords.keys.sorted().first {
             let calendar = Calendar.current
             let components = calendar.dateComponents([.day], from: firstDoseDate, to: Date())
-            return (components.day ?? 0) + 1 // Adding 1 to start from Day 1
+            return (components.day ?? 0) + 1
         }
 
         return 1

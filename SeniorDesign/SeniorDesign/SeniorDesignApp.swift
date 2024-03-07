@@ -10,14 +10,17 @@ import LocalAuthentication
 
 let hasAppBeenOpenedBeforeKey = "HasAppBeenOpenedBefore"
 
+class AppState: ObservableObject {
+    @AppStorage(hasAppBeenOpenedBeforeKey) var hasAppBeenOpenedBefore: Bool = false
+}
+
 @main
 struct OITApp: App {
     // MARK: View Models
     @StateObject var profileViewModel = ProfileViewModel()
     @StateObject var healthKitViewModel = HealthKitViewModel()
     @StateObject var doseViewModel = DoseViewModel()
-    
-    @AppStorage(hasAppBeenOpenedBeforeKey) var hasAppBeenOpenedBefore: Bool = false
+    @StateObject var appState = AppState()
 
     @State private var isUnlocked = false
 
@@ -51,7 +54,7 @@ struct OITApp: App {
     // MARK: View of App
     var body: some Scene {
         WindowGroup {
-            if hasAppBeenOpenedBefore {
+            if appState.hasAppBeenOpenedBefore {
                 TabbedApplicationView()
                     .environmentObject(profileViewModel)
                     .environmentObject(healthKitViewModel)
@@ -71,8 +74,8 @@ struct OITApp: App {
                     .environmentObject(profileViewModel)
                     .environmentObject(healthKitViewModel)
                     .environmentObject(doseViewModel)
+                    .environmentObject(appState)
                     .onAppear {
-                        hasAppBeenOpenedBefore = true
                         profileViewModel.loadProfileData()
                         doseViewModel.loadDoses()
                     }

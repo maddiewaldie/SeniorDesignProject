@@ -13,6 +13,7 @@ class ProfileData: ObservableObject, Codable {
     @Published var allergens: [String] = []
     @Published var shareDataWithAppleHealth: Bool = false
     @Published var useFaceID: Bool = false
+    @Published var commonAllergens = ["Peanuts", "Milk", "Eggs", "Fish", "Shellfish", "Soy", "Tree Nuts", "Almonds", "Brazil Nuts", "Cashews", "Hazelnuts", "Macadamia Nuts", "Pecans", "Pine Nuts", "Pistachios", "Walnuts", "Wheat", "Sesame"]
 
     enum CodingKeys: String, CodingKey {
         case name
@@ -20,6 +21,7 @@ class ProfileData: ObservableObject, Codable {
         case allergens
         case shareDataWithAppleHealth
         case useFaceID
+        case commonAllergens
     }
 
     required init(from decoder: Decoder) throws {
@@ -29,6 +31,7 @@ class ProfileData: ObservableObject, Codable {
         allergens = try container.decode([String].self, forKey: .allergens)
         shareDataWithAppleHealth = try container.decode(Bool.self, forKey: .shareDataWithAppleHealth)
         useFaceID = try container.decode(Bool.self, forKey: .useFaceID)
+        commonAllergens = try container.decode([String].self, forKey: .commonAllergens)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -38,6 +41,7 @@ class ProfileData: ObservableObject, Codable {
         try container.encode(allergens, forKey: .allergens)
         try container.encode(shareDataWithAppleHealth, forKey: .shareDataWithAppleHealth)
         try container.encode(useFaceID, forKey: .useFaceID)
+        try container.encode(commonAllergens, forKey: .commonAllergens)
     }
 
     init() { }

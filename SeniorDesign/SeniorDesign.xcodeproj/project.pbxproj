@@ -163,8 +163,7 @@
 		096A738C2B9A36BE001A3563 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
-				0945E3D12B45170900983001 /* DoseDataModel.xcdatamodeld */,
-				0945E3D42B4528D600983001 /* SymptomDataModel.xcdatamodeld */,
+				096A739F2B9A3CA4001A3563 /* CoreData */,
 				096A73912B9A3761001A3563 /* AllergenWithDoses.swift */,
 				096A73992B9A3875001A3563 /* AntihistamineDose.swift */,
 				096A739B2B9A3890001A3563 /* AntihistamineDoseTransformer.swift */,
@@ -177,6 +176,15 @@
 				09EDCBE92B3E53E90004DAFC /* SymptomDataManager.swift */,
 			);
 			path = DataModels;
+			sourceTree = "<group>";
+		};
+		096A739F2B9A3CA4001A3563 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0945E3D12B45170900983001 /* DoseDataModel.xcdatamodeld */,
+				0945E3D42B4528D600983001 /* SymptomDataModel.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		097EA4C02AE300E20035B8AE /* HealthKit */ = {

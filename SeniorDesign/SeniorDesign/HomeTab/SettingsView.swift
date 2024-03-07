@@ -14,9 +14,8 @@ struct SettingsView: View {
     @EnvironmentObject var healthKitViewModel: HealthKitViewModel
     @EnvironmentObject var doseViewModel: DoseViewModel
 
-
-    // MARK: Variables
-    let commonAllergens = ["Peanuts", "Milk", "Eggs", "Fish", "Shellfish", "Soy", "Tree Nuts", "Almonds", "Brazil Nuts", "Cashews", "Hazelnuts", "Macadamia Nuts", "Pecans", "Pine Nuts", "Pistachios", "Walnuts", "Wheat", "Sesame"]
+    @State private var isAddingOtherAllergen = false
+    @State private var otherAllergenName: String = ""
 
     // MARK: UI Elements
     var personalInformationSection: some View {
@@ -54,24 +53,26 @@ struct SettingsView: View {
                     HStack {
                         VStack {
                             Picker("Select an Allergen", selection: $profileViewModel.profileData.allergens[index]) {
-                                ForEach(commonAllergens, id: \.self) { allergen in
-                                    Text(allergen).tag(allergen)
+                                ForEach($profileViewModel.profileData.commonAllergens, id: \.self) { allergen in
+                                    Text(allergen.wrappedValue).tag(allergen.wrappedValue)
                                 }
                                 Text("Other").tag("Other")
-                                // TODO: Handle Other
                             }
                             .pickerStyle(DefaultPickerStyle())
                             .padding(.bottom, 10)
                             .onChange(of: profileViewModel.profileData.allergens[index]) { newValue in
-                                if !profileViewModel.profileData.allergens.contains(newValue) {
+                                if newValue == "Other" {
+                                    isAddingOtherAllergen = true
+                                } else if !profileViewModel.profileData.allergens.contains(newValue) && newValue != "Select an Allergen" && newValue != "" && newValue != "Other"{
                                     profileViewModel.profileData.allergens.append(newValue)
+                                    profileViewModel.profileData.allergens.removeAll { $0 == "Other" }
                                     profileViewModel.saveProfileData()
                                 }
                             }
                             .onAppear {
                                 if profileViewModel.profileData.allergens[index].isEmpty,
-                                   let firstCommonAllergen = commonAllergens.first {
-                                    profileViewModel.profileData.allergens[index] = firstCommonAllergen
+                                   let firstCommonAllergen = $profileViewModel.profileData.commonAllergens.first {
+                                    profileViewModel.profileData.allergens[index] = firstCommonAllergen.wrappedValue
                                 }
                             }
                             Spacer()
@@ -98,10 +99,23 @@ struct SettingsView: View {
                     Text("Add Allergen")
                 }
             }
-        }.padding(.top, 10)
+        }
+        .padding(.top, 10)
+        .alert("Enter Other Allergen", isPresented: $isAddingOtherAllergen) {
+            TextField("Other Allergen", text: $otherAllergenName)
+            Button("OK", action: submit)
+        }
     }
 
-
+    func submit() {
+        if !profileViewModel.profileData.allergens.contains(otherAllergenName) {
+            profileViewModel.profileData.allergens.append(otherAllergenName)
+            profileViewModel.profileData.commonAllergens.append(otherAllergenName)
+            profileViewModel.profileData.allergens.removeAll { $0 == "Other" }
+            profileViewModel.saveProfileData()
+        }
+        isAddingOtherAllergen = false
+    }
 
     var shareDataWithHealthToggle: some View {
         Toggle("Share Data with Apple Health", isOn: $profileViewModel.profileData.shareDataWithAppleHealth)

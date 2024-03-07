@@ -50,7 +50,7 @@ struct DoseRowView: View {
                 AddDoseView(isEditing: $isEditing.wrappedValue)
                     .environmentObject(viewModel)
             })
-            .tint(Color.yellow)
+            .tint(Color.lightYellow)
        }
     }
 }
