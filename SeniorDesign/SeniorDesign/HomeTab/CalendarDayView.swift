@@ -36,7 +36,7 @@ struct CalendarDayView: View {
 
     private var circleColor: Color {
         if !isSelectable {
-            return Color.grey
+            return Color.init(hex: "fafafa")
         }
         if isSelected {
             return Color.darkTeal // Color for selected circle
@@ -45,6 +45,18 @@ struct CalendarDayView: View {
         } else {
             return Color.lightTeal // Default color for other circles
         }
+    }
+
+    private var circleTextColor: Color {
+        if !isSelectable {
+            return Color.init(hex: "d3d3d3")
+        }
+        if isSelected {
+            return Color.white
+        } else if let selectedColorIndex = selectedColorIndex, selectedColorIndex == index {
+            return Color.black
+        } else {
+            return Color.black        }
     }
 
     // MARK: UI Elements
@@ -60,7 +72,7 @@ struct CalendarDayView: View {
             .overlay(
                 Text(dateText)
                     .font(.subheadline)
-                    .foregroundColor(.black)
+                    .foregroundColor(circleTextColor)
                     .bold()
             )
             .onTapGesture {

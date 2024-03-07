@@ -26,7 +26,7 @@ struct ArticleRichLink: View {
                         Image(image)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: UIScreen.main.bounds.width - 30, height: 170)
+                            .frame(width: UIScreen.main.bounds.width - 30, height: 200)
                             .padding(.top, 0)
                         HStack {
                             Text(articleTitle)

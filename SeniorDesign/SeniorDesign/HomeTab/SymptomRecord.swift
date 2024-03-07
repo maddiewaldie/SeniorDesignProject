@@ -44,8 +44,23 @@ class SymptomDataManager: ObservableObject {
         }
         return []
     }
+    
+    // Function to fetch all stored symptoms from Core Data
+    func fetchAllSymptoms() -> [String] {
+        let context = persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<SymptomRecord> = SymptomRecord.fetchRequest()
 
-    // Rest of the Core Data stack and persistent container remains the same...
+        do {
+            let result = try context.fetch(fetchRequest)
+            let allSymptoms = result.flatMap { ($0.symptoms as? [String]) ?? [] }
+            return allSymptoms
+        } catch {
+            print("Failed to fetch all symptoms: \(error.localizedDescription)")
+            return []
+        }
+    }
+
+
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "SymptomDataModel")
         container.loadPersistentStores { _, error in
@@ -55,4 +70,22 @@ class SymptomDataManager: ObservableObject {
         }
         return container
     }()
+
+    func lastReactionDate() -> Date? {
+            let context = persistentContainer.viewContext
+            let fetchRequest: NSFetchRequest<SymptomRecord> = SymptomRecord.fetchRequest()
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+            fetchRequest.fetchLimit = 1
+
+            do {
+                let result = try context.fetch(fetchRequest)
+                if let record = result.first {
+                    return record.date
+                }
+            } catch {
+                print("Failed to fetch last reaction date: \(error.localizedDescription)")
+            }
+
+            return nil
+        }
 }

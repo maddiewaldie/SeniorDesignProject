@@ -26,4 +26,13 @@ extension Color {
         
         self.init(red: red, green: green, blue: blue)
     }
+
+    static var mutedRandom: Color {
+        let red = CGFloat.random(in: 0.2...0.8)
+        let green = CGFloat.random(in: 0.2...0.8)
+        let blue = CGFloat.random(in: 0.2...0.8)
+
+        return Color(red: Double(red), green: Double(green), blue: Double(blue))
+    }
+
 }

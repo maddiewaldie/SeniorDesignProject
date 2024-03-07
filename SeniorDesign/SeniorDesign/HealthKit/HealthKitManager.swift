@@ -141,7 +141,7 @@ class HealthKitManager {
     // MARK: Health Request Functions
     func setUpHealthRequest(healthStore: HKHealthStore, readSteps: @escaping () -> Void) {
         if HKHealthStore.isHealthDataAvailable() {
-            healthStore.requestAuthorization(toShare: Set(symptoms), read: []) { success, error in
+            healthStore.requestAuthorization(toShare: Set(symptoms), read: [HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!]) { success, error in
                 if success {
                 } else if error != nil {
                     print(error ?? "Error")

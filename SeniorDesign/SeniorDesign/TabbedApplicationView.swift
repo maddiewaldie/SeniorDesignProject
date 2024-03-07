@@ -28,7 +28,7 @@ struct TabbedApplicationView: View {
             
             // MARK: Insights Tab
             NavigationView {
-                InsightsView()
+                InsightsView(healthKitViewModel: healthKitViewModel)
                     .environmentObject(profileViewModel)
                     .environmentObject(healthKitViewModel)
                     .environmentObject(doseViewModel)

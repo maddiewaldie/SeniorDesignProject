@@ -29,8 +29,11 @@ struct AboutYourDoseView: View {
             if let data = allergenDoses.doses as? Data,
                let doses = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [String: String] {
                 ForEach(doses.sorted(by: { $0.key < $1.key }), id: \.key) { (allergen, dose) in
+                    let formattedDose = dose.components(separatedBy: "•").last?
+                        .replacingOccurrences(of: ".0", with: "") ?? ""
+                        .trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
                     HStack {
-                        Text("\(allergen) • \(dose)")
+                        Text("\(allergen) • \(formattedDose)")
                             .foregroundColor(.black)
                             .padding(.leading, 20)
                             .padding(.bottom, 5)
@@ -67,7 +70,8 @@ struct AboutYourDoseView: View {
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
             .background(Color.lightTeal)
             .cornerRadius(20)
-            .padding()
+            .padding(.leading, 20)
+            .padding(.trailing, 20)
             HStack {
                 Spacer()
                 Image(systemName: "pills.fill")

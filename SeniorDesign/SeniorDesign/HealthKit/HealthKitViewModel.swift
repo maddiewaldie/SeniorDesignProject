@@ -13,6 +13,8 @@ class HealthKitViewModel: ObservableObject {
     // MARK: Variables
     @Published var isAuthorized = false
     @Published var doseRecords: [Date: DoseRecord] = [:]
+    @Published var totalTakenDoses: Int = 0
+    @Published var totalSkippedDoses: Int = 0
     private var healthStore = HKHealthStore()
     private var healthKitManager = HealthKitManager()
 
