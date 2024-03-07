@@ -8,21 +8,6 @@
 import SwiftUI
 import TipKit
 
-struct DosingViewTip: Tip, Identifiable {
-    var id = UUID()
-    var title: Text {
-        Text("Add your OIT dosages here!")
-    }
-
-    var message: Text? {
-        Text("Begin by tapping the + button to effortlessly add your doses. Once doses are added, simply swipe to access options for editing, deleting, or designating them as your current dose.")
-    }
-
-    var image: Image? {
-        Image(systemName: "lightbulb.max.fill")
-    }
-}
-
 struct DosingView: View {
     // MARK: View Models
     @EnvironmentObject var doseViewModel: DoseViewModel
@@ -173,79 +158,6 @@ struct DosingView: View {
             }
         }
     }
-}
-
-struct DoseRowView: View {
-    let dose: Dose
-    let numberFormatter: NumberFormatter
-    let viewModel: DoseViewModel
-
-    @State var isEditing: Binding<Bool>
-    @State private var createNewDose = false
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Text(dose.doseType)
-                    .font(.headline)
-                if dose.isCurrentDose {
-                    Image(systemName: "star.circle.fill")
-                        .foregroundColor(Color.darkTeal)
-                }
-            }
-            if let formattedDosage = numberFormatter.string(for: dose.doseAmount) {
-                Text("Dosage: \(formattedDosage) mg")
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-            }
-        }
-        .swipeActions(edge: .leading) {
-           Button {
-               viewModel.setAsCurrentDose(dose)
-           } label: {
-               Label("Set as Current", systemImage: "star")
-           }
-           .tint(Color.darkTeal)
-
-            Button {
-                isEditing.wrappedValue = true
-                createNewDose = true
-            } label: {
-                Label("Edit", systemImage: "pencil")
-            }
-            .sheet(isPresented: $createNewDose, content: {
-                AddDoseView(isEditing: $isEditing.wrappedValue)
-                    .environmentObject(viewModel)
-            })
-            .tint(Color.yellow)
-       }
-    }
-}
-
-// MARK: Dose View Model Extension
-extension DoseViewModel {
-    var allergensWithDoses: [AllergenWithDoses] {
-        let groupedDoses = Dictionary(grouping: doses, by: { $0.allergen })
-        let sortedAllergens = groupedDoses.keys.sorted()
-        return sortedAllergens.map { allergen in
-            AllergenWithDoses(allergen: allergen, doses: groupedDoses[allergen]!)
-        }
-    }
-}
-
-// MARK: Allergen with Doses
-struct AllergenWithDoses: Identifiable, Hashable {
-    static func == (lhs: AllergenWithDoses, rhs: AllergenWithDoses) -> Bool {
-            return lhs.id == rhs.id
-        }
-
-        func hash(into hasher: inout Hasher) {
-            hasher.combine(id)
-        }
-
-    let id = UUID()
-    let allergen: String
-    let doses: [Dose]
 }
 
 // MARK: Preview

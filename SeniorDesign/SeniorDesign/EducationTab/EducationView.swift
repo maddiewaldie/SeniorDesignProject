@@ -8,39 +8,11 @@
 import SwiftUI
 import TipKit
 
-struct ResourcesTip: Tip, Identifiable {
-    var id = UUID()
-    var title: Text {
-        Text("Stay Informed")
-    }
-
-    var message: Text? {
-        Text("Explore our curated articles, hotlines, and useful links for valuable insights into food allergies and OIT. Empower yourself with knowledge to navigate your journey confidently!")
-    }
-
-    var image: Image? {
-        Image(systemName: "books.vertical.circle")
-    }
-}
-
-struct ESTip: Tip, Identifiable {
-    var id = UUID()
-    var title: Text {
-        Text("Emergency Assistance")
-    }
-
-    var message: Text? {
-        Text("In case of an anaphylactic reaction, don't hesitate to call 911 immediately. Time is crucial. Stay calm, provide your location, and follow dispatcher instructions. Administer epinephrine if available, and if trained to do so.")
-    }
-
-    var image: Image? {
-        Image(systemName: "phone.badge.checkmark")
-    }
-}
-
 struct EducationView: View {
     // MARK: Variables
     let content = EducationViewContent()
+    var resourcesTip = ResourcesTip()
+    var esTip = EmergencyServicesTip()
 
     // MARK: UI Elements
     var articles: some View {
@@ -139,9 +111,6 @@ struct EducationView: View {
             }
         }
     }
-
-    var resourcesTip = ResourcesTip()
-    var esTip = ESTip()
 
     // MARK: Education Tab View
     var body: some View {

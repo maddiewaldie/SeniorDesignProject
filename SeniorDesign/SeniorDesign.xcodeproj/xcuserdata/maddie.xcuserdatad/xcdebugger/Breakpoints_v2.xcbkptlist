@@ -14,8 +14,8 @@
             filePath = "SeniorDesign/Onboarding/ProfileViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "loadProfileData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -190,8 +190,8 @@
             filePath = "SeniorDesign/DosingTab/DosingView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "listOfDoses"
             landmarkType = "24">
          </BreakpointContent>

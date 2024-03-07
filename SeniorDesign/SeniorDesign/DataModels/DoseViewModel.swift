@@ -7,21 +7,16 @@
 
 import Foundation
 
-struct Dose: Identifiable, Codable {
-    var id: UUID {
-        return UUID()
-    }
-    var allergen: String
-    var doseType: String
-    var doseAmount: Double
-    var halfDose: Double {
-        return doseAmount / 2.0
-    }
-    var isCurrentDose: Bool // Add property to track current dose
-}
-
 class DoseViewModel: ObservableObject {
     @Published var doses: [Dose] = []
+
+    var allergensWithDoses: [AllergenWithDoses] {
+        let groupedDoses = Dictionary(grouping: doses, by: { $0.allergen })
+        let sortedAllergens = groupedDoses.keys.sorted()
+        return sortedAllergens.map { allergen in
+            AllergenWithDoses(allergen: allergen, doses: groupedDoses[allergen]!)
+        }
+    }
 
     // Function to add a dose with an option to mark it as current
     func addDose(allergen: String, doseType: String, doseAmount: Double, isCurrentDose: Bool) {

@@ -34,5 +34,24 @@ extension Color {
 
         return Color(red: Double(red), green: Double(green), blue: Double(blue))
     }
+}
 
+extension String {
+    func splitCamelCase() -> String {
+        var formattedString = self.replacingOccurrences(of: "HKCategoryTypeIdentifier", with: "")
+
+        let pattern = "(\\w)([A-Z])"
+        let regex = try! NSRegularExpression(pattern: pattern, options: [])
+        let range = NSRange(location: 0, length: formattedString.utf16.count)
+
+        let matches = regex.matches(in: formattedString, options: [], range: range)
+        for match in matches.reversed() {
+            let index = formattedString.index(formattedString.startIndex, offsetBy: match.range(at: 2).location)
+            if index < formattedString.endIndex {
+                formattedString.insert(" ", at: index)
+            }
+        }
+
+        return formattedString
+    }
 }
