@@ -6,6 +6,37 @@
 //
 
 import SwiftUI
+import TipKit
+
+struct ResourcesTip: Tip, Identifiable {
+    var id = UUID()
+    var title: Text {
+        Text("Stay Informed")
+    }
+
+    var message: Text? {
+        Text("Explore our curated articles, hotlines, and useful links for valuable insights into food allergies and OIT. Empower yourself with knowledge to navigate your journey confidently!")
+    }
+
+    var image: Image? {
+        Image(systemName: "phone.badge.checkmark")
+    }
+}
+
+struct ESTip: Tip, Identifiable {
+    var id = UUID()
+    var title: Text {
+        Text("Emergency Assistance")
+    }
+
+    var message: Text? {
+        Text("In case of an anaphylactic reaction, don't hesitate to call 911 immediately. Time is crucial. Stay calm, provide your location, and follow dispatcher instructions. Administer epinephrine if available, and if trained to do so.")
+    }
+
+    var image: Image? {
+        Image(systemName: "books.vertical.circle")
+    }
+}
 
 struct EducationView: View {
     // MARK: Variables
@@ -30,6 +61,13 @@ struct EducationView: View {
                     .font(.title3).bold()
                     .padding()
                 Spacer()
+            }
+            if #available(iOS 17.0, *) {
+                TipView(esTip, arrowEdge: .bottom)
+                    .tipCornerRadius(15)
+                    .padding(.leading, 25)
+                    .padding(.trailing, 25)
+                    .padding(.trailing, 20)
             }
             Button(action: {
                 if let url = URL(string: "tel://911") {
@@ -102,6 +140,9 @@ struct EducationView: View {
         }
     }
 
+    var resourcesTip = ResourcesTip()
+    var esTip = ESTip()
+
     // MARK: Education Tab View
     var body: some View {
         VStack(alignment: .leading) {
@@ -109,12 +150,27 @@ struct EducationView: View {
                 .font(.largeTitle.bold())
                 .padding()
             ScrollView {
+                if #available(iOS 17.0, *) {
+                    TipView(resourcesTip, arrowEdge: .none)
+                        .tipCornerRadius(15)
+                        .padding(.leading, 25)
+                        .padding(.trailing, 25)
+                }
                 articles
                 emergencyServicesInformation
                 fareInformation
             }
         }
         .padding(.bottom, 20)
+        .task {
+            if #available(iOS 17.0, *) {
+                try? Tips.configure([
+                    .displayFrequency(.immediate),
+                    .datastoreLocation(.applicationDefault)
+                ])
+                Tips.showAllTipsForTesting()
+            }
+        }
     }
 }
 

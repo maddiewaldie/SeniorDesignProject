@@ -66,36 +66,6 @@
             endingLineNumber = "255"
             landmarkName = "saveDoseInformation()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C8D77675-B4FC-4D0A-8A44-7952FD42A38E - ed6734bc5442fcd5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SeniorDesign.DosingPopUp.saveDoseInformation() -&gt; ()"
-                  moduleName = "SeniorDesign"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/DosingPopUp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "257"
-                  endingLineNumber = "257">
-               </Location>
-               <Location
-                  uuid = "C8D77675-B4FC-4D0A-8A44-7952FD42A38E - ed6734bc5442fcd5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SeniorDesign.DosingPopUp.saveDoseInformation() -&gt; ()"
-                  moduleName = "SeniorDesign"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/DosingPopUp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "257"
-                  endingLineNumber = "257">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -112,36 +82,6 @@
             endingLineNumber = "261"
             landmarkName = "saveDoseInformation()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "0A9C24C9-B353-4416-B5F5-CCCAB3B56C02 - ed6734bc5442fd29"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SeniorDesign.DosingPopUp.saveDoseInformation() -&gt; ()"
-                  moduleName = "SeniorDesign"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/DosingPopUp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "261"
-                  endingLineNumber = "261">
-               </Location>
-               <Location
-                  uuid = "0A9C24C9-B353-4416-B5F5-CCCAB3B56C02 - ed6734bc5442fd29"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SeniorDesign.DosingPopUp.saveDoseInformation() -&gt; ()"
-                  moduleName = "SeniorDesign"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/DosingPopUp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "261"
-                  endingLineNumber = "261">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -158,36 +98,6 @@
             endingLineNumber = "265"
             landmarkName = "saveDoseInformation()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E603E3B7-3DEC-40A4-A14F-DEB7971C1DE7 - ed6734bc5442fdad"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SeniorDesign.DosingPopUp.saveDoseInformation() -&gt; ()"
-                  moduleName = "SeniorDesign"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/DosingPopUp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "265"
-                  endingLineNumber = "265">
-               </Location>
-               <Location
-                  uuid = "E603E3B7-3DEC-40A4-A14F-DEB7971C1DE7 - ed6734bc5442fdad"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SeniorDesign.DosingPopUp.saveDoseInformation() -&gt; ()"
-                  moduleName = "SeniorDesign"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/DosingPopUp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "265"
-                  endingLineNumber = "265">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -236,36 +146,6 @@
             endingLineNumber = "145"
             landmarkName = "logSymptomsButton"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "16B278F9-D21C-449D-B672-3C780CEE34BC - 26093786ced51bf1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 () -&gt; SwiftUI.NavigationView&lt;&lt;&lt;opaque return type of SwiftUI.View.environmentObject&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Combine.ObservableObject&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt; in SeniorDesign.HomeView.logSymptomsButton.getter : some"
-                  moduleName = "SeniorDesign"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/HomeView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145">
-               </Location>
-               <Location
-                  uuid = "16B278F9-D21C-449D-B672-3C780CEE34BC - b360c6e5c4660b49"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.environmentObject&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Combine.ObservableObject&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0 in closure #3 () -&gt; SwiftUI.NavigationView&lt;&lt;&lt;opaque return type of SwiftUI.View.environmentObject&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Combine.ObservableObject&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt; in SeniorDesign.HomeView.logSymptomsButton.getter : some"
-                  moduleName = "SeniorDesign"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maddie/SeniorDesignProject/SeniorDesign/SeniorDesign/HomeTab/HomeView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -297,6 +177,22 @@
             startingLineNumber = "32"
             endingLineNumber = "32"
             landmarkName = "dosesTaken"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "11397254-6BDB-4851-99A1-27BBEF36206C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SeniorDesign/DosingTab/DosingView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "listOfDoses"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>

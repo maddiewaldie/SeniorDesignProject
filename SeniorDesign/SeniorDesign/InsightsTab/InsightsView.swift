@@ -8,6 +8,22 @@
 import SwiftUI
 import CoreData
 import Charts
+import TipKit
+
+struct InsightsTip: Tip, Identifiable {
+    var id = UUID()
+    var title: Text {
+        Text("Unlock Your Health Insights")
+    }
+
+    var message: Text? {
+        Text("Discover personalized stats and insightful graphs based on your symptoms and doses. Track your progress, gain valuable health insights, and make informed decisions on your journey to wellness.")
+    }
+
+    var image: Image? {
+        Image(systemName: "waveform.badge.magnifyingglass")
+    }
+}
 
 struct InsightsView: View {
     // MARK: View Model
@@ -24,11 +40,20 @@ struct InsightsView: View {
         }
     }
 
+    var insightsTip = InsightsTip()
+
     // MARK: Insights View
     var body: some View {
         VStack {
             header
             ScrollView {
+                if #available(iOS 17.0, *) {
+                    TipView(insightsTip, arrowEdge: .none)
+                        .tipCornerRadius(15)
+                        .padding(.leading, 25)
+                        .padding(.trailing, 25)
+                        .padding(.bottom, 20)
+                }
                 VStack {
                     VStack {
                         Spacer()
@@ -95,13 +120,22 @@ struct InsightsView: View {
         .onAppear(perform: {
             healthKitViewModel.fetchDoseRecords()
         })
+        .task {
+            if #available(iOS 17.0, *) {
+                try? Tips.configure([
+                    .displayFrequency(.immediate),
+                    .datastoreLocation(.applicationDefault)
+                ])
+                Tips.showAllTipsForTesting()
+            }
+        }
     }
 
     private func calculateSlices(symptoms: [String]) -> [(Double, Color, String)] {
         let groupedSymptoms = Dictionary(grouping: symptoms, by: { $0 })
         var calculatedSlices: [(Double, Color, String)] = []
 
-        for (index, (key, value)) in groupedSymptoms.enumerated() {
+        for (_, (key, value)) in groupedSymptoms.enumerated() {
             let formattedKey = splitCamelCase(key)
             let slice = (Double(value.count) / Double(symptoms.count), Color.mutedRandom, formattedKey)
             calculatedSlices.append(slice)

@@ -18,6 +18,8 @@ struct AddDoseView: View {
     @State private var doseName = ""
     @State private var doseAmount = ""
     @State private var isCurrentDose = false
+    @State var editingDose: Dose?
+    @State var isEditing: Binding<Bool>
 
     // MARK: Add Dose View
     var body: some View {
@@ -54,15 +56,30 @@ struct AddDoseView: View {
                     Toggle("Current Dose", isOn: $isCurrentDose)
                 }
             }
-            .navigationTitle("Add Dose")
-            .navigationBarItems(trailing:
-                Button("Save") {
-                    if let dosage = Double(doseAmount), !doseAmount.isEmpty {
-                        doseViewModel.addDose(allergen: selectedAllergen, doseType: doseName, doseAmount: dosage, isCurrentDose: isCurrentDose)
-                        presentationMode.wrappedValue.dismiss()
+            .onAppear {
+                    // Set initial values for editing
+                    if let editingDose = editingDose {
+                        selectedAllergen = editingDose.allergen
+                        doseName = editingDose.doseType
+                        doseAmount = "\(editingDose.doseAmount)"
+                        isCurrentDose = editingDose.isCurrentDose
                     }
                 }
-            )
+                .navigationTitle(editingDose != nil ? "Edit Dose" : "Add Dose")
+                .navigationBarItems(trailing:
+                    Button("Save") {
+                        if let dosage = Double(doseAmount), !doseAmount.isEmpty {
+                            if let editingDose = editingDose {
+                                // Update existing dose
+                                doseViewModel.updateDose(editingDose, allergen: selectedAllergen, doseType: doseName, doseAmount: dosage, isCurrentDose: isCurrentDose)
+                            } else {
+                                // Add new dose
+                                doseViewModel.addDose(allergen: selectedAllergen, doseType: doseName, doseAmount: dosage, isCurrentDose: isCurrentDose)
+                            }
+                            isEditing.wrappedValue = false
+                        }
+                    }
+                )
         }
     }
 }

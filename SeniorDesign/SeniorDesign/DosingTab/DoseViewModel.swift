@@ -9,8 +9,8 @@ import Foundation
 
 struct Dose: Identifiable, Codable {
     let id = UUID()
-    let allergen: String
-    let doseType: String
+    var allergen: String
+    var doseType: String
     var doseAmount: Double
     var halfDose: Double {
         return doseAmount / 2.0
@@ -89,5 +89,15 @@ class DoseViewModel: ObservableObject {
         }
 
         return Array(Set(uniqueDoseTypes))
+    }
+
+    func updateDose(_ existingDose: Dose, allergen: String, doseType: String, doseAmount: Double, isCurrentDose: Bool) {
+        if let index = doses.firstIndex(where: { $0.id == existingDose.id }) {
+            doses[index].allergen = allergen
+            doses[index].doseType = doseType
+            doses[index].doseAmount = doseAmount
+            doses[index].isCurrentDose = isCurrentDose
+            saveDoses()
+        }
     }
 }
