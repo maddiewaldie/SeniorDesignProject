@@ -268,7 +268,7 @@ struct DosingPopUp: View {
 
         do {
             try context.save()
-            healthKitViewModel.fetchSymptomsFromCoreData(for: selectedDate)
+            _ = healthKitViewModel.fetchSymptomsFromCoreData(for: selectedDate)
             healthKitViewModel.fetchDoseRecords()
             doseViewModel.loadDoses()
             print("DoseRecord saved successfully.")

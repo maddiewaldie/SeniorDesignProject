@@ -63,6 +63,7 @@ struct InsightsView: View {
                                 .padding(.leading, 20)
                                 .padding(.trailing, 20)
                                 .font(.subheadline)
+                                .foregroundColor(.black)
                             Spacer()
                         }
                         Spacer()
@@ -86,6 +87,7 @@ struct InsightsView: View {
                             HStack {
                                 Text("Symptoms").bold()
                                     .font(.title2)
+                                    .foregroundColor(.black)
                                     .padding()
                                 Spacer()
                             }
@@ -199,6 +201,7 @@ struct DosesForMonth: View {
             HStack {
                 Text("Doses This Month").bold()
                     .font(.title2)
+                    .foregroundColor(.black)
                     .padding()
                     .padding(.bottom, 0)
                 Spacer()
@@ -265,8 +268,10 @@ struct LastReactionInsight: View {
                     Spacer()
                     if daysSinceLastReaction <= 2 {
                         Text("Don't worry, it's okay. Things will improve. It's been \(daysSinceLastReaction) days since your last reaction.").bold()
+                            .foregroundColor(.black)
                     } else {
                         Text("Congratulations! It's been \(daysSinceLastReaction) days since your last reaction!").bold()
+                            .foregroundColor(.black)
                     }
                     Spacer()
                 }
@@ -337,15 +342,13 @@ struct Pie: View {
                 p.addEllipse(in: CGRect(x: size.width * 0.25, y: size.height * 0.25, width: size.width * 0.5, height: size.height * 0.5))
             }
             context.clip(to: donut, style: .init(eoFill: true))
-            let total = slices.reduce(0) { $0 + $1.0 }
             context.translateBy(x: size.width * 0.5, y: size.height * 0.5)
             var pieContext = context
             pieContext.rotate(by: .degrees(-90))
             let radius = min(size.width, size.height) * 0.48
-            let gapSize = Angle(degrees: 5) // size of the gap between slices in degrees
 
             var startAngle = Angle.zero
-            for (value, color, name) in slices {
+            for (value, color, _) in slices {
                 let angle = Angle(degrees: 360 * value)
                 let endAngle = startAngle + angle
                 let path = Path { p in
@@ -371,6 +374,7 @@ struct LegendItem: View {
                 .fill(color)
                 .frame(width: 10, height: 10)
             Text(label)
+                .foregroundColor(.black)
         }
         .padding(.horizontal)
     }

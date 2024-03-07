@@ -8,7 +8,9 @@
 import Foundation
 
 struct Dose: Identifiable, Codable {
-    let id = UUID()
+    var id: UUID {
+        return UUID()
+    }
     var allergen: String
     var doseType: String
     var doseAmount: Double

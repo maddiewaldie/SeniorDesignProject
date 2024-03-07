@@ -31,7 +31,7 @@ struct AboutYourDoseView: View {
                 ForEach(doses.sorted(by: { $0.key < $1.key }), id: \.key) { (allergen, dose) in
                     let formattedDose = dose.components(separatedBy: "•").last?
                         .replacingOccurrences(of: ".0", with: "") ?? ""
-                        .trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+                        .trimmingCharacters(in: .whitespacesAndNewlines)
                     HStack {
                         Text("\(allergen) • \(formattedDose)")
                             .foregroundColor(.black)

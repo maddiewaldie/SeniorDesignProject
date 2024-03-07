@@ -213,7 +213,7 @@ struct HomeView: View {
             profileViewModel.loadProfileData()
             healthKitManager.loadSymptomsForSelectedDate(selectedDate: selectedDate, symptomDataManager: symptomDataManager) {
             }
-            healthKitViewModel.fetchSymptomsFromCoreData(for: selectedDate)
+            _ = healthKitViewModel.fetchSymptomsFromCoreData(for: selectedDate)
             healthKitViewModel.fetchDoseRecords()
             doseViewModel.loadDoses()
         })

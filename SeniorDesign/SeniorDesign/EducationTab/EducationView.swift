@@ -19,7 +19,7 @@ struct ResourcesTip: Tip, Identifiable {
     }
 
     var image: Image? {
-        Image(systemName: "phone.badge.checkmark")
+        Image(systemName: "books.vertical.circle")
     }
 }
 
@@ -34,7 +34,7 @@ struct ESTip: Tip, Identifiable {
     }
 
     var image: Image? {
-        Image(systemName: "books.vertical.circle")
+        Image(systemName: "phone.badge.checkmark")
     }
 }
 
