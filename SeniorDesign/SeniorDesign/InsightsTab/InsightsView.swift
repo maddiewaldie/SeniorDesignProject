@@ -30,6 +30,24 @@ struct InsightsView: View {
             header
             ScrollView {
                 VStack {
+                    VStack {
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            Text("Today is day \(calculateDayOfTreatment()) of treatment!").bold()
+                                .padding(.leading, 20)
+                                .padding(.trailing, 20)
+                                .font(.subheadline)
+                            Spacer()
+                        }
+                        Spacer()
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 50, maxHeight: .infinity, alignment: .topLeading)
+                    .background(Color.init(hex: "e9f5f9"))
+                    .cornerRadius(20)
+                    .padding(.leading, 20)
+                    .padding(.trailing, 20)
+                    .padding(.bottom, 20)
                     LastReactionInsight(symptomDataManager: symptomDataManager)
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
@@ -90,6 +108,33 @@ struct InsightsView: View {
         }
 
         return calculatedSlices
+    }
+
+    func calculateDayOfTreatment() -> Int {
+        if let firstSymptomDate = symptomDataManager.symptomRecords.keys.sorted().first,
+           let firstDoseDate = healthKitViewModel.doseRecords.keys.sorted().first {
+
+            let firstDates = [firstSymptomDate, firstDoseDate]
+            let minDate = firstDates.min()!
+
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.day], from: minDate, to: Date())
+            return (components.day ?? 0) + 1 // Adding 1 to start from Day 1
+        }
+
+        if let firstSymptomDate = symptomDataManager.symptomRecords.keys.sorted().first {
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.day], from: firstSymptomDate, to: Date())
+            return (components.day ?? 0) + 1 // Adding 1 to start from Day 1
+        }
+
+        if let firstDoseDate = healthKitViewModel.doseRecords.keys.sorted().first {
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.day], from: firstDoseDate, to: Date())
+            return (components.day ?? 0) + 1 // Adding 1 to start from Day 1
+        }
+
+        return 1
     }
 }
 
@@ -173,7 +218,6 @@ struct DosesForMonth: View {
             return (dosesTaken, dosesSkipped)
         }
 }
-
 
 struct LastReactionInsight: View {
     @ObservedObject var symptomDataManager: SymptomDataManager

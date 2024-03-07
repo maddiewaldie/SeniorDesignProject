@@ -26,8 +26,9 @@ struct ArticleRichLink: View {
                         Image(image)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: UIScreen.main.bounds.width - 30, height: 200)
+                            .frame(width: UIScreen.main.bounds.width - 30, height: 180)
                             .padding(.top, 0)
+                            .padding(.bottom, 10)
                         HStack {
                             Text(articleTitle)
                                 .font(.title2.bold())
@@ -42,7 +43,7 @@ struct ArticleRichLink: View {
                         Spacer()
                     }
                 }
-                .frame(width: UIScreen.main.bounds.width - 30, height: 280)
+                .frame(width: UIScreen.main.bounds.width - 30, height: 260)
                 .background(Color.grey)
                 .cornerRadius(20)
             }
