@@ -75,7 +75,7 @@ struct DosingPopUp: View {
                     profileViewModel.toggleAllergenSelection(allergen)
                 }) {
                     VStack {
-                        Text(profileViewModel.allergenEmojiMap[allergen] ?? "")
+                        Text(profileViewModel.profileData.allergenEmojiMap[allergen] ?? "")
                             .padding(.bottom, 10)
                             .font(.title)
                         Text(allergen)
@@ -185,7 +185,10 @@ struct DosingPopUp: View {
                     let doseTypesForSelectedAllergens = doseViewModel.doseTypesForSelectedAllergens(selectedAllergens: [allergen])
 
                     ForEach(doseTypesForSelectedAllergens, id: \.self) { doseType in
-                        Text(doseType)
+                        let formattedDose = doseType.components(separatedBy: "•").last?
+                            .replacingOccurrences(of: ".0", with: "") ?? ""
+                            .trimmingCharacters(in: .whitespacesAndNewlines)
+                        Text(formattedDose)
                     }
                 }
                 .pickerStyle(MenuPickerStyle())

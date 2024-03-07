@@ -15,7 +15,9 @@ struct SettingsView: View {
     @EnvironmentObject var doseViewModel: DoseViewModel
 
     @State private var isAddingOtherAllergen = false
+    @State private var isAddingOtherAllergenEmoji = false
     @State private var otherAllergenName: String = ""
+    @State private var otherAllergenEmoji: String = ""
 
     // MARK: UI Elements
     var personalInformationSection: some View {
@@ -103,11 +105,15 @@ struct SettingsView: View {
         .padding(.top, 10)
         .alert("Enter Other Allergen", isPresented: $isAddingOtherAllergen) {
             TextField("Other Allergen", text: $otherAllergenName)
-            Button("OK", action: submit)
+            Button("OK", action: submitOtherAllergen)
+        }
+        .alert("Enter Emoji for Your Allergen", isPresented: $isAddingOtherAllergenEmoji) {
+            TextField("Emoji", text: $otherAllergenEmoji)
+            Button("OK", action: submitOtherEmoji)
         }
     }
 
-    func submit() {
+    func submitOtherAllergen() {
         if !profileViewModel.profileData.allergens.contains(otherAllergenName) {
             profileViewModel.profileData.allergens.append(otherAllergenName)
             profileViewModel.profileData.commonAllergens.append(otherAllergenName)
@@ -115,6 +121,13 @@ struct SettingsView: View {
             profileViewModel.saveProfileData()
         }
         isAddingOtherAllergen = false
+        isAddingOtherAllergenEmoji = true
+    }
+
+    func submitOtherEmoji() {
+        profileViewModel.profileData.allergenEmojiMap[otherAllergenName] = otherAllergenEmoji
+        profileViewModel.saveProfileData()
+        isAddingOtherAllergenEmoji = false
     }
 
     var shareDataWithHealthToggle: some View {

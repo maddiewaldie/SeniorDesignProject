@@ -39,7 +39,6 @@ struct EducationView: View {
                     .tipCornerRadius(15)
                     .padding(.leading, 25)
                     .padding(.trailing, 25)
-                    .padding(.trailing, 20)
             }
             Button(action: {
                 if let url = URL(string: "tel://911") {

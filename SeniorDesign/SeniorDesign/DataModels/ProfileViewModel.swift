@@ -30,26 +30,6 @@ class ProfileViewModel: ObservableObject {
         }
     }
 
-    let allergenEmojiMap: [String: String] = [
-        "Peanuts": "🥜",
-        "Almonds": "🌰",
-        "Brazil Nuts": "🌰",
-        "Cashews": "🌰",
-        "Hazelnuts": "🌰",
-        "Macadamia Nuts": "🌰",
-        "Pecans": "🌰",
-        "Pine Nuts": "🌰",
-        "Pistachios": "🌰",
-        "Walnuts": "🌰",
-        "Milk": "🥛",
-        "Eggs": "🍳",
-        "Wheat": "🌾",
-        "Soy": "🌱",
-        "Fish": "🐟",
-        "Shellfish": "🦞",
-        "Sesame": "🌿",
-    ]
-
     func addNewAllergen() {
         profileData.allergens.append("Select an Allergen")
         numAllergens += 1 // Increment the allergen count

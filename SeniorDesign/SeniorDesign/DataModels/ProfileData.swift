@@ -14,6 +14,25 @@ class ProfileData: ObservableObject, Codable {
     @Published var shareDataWithAppleHealth: Bool = false
     @Published var useFaceID: Bool = false
     @Published var commonAllergens = ["Peanuts", "Milk", "Eggs", "Fish", "Shellfish", "Soy", "Tree Nuts", "Almonds", "Brazil Nuts", "Cashews", "Hazelnuts", "Macadamia Nuts", "Pecans", "Pine Nuts", "Pistachios", "Walnuts", "Wheat", "Sesame"]
+    @Published var allergenEmojiMap: [String: String] = [
+        "Peanuts": "🥜",
+        "Almonds": "🌰",
+        "Brazil Nuts": "🌰",
+        "Cashews": "🌰",
+        "Hazelnuts": "🌰",
+        "Macadamia Nuts": "🌰",
+        "Pecans": "🌰",
+        "Pine Nuts": "🌰",
+        "Pistachios": "🌰",
+        "Walnuts": "🌰",
+        "Milk": "🥛",
+        "Eggs": "🍳",
+        "Wheat": "🌾",
+        "Soy": "🌱",
+        "Fish": "🐟",
+        "Shellfish": "🦞",
+        "Sesame": "🌿",
+    ]
 
     enum CodingKeys: String, CodingKey {
         case name
