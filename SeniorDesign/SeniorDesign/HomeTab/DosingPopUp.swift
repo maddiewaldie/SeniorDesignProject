@@ -108,7 +108,7 @@ struct DosingPopUp: View {
             .font(.body.bold())
             .labelsHidden()
             .padding(.leading, 20)
-            .tint(Color.darkTeal)
+            .tint(.darkTeal)
     }
 
     var predoseHeader: some View {
@@ -145,7 +145,7 @@ struct DosingPopUp: View {
                             }
                         }
                         .pickerStyle(DefaultPickerStyle())
-                        .tint(Color.darkTeal)
+                        .tint(.darkTeal)
                     }
                 }
                 .padding(.horizontal, 20)

@@ -72,7 +72,7 @@ struct DosingView: View {
             createNewDose = true
         }, label: {
             Image(systemName: "plus")
-                .foregroundColor(Color.darkTeal)
+                .foregroundColor(.darkTeal)
         })
         .sheet(isPresented: $createNewDose, content: {
             AddDoseView(isEditing: $isEditing)

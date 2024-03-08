@@ -23,7 +23,7 @@ struct DoseRowView: View {
                     .font(.headline)
                 if dose.isCurrentDose {
                     Image(systemName: "star.circle.fill")
-                        .foregroundColor(Color.darkTeal)
+                        .foregroundColor(.darkTeal)
                 }
             }
             if let formattedDosage = numberFormatter.string(for: dose.doseAmount) {
@@ -38,7 +38,7 @@ struct DoseRowView: View {
            } label: {
                Label("Set as Current", systemImage: "star")
            }
-           .tint(Color.darkTeal)
+           .tint(.darkTeal)
 
             Button {
                 isEditing.wrappedValue = true

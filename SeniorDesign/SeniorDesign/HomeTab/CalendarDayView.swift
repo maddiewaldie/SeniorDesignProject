@@ -39,11 +39,11 @@ struct CalendarDayView: View {
             return Color.lightGrey
         }
         if isSelected {
-            return Color.darkTeal // Color for selected circle
+            return .darkTeal // Color for selected circle
         } else if let selectedColorIndex = selectedColorIndex, selectedColorIndex == index {
-            return Color.lightTeal // Color for previously tapped circle
+            return .lightTeal // Color for previously tapped circle
         } else {
-            return Color.lightTeal // Default color for other circles
+            return .lightTeal // Default color for other circles
         }
     }
 

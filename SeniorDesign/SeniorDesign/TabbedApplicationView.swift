@@ -12,7 +12,8 @@ struct TabbedApplicationView: View {
     @EnvironmentObject var profileViewModel: ProfileViewModel
     @EnvironmentObject var healthKitViewModel: HealthKitViewModel
     @EnvironmentObject var doseViewModel: DoseViewModel
-    
+    @EnvironmentObject var profileImageViewModel: ProfileModel
+
     var body: some View {
         TabView {
             // MARK: Home Tab
@@ -21,6 +22,7 @@ struct TabbedApplicationView: View {
                     .environmentObject(profileViewModel)
                     .environmentObject(healthKitViewModel)
                     .environmentObject(doseViewModel)
+                    .environmentObject(profileImageViewModel)
             }
             .tabItem {
                 Label("Today", systemImage: "calendar")
@@ -59,7 +61,7 @@ struct TabbedApplicationView: View {
                 Label("Education", systemImage: "graduationcap.fill")
             }
         }
-        .tint(Color.darkTeal)
+        .tint(.darkTeal)
         .onAppear(perform: {
             profileViewModel.loadProfileData()
             doseViewModel.loadDoses()

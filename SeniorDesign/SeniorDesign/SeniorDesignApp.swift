@@ -20,6 +20,7 @@ struct OITApp: App {
     @StateObject var profileViewModel = ProfileViewModel()
     @StateObject var healthKitViewModel = HealthKitViewModel()
     @StateObject var doseViewModel = DoseViewModel()
+    @StateObject var profileImageViewModel = ProfileModel()
     @StateObject var appState = AppState()
 
     @State private var isUnlocked = false
@@ -59,6 +60,7 @@ struct OITApp: App {
                     .environmentObject(profileViewModel)
                     .environmentObject(healthKitViewModel)
                     .environmentObject(doseViewModel)
+                    .environmentObject(profileImageViewModel)
                     .onAppear(perform: {
                         profileViewModel.loadProfileData()
                         doseViewModel.loadDoses()
@@ -75,6 +77,7 @@ struct OITApp: App {
                     .environmentObject(healthKitViewModel)
                     .environmentObject(doseViewModel)
                     .environmentObject(appState)
+                    .environmentObject(profileImageViewModel)
                     .onAppear {
                         profileViewModel.loadProfileData()
                         doseViewModel.loadDoses()

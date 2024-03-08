@@ -12,6 +12,8 @@ struct HomeView: View {
     @EnvironmentObject var profileViewModel: ProfileViewModel
     @EnvironmentObject var healthKitViewModel: HealthKitViewModel
     @EnvironmentObject var doseViewModel: DoseViewModel
+    @EnvironmentObject var profileImageViewModel: ProfileModel
+
     let healthKitManager = HealthKitManager()
 
     // MARK: Variables
@@ -31,9 +33,9 @@ struct HomeView: View {
     // MARK: UI Elements
     var profileButton: some View {
         NavigationLink(destination: SettingsView().environmentObject(profileViewModel)
-            .environmentObject(healthKitViewModel)){
-                Image(systemName: "person.circle.fill")
-                    .resizable()
+            .environmentObject(healthKitViewModel).environmentObject(profileImageViewModel)) {
+
+                CircularProfileImage(imageState: profileImageViewModel.imageState)
                     .frame(width: 35, height: 35)
                     .foregroundColor(.secondary)
             }
@@ -79,7 +81,7 @@ struct HomeView: View {
             .padding(.leading, 20)
             .padding(.trailing, 20)
             .padding(.bottom, 10)
-            .foregroundColor(Color.lightTeal)
+            .foregroundColor(.lightTeal)
             .overlay(
                 weekCircleViewContent
             )
@@ -122,7 +124,7 @@ struct HomeView: View {
         DatePicker("Select Date", selection: $selectedDate, in: ...Date(), displayedComponents: [.date])
             .datePickerStyle(GraphicalDatePickerStyle())
             .padding()
-            .tint(Color.darkTeal)
+            .tint(.darkTeal)
     }
 
     var logSymptomsButton: some View {

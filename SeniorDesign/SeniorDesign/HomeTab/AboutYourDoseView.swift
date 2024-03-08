@@ -76,7 +76,7 @@ struct AboutYourDoseView: View {
                 Spacer()
                 Image(systemName: "pills.fill")
                     .font(.system(size: 90))
-                    .foregroundColor(Color.darkTeal)
+                    .foregroundColor(.darkTeal)
                     .padding(.trailing, 35)
             }
         }
