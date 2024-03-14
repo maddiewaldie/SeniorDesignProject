@@ -91,6 +91,7 @@ struct SettingsView: View {
                                 } else if !profileViewModel.profileData.allergens.contains(newValue) && newValue != "Select an Allergen" && newValue != "" && newValue != "Other"{
                                     profileViewModel.profileData.allergens.append(newValue)
                                     profileViewModel.profileData.allergens.removeAll { $0 == "Other" }
+                                    profileViewModel.profileData.commonAllergens.sort()
                                     profileViewModel.saveProfileData()
                                 }
                             }
@@ -132,6 +133,7 @@ struct SettingsView: View {
             profileViewModel.profileData.allergens.append(otherAllergenName)
             profileViewModel.profileData.commonAllergens.append(otherAllergenName)
             profileViewModel.profileData.allergens.removeAll { $0 == "Other" }
+            profileViewModel.profileData.commonAllergens.sort()
             profileViewModel.saveProfileData()
         }
         isAddingOtherAllergen = false
@@ -140,6 +142,7 @@ struct SettingsView: View {
 
     func submitOtherEmoji() {
         profileViewModel.profileData.allergenEmojiMap[otherAllergenName] = otherAllergenEmoji
+        profileViewModel.profileData.commonAllergens.sort()
         profileViewModel.saveProfileData()
         isAddingOtherAllergenEmoji = false
     }
@@ -210,6 +213,7 @@ struct SettingsView: View {
             .onAppear(perform: {
                 profileViewModel.loadProfileData()
                 doseViewModel.loadDoses()
+                profileViewModel.profileData.commonAllergens.sort()
             })
         }
     }

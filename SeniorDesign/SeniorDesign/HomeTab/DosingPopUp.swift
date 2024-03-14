@@ -70,14 +70,22 @@ struct DosingPopUp: View {
 
     var allergensSection: some View {
         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
-            ForEach(profileViewModel.profileData.allergens, id: \.self) { allergen in
+            ForEach(profileViewModel.profileData.allergens.sorted(), id: \.self) { allergen in
                 Button(action: {
                     profileViewModel.toggleAllergenSelection(allergen)
                 }) {
                     VStack {
-                        Text(profileViewModel.profileData.allergenEmojiMap[allergen] ?? "")
-                            .padding(.bottom, 10)
-                            .font(.title)
+                        if profileViewModel.profileData.isNut(allergen) {
+                            Image("\(allergen)")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .aspectRatio(contentMode: .fit)
+                                .padding(.bottom, 10)
+                        } else {
+                            Text(profileViewModel.profileData.allergenEmojiMap[allergen] ?? "")
+                                .padding(.bottom, 10)
+                                .font(.title)
+                        }
                         Text(allergen)
                             .bold()
                             .foregroundColor(profileViewModel.isSelected(allergen) ? Color.white : Color.black)
