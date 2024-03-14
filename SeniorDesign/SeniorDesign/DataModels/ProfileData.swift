@@ -36,7 +36,7 @@ class ProfileData: ObservableObject, Codable {
     ]
 
     func isNut(_ allergen: String) -> Bool {
-        let nuts = ["Almonds", "Brazil Nuts", "Cashews", "Hazelnuts", "Macadamia Nuts", "Pine Nuts", "Pistachios", "Pecans", "Walnuts"]
+        let nuts = ["Almonds", "Brazil Nuts", "Cashews", "Macadamia Nuts", "Pine Nuts", "Pistachios", "Pecans", "Walnuts"]
         return nuts.contains(allergen)
     }
 
@@ -47,6 +47,7 @@ class ProfileData: ObservableObject, Codable {
         case shareDataWithAppleHealth
         case useFaceID
         case commonAllergens
+        case allergenEmojiMap
     }
 
     required init(from decoder: Decoder) throws {
@@ -57,6 +58,7 @@ class ProfileData: ObservableObject, Codable {
         shareDataWithAppleHealth = try container.decode(Bool.self, forKey: .shareDataWithAppleHealth)
         useFaceID = try container.decode(Bool.self, forKey: .useFaceID)
         commonAllergens = try container.decode([String].self, forKey: .commonAllergens)
+        allergenEmojiMap = try container.decode([String : String].self, forKey: .allergenEmojiMap)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -67,6 +69,7 @@ class ProfileData: ObservableObject, Codable {
         try container.encode(shareDataWithAppleHealth, forKey: .shareDataWithAppleHealth)
         try container.encode(useFaceID, forKey: .useFaceID)
         try container.encode(commonAllergens, forKey: .commonAllergens)
+        try container.encode(allergenEmojiMap, forKey: .allergenEmojiMap)
     }
 
     init() { }

@@ -148,8 +148,8 @@ struct DosingPopUp: View {
                             }
                         )
                         Picker("\(antihistamines[index])", selection: selectedDose) {
-                            ForEach(1..<6, id: \.self) { dosage in
-                                Text("\(dosage * 10) mg").tag("\(dosage * 10) mg")
+                            ForEach(["2.5", "5", "10", "12.5", "20", "25", "30", "40", "50"], id: \.self) { dosage in
+                                Text("\(dosage) mg").tag("\(dosage) mg")
                             }
                         }
                         .pickerStyle(DefaultPickerStyle())
