@@ -6,6 +6,7 @@ struct SymptomsPopUp: View {
     @EnvironmentObject var symptomDataManager: SymptomDataManager
     @Binding var selectedSymptoms: Set<String>
     let selectedDate: Date
+    @State var contactDoctor = false
     let healthKitManager = HealthKitManager()
     let columns: [GridItem] = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
 
@@ -50,6 +51,11 @@ struct SymptomsPopUp: View {
                 }
             }
         }
+        .alert("Have you contacted your doctor? 🩺", isPresented: $contactDoctor) {
+            Text("You have selected symptoms that may require immediate attention. Please contact your doctor or call 911.")
+            Button("OK", action: {contactDoctor = false})
+        }
+        .onDisappear(perform: saveSymptomsForSelectedDate)
         .padding(10)
     }
 
@@ -69,6 +75,14 @@ struct SymptomsPopUp: View {
 
     private func saveSymptomsForSelectedDate() {
         symptomDataManager.saveSymptoms(for: selectedDate, symptoms: Array(selectedSymptoms))
+
+        let worrisomeSymptoms = ["HKCategoryTypeIdentifierFever", "HKCategoryTypeIdentifierVomiting", "HKCategoryTypeIdentifierChestTightnessOrPain", "HKCategoryTypeIdentifierChills", "HKCategoryTypeIdentifierRapidPoundingOrFlutteringHeartbeat", "HKCategoryTypeIdentifierShortnessOfBreath", "HKCategoryTypeIdentifierMemoryLapse", "HKCategoryTypeIdentifierMoodChanges", "HKCategoryTypeIdentifierFainting", "HKCategoryTypeIdentifierDizziness", "HKCategoryTypeIdentifierCoughing"]
+
+            let hasWorrisomeSymptoms = selectedSymptoms.contains { worrisomeSymptoms.contains($0) }
+
+            if hasWorrisomeSymptoms {
+                contactDoctor = true
+            }
     }
 
     private func toggleSymptom(_ identifier: String) {

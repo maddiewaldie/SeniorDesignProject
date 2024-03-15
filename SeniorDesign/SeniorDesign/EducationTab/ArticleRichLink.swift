@@ -44,7 +44,7 @@ struct ArticleRichLink: View {
                     }
                 }
                 .frame(width: UIScreen.main.bounds.width - 30, height: 260)
-                .background(Color.grey)
+                .background(Color.mediumGrey)
                 .cornerRadius(20)
             }
         }
