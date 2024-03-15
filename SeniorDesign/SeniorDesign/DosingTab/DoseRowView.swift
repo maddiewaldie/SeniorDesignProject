@@ -58,6 +58,7 @@ struct DoseRowView: View {
                 ),
                 label: { EmptyView() }
             )
+            .hidden()
         )
     }
 }

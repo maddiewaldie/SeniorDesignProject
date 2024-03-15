@@ -204,6 +204,20 @@ struct SettingsView: View {
                             .padding(.trailing, 20)
                         preferencesSection
                         Spacer()
+                        Divider()
+                            .padding(20)
+                        if appState.hasAppBeenOpenedBefore {
+                            HStack {
+                                Spacer()
+                                Text("Log Out")
+                                    .foregroundColor(.red)
+                                    .onTapGesture {
+                                        // TODO: Add logic to log out
+                                    }
+                                Spacer()
+                            }
+                            Spacer()
+                        }
                     }
                     .padding()
                 }
