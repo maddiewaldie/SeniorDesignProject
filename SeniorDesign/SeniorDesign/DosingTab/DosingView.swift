@@ -134,6 +134,9 @@ struct DosingView: View {
                 expandedStates[allergenWithDoses.allergen] = true
             }
         }
+        .onDisappear(perform: {
+            doseViewModel.saveDoses()
+        })
     }
 
     // MARK: Dosing View

@@ -69,7 +69,7 @@ struct HomeView: View {
         WeeklyScrollCalendarView
             .padding(.bottom, -10)
             .onAppear {
-                selectedDate = startOfWeek
+                selectedDate = todaysDate
             }
             .onChange(of: selectedDate) { _ in
                 dayOfTreatment = calculateDayOfTreatment()
@@ -213,7 +213,6 @@ struct HomeView: View {
         }
         .onAppear(perform: {
             profileViewModel.loadProfileData()
-//            profileViewModel.profileData.commonAllergens = ["Milk", "Eggs", "Fish", "Shellfish", "Soy", "Peanuts", "Almonds", "Brazil Nuts", "Cashews", "Coconuts", "Hazelnuts", "Macadamia Nuts", "Pecans", "Pine Nuts", "Pistachios", "Walnuts", "Wheat", "Sesame"]
             healthKitManager.loadSymptomsForSelectedDate(selectedDate: selectedDate, symptomDataManager: symptomDataManager) {
             }
             _ = healthKitViewModel.fetchSymptomsFromCoreData(for: selectedDate)
@@ -283,6 +282,12 @@ struct HomeView: View {
         startComponents.weekOfYear = components.weekOfYear
         startComponents.weekday = 1 // Sunday
         return calendar.date(from: startComponents)!
+    }
+
+    private var todaysDate: Date {
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        return today
     }
 
     private func startOfNextWeek(from date: Date) -> Date {

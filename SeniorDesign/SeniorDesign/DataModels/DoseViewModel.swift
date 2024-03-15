@@ -59,7 +59,7 @@ class DoseViewModel: ObservableObject {
     }
 
     func deleteDose(_ dose: Dose) {
-        if let index = doses.firstIndex(where: { $0.id == dose.id }) {
+        if let index = doses.firstIndex(where: { $0.doseType == dose.doseType }) {
             doses.remove(at: index)
             saveDoses()
         }
@@ -68,7 +68,7 @@ class DoseViewModel: ObservableObject {
     func setAsCurrentDose(_ dose: Dose) {
         for index in 0..<doses.count {
             if doses[index].allergen == dose.allergen {
-                doses[index].isCurrentDose = doses[index].id == dose.id
+                doses[index].isCurrentDose = doses[index].doseType == dose.doseType
             }
         }
         saveDoses()

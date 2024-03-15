@@ -40,12 +40,12 @@ struct DoseRowView: View {
            }
            .tint(.darkTeal)
 
-            Button {
-                isEditing.wrappedValue = true
-                createNewDose = true
-            } label: {
+            Button(action: {
+                isEditing.wrappedValue = false
+                self.createNewDose = true
+            }, label: {
                 Label("Edit", systemImage: "pencil")
-            }
+            })
             .sheet(isPresented: $createNewDose, content: {
                 AddDoseView(isEditing: $isEditing.wrappedValue)
                     .environmentObject(viewModel)
