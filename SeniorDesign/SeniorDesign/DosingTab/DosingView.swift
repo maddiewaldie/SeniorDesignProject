@@ -75,7 +75,7 @@ struct DosingView: View {
                 .foregroundColor(.darkTeal)
         })
         .sheet(isPresented: $createNewDose, content: {
-            AddDoseView(isEditing: $isEditing)
+            AddDoseView()
                 .environmentObject(doseViewModel)
         })
         .padding()
@@ -109,7 +109,7 @@ struct DosingView: View {
                             ),
                     content: {
                         ForEach(allergenWithDoses.doses) { dose in
-                            DoseRowView(dose: dose, numberFormatter: numberFormatter, viewModel: doseViewModel, isEditing: $isEditing)
+                            DoseRowView(dose: dose, numberFormatter: numberFormatter, viewModel: doseViewModel)
                         }
                         .onDelete { indices in
                             indices.forEach { index in

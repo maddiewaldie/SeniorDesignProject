@@ -13,8 +13,8 @@ struct DoseRowView: View {
     let numberFormatter: NumberFormatter
     let viewModel: DoseViewModel
 
-    @State var isEditing: Binding<Bool>
     @State private var createNewDose = false
+    @State private var editingDose: Dose?
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -41,16 +41,23 @@ struct DoseRowView: View {
            .tint(.darkTeal)
 
             Button(action: {
-                isEditing.wrappedValue = false
-                self.createNewDose = true
+                editingDose = dose
             }, label: {
                 Label("Edit", systemImage: "pencil")
             })
-            .sheet(isPresented: $createNewDose, content: {
-                AddDoseView(isEditing: $isEditing.wrappedValue)
-                    .environmentObject(viewModel)
-            })
-            .tint(Color.lightYellow)
+            .tint(.yellow)
        }
+        .navigationBarHidden(true)
+        .background(
+            NavigationLink(
+                destination: AddDoseView(editingDose: editingDose)
+                    .environmentObject(viewModel),
+                isActive: Binding<Bool>(
+                    get: { editingDose != nil },
+                    set: { _ in editingDose = nil }
+                ),
+                label: { EmptyView() }
+            )
+        )
     }
 }

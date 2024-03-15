@@ -168,9 +168,17 @@ struct HomeView: View {
                                         .foregroundColor(.black)
                                         .padding(.bottom, 10)
                                     if let emoji = healthKitManager.symptomEmojis[symptom] {
-                                        Text(emoji)
-                                            .font(.largeTitle)
-                                            .padding(.top, 5)
+                                        if healthKitManager.symptomImageNeeded(symptom) {
+                                            Image("\(symptom)")
+                                                .resizable()
+                                                .frame(width: 30, height: 30)
+                                                .aspectRatio(contentMode: .fit)
+                                                .padding(.top, 10)
+                                        } else {
+                                            Text(emoji)
+                                                .font(.largeTitle)
+                                                .padding(.top, 5)
+                                        }
                                     }
                                 }
                                 .frame(width: 130, height: 150)
