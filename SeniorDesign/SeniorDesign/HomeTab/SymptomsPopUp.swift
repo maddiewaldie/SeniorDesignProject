@@ -30,9 +30,17 @@ struct SymptomsPopUp: View {
                                 .font(.system(size: 14))
                                 .foregroundColor(selectedSymptoms.contains(symptom.identifier.description) ? Color.white : Color.black)
                             if let emoji = healthKitManager.symptomEmojis[symptom.identifier.description] {
-                                Text(emoji)
-                                    .font(.largeTitle)
-                                    .padding(.top, 5)
+                                if healthKitManager.symptomImageNeeded(symptom.identifier.description) {
+                                    Image("\(symptom.identifier.description)")
+                                        .resizable()
+                                        .frame(width: 30, height: 30)
+                                        .aspectRatio(contentMode: .fit)
+                                        .padding(.top, 10)
+                                } else {
+                                    Text(emoji)
+                                        .font(.largeTitle)
+                                        .padding(.top, 5)
+                                }
                             }
                         }
                         .frame(width: UIScreen.main.bounds.width/3 - 10, height: 150)

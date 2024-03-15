@@ -56,6 +56,9 @@ struct EditableCircularProfileImage: View {
 						.font(.system(size: 10))
 						.foregroundColor(.accentColor)
 				}
+                 .onDisappear {
+                     viewModel.saveProfileImage()
+                 }
 				.buttonStyle(.borderless)
 			}
 	}

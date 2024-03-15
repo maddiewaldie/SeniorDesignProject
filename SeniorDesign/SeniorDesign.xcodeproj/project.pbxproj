@@ -36,6 +36,7 @@
 		096A739A2B9A3875001A3563 /* AntihistamineDose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A73992B9A3875001A3563 /* AntihistamineDose.swift */; };
 		096A739C2B9A3890001A3563 /* AntihistamineDoseTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A739B2B9A3890001A3563 /* AntihistamineDoseTransformer.swift */; };
 		096A739E2B9A38B5001A3563 /* SelectedAllergensTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A739D2B9A38B5001A3563 /* SelectedAllergensTransformer.swift */; };
+		09742B4F2BA3EE0000A72979 /* ProfileImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09742B4E2BA3EE0000A72979 /* ProfileImageViewModel.swift */; };
 		097EA4C72AE303700035B8AE /* ArticleRichLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097EA4C62AE303700035B8AE /* ArticleRichLink.swift */; };
 		097EA4C92AE3037B0035B8AE /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097EA4C82AE3037B0035B8AE /* ArticleView.swift */; };
 		097EA4CB2AE3085F0035B8AE /* AboutYourDoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097EA4CA2AE3085F0035B8AE /* AboutYourDoseView.swift */; };
@@ -46,7 +47,6 @@
 		0999939C2B424A5B0064643B /* CareKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0999939B2B424A5B0064643B /* CareKitUI */; };
 		099993A02B4356480064643B /* DoseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999939F2B4356480064643B /* DoseViewModel.swift */; };
 		099B04922B9A82F8000561CD /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099B04912B9A82F8000561CD /* ProfileImage.swift */; };
-		099B04942B9A8310000561CD /* ProfileImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099B04932B9A8310000561CD /* ProfileImageModel.swift */; };
 		09AA87AA2AE1C47600E898A5 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AA87A92AE1C47600E898A5 /* HealthKitManager.swift */; };
 		09AA87AC2AE1C4D800E898A5 /* HealthKitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AA87AB2AE1C4D800E898A5 /* HealthKitViewModel.swift */; };
 		09C1583F2A930CCD00B3D25E /* SeniorDesignApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1583E2A930CCD00B3D25E /* SeniorDesignApp.swift */; };
@@ -109,6 +109,7 @@
 		096A73992B9A3875001A3563 /* AntihistamineDose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntihistamineDose.swift; sourceTree = "<group>"; };
 		096A739B2B9A3890001A3563 /* AntihistamineDoseTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntihistamineDoseTransformer.swift; sourceTree = "<group>"; };
 		096A739D2B9A38B5001A3563 /* SelectedAllergensTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAllergensTransformer.swift; sourceTree = "<group>"; };
+		09742B4E2BA3EE0000A72979 /* ProfileImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageViewModel.swift; sourceTree = "<group>"; };
 		097EA4C62AE303700035B8AE /* ArticleRichLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRichLink.swift; sourceTree = "<group>"; };
 		097EA4C82AE3037B0035B8AE /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 		097EA4CA2AE3085F0035B8AE /* AboutYourDoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutYourDoseView.swift; sourceTree = "<group>"; };
@@ -116,7 +117,6 @@
 		097EA4CE2AE309F60035B8AE /* AddDoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDoseView.swift; sourceTree = "<group>"; };
 		0999939F2B4356480064643B /* DoseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoseViewModel.swift; sourceTree = "<group>"; };
 		099B04912B9A82F8000561CD /* ProfileImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
-		099B04932B9A8310000561CD /* ProfileImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageModel.swift; sourceTree = "<group>"; };
 		09AA87A92AE1C47600E898A5 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		09AA87AB2AE1C4D800E898A5 /* HealthKitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitViewModel.swift; sourceTree = "<group>"; };
 		09AA87AE2AE1CEBA00E898A5 /* SeniorDesign.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeniorDesign.entitlements; sourceTree = "<group>"; };
@@ -175,8 +175,8 @@
 				09EDCBEB2B3E5B660004DAFC /* DoseTransformer.swift */,
 				0999939F2B4356480064643B /* DoseViewModel.swift */,
 				096A738A2B9A3634001A3563 /* ProfileData.swift */,
-				099B04932B9A8310000561CD /* ProfileImageModel.swift */,
 				09E8EB252AE3A70E0013ED66 /* ProfileViewModel.swift */,
+				09742B4E2BA3EE0000A72979 /* ProfileImageViewModel.swift */,
 				096A739D2B9A38B5001A3563 /* SelectedAllergensTransformer.swift */,
 				09EDCBE92B3E53E90004DAFC /* SymptomDataManager.swift */,
 			);
@@ -466,7 +466,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				099B04942B9A8310000561CD /* ProfileImageModel.swift in Sources */,
 				09C158692A93100600B3D25E /* HomeView.swift in Sources */,
 				0933A81F2AE091FB00734501 /* InsightsView.swift in Sources */,
 				0933A81B2AE091A700734501 /* SymptomsPopUp.swift in Sources */,
@@ -474,6 +473,7 @@
 				097EA4CF2AE309F60035B8AE /* AddDoseView.swift in Sources */,
 				09AA87AC2AE1C4D800E898A5 /* HealthKitViewModel.swift in Sources */,
 				09C158412A930CCD00B3D25E /* TabbedApplicationView.swift in Sources */,
+				09742B4F2BA3EE0000A72979 /* ProfileImageViewModel.swift in Sources */,
 				096A738E2B9A36F8001A3563 /* Dose.swift in Sources */,
 				0933A8172AE0908700734501 /* SettingsView.swift in Sources */,
 				096A73922B9A3761001A3563 /* AllergenWithDoses.swift in Sources */,

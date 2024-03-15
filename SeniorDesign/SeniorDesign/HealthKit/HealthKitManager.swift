@@ -87,9 +87,27 @@ class HealthKitManager {
         "HKCategoryTypeIdentifierDrySkin": "🥵",
         "HKCategoryTypeIdentifierHairLoss": "👴",
         "HKCategoryTypeIdentifierNightSweats": "🌙",
-        "HKCategoryTypeIdentifierSleepChanges": "😴",
+        "HKCategoryTypeIdentifierSleepChanges": "🛌",
         "HKCategoryTypeIdentifierBladderIncontinence": "🚽"
     ]
+
+    func symptomImageNeeded(_ symptom: String) -> Bool {
+        if symptom == "HKCategoryTypeIdentifierConstipation" 
+            || symptom == "HKCategoryTypeIdentifierAbdominalCramps"
+            || symptom == "HKCategoryTypeIdentifierBladderIncontinence"
+            || symptom == "HKCategoryTypeIdentifierCoughing"
+            || symptom == "HKCategoryTypeIdentifierSoreThroat"
+            || symptom == "HKCategoryTypeIdentifierSkippedHeartbeat"
+            || symptom == "HKCategoryTypeIdentifierAcne"
+            || symptom == "HKCategoryTypeIdentifierLowerBackPain"
+            || symptom == "HKCategoryTypeIdentifierChills"
+            || symptom == "HKCategoryTypeIdentifierFainting"
+            || symptom == "HKCategoryTypeIdentifierBloating"
+            || symptom == "HKCategoryTypeIdentifierAppetiteChanges" {
+            return true
+        }
+        return false
+    }
 
     // MARK: Symptom Functions
     func saveSymptom(_ symptom: String, for date: Date) {

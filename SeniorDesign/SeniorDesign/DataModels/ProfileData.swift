@@ -13,7 +13,7 @@ class ProfileData: ObservableObject, Codable {
     @Published var allergens: [String] = []
     @Published var shareDataWithAppleHealth: Bool = false
     @Published var useFaceID: Bool = false
-    @Published var commonAllergens = [ "Milk", "Eggs", "Fish", "Shellfish", "Soy", "Tree Nuts", "Almonds", "Brazil Nuts", "Cashews", "Coconuts", "Hazelnuts", "Macadamia Nuts", "Pecans", "Pine Nuts", "Pistachios", "Walnuts", "Wheat", "Sesame"]
+    @Published var commonAllergens = ["Milk", "Eggs", "Fish", "Shellfish", "Soy", "Peanuts", "Almonds", "Brazil Nuts", "Cashews", "Coconuts", "Hazelnuts", "Macadamia Nuts", "Pecans", "Pine Nuts", "Pistachios", "Walnuts", "Wheat", "Sesame"]
     @Published var allergenEmojiMap: [String: String] = [
         "Peanuts": "🥜",
         "Almonds": "🌰",

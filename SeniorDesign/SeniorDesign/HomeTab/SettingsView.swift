@@ -22,6 +22,8 @@ struct SettingsView: View {
 
     @StateObject var appState = AppState()
 
+    @Environment(\.colorScheme) var colorScheme
+
     // MARK: UI Elements
     var personalInformationSection: some View {
         Section(header: Text("Personal Information").font(.title3).bold()) {
@@ -82,7 +84,7 @@ struct SettingsView: View {
                                 }
                                 Text("Other").tag("Other")
                             }
-                            .tint(.black)
+                            .tint(colorScheme == .dark ? .white : .black)
                             .pickerStyle(DefaultPickerStyle())
                             .padding(.bottom, 10)
                             .onChange(of: profileViewModel.profileData.allergens[index]) { newValue in
@@ -209,9 +211,11 @@ struct SettingsView: View {
             .onDisappear {
                 profileViewModel.profileData.allergens = profileViewModel.profileData.allergens.filter { !$0.isEmpty }
                 profileViewModel.saveProfileData()
+                profileImageViewModel.saveProfileImage()
             }
             .onAppear(perform: {
                 profileViewModel.loadProfileData()
+                profileImageViewModel.loadProfileImage()
                 doseViewModel.loadDoses()
                 profileViewModel.profileData.commonAllergens.sort()
             })

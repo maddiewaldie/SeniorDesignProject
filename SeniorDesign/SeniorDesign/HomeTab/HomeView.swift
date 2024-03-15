@@ -213,11 +213,13 @@ struct HomeView: View {
         }
         .onAppear(perform: {
             profileViewModel.loadProfileData()
+//            profileViewModel.profileData.commonAllergens = ["Milk", "Eggs", "Fish", "Shellfish", "Soy", "Peanuts", "Almonds", "Brazil Nuts", "Cashews", "Coconuts", "Hazelnuts", "Macadamia Nuts", "Pecans", "Pine Nuts", "Pistachios", "Walnuts", "Wheat", "Sesame"]
             healthKitManager.loadSymptomsForSelectedDate(selectedDate: selectedDate, symptomDataManager: symptomDataManager) {
             }
             _ = healthKitViewModel.fetchSymptomsFromCoreData(for: selectedDate)
             healthKitViewModel.fetchDoseRecords()
             doseViewModel.loadDoses()
+            profileImageViewModel.loadProfileImage()
         })
         
         Spacer()
