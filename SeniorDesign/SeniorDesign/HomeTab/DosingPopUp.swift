@@ -177,7 +177,7 @@ struct DosingPopUp: View {
     }
 
     var dosageSection: some View {
-        ForEach(selectedAllergensArray, id: \.self) { allergen in
+        ForEach(selectedAllergensArray.sorted(), id: \.self) { allergen in
             HStack {
                 Text(allergen)
                     .padding(.leading, 20)
@@ -190,7 +190,7 @@ struct DosingPopUp: View {
                         selectedDoses[allergen] = newValue
                     }
                 )) {
-                    let doseTypesForSelectedAllergens = doseViewModel.doseTypesForSelectedAllergens(selectedAllergens: [allergen])
+                    let doseTypesForSelectedAllergens = doseViewModel.doseTypesForSelectedAllergens(selectedAllergens: [allergen]).sorted()
 
                     ForEach(doseTypesForSelectedAllergens, id: \.self) { doseType in
                         let formattedDose = doseType.components(separatedBy: "•").last?
