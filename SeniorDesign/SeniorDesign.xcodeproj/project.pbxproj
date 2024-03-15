@@ -57,6 +57,9 @@
 		09C1585A2A930CCE00B3D25E /* SeniorDesignUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C158592A930CCE00B3D25E /* SeniorDesignUITests.swift */; };
 		09C1585C2A930CCE00B3D25E /* SeniorDesignUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1585B2A930CCE00B3D25E /* SeniorDesignUITestsLaunchTests.swift */; };
 		09C158692A93100600B3D25E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C158682A93100600B3D25E /* HomeView.swift */; };
+		09E23E492BA4D16000D8C049 /* MultiImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E23E482BA4D16000D8C049 /* MultiImagePicker.swift */; };
+		09E23E4B2BA4D26100D8C049 /* ImportantDocumentsTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E23E4A2BA4D26100D8C049 /* ImportantDocumentsTip.swift */; };
+		09E23E4D2BA4D37300D8C049 /* DoctorPhoneTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E23E4C2BA4D37300D8C049 /* DoctorPhoneTip.swift */; };
 		09E8EB262AE3A70E0013ED66 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E8EB252AE3A70E0013ED66 /* ProfileViewModel.swift */; };
 		09EDCBEA2B3E53EA0004DAFC /* SymptomDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EDCBE92B3E53E90004DAFC /* SymptomDataManager.swift */; };
 		09EDCBEC2B3E5B660004DAFC /* DoseTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EDCBEB2B3E5B660004DAFC /* DoseTransformer.swift */; };
@@ -131,6 +134,9 @@
 		09C158592A930CCE00B3D25E /* SeniorDesignUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeniorDesignUITests.swift; sourceTree = "<group>"; };
 		09C1585B2A930CCE00B3D25E /* SeniorDesignUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeniorDesignUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		09C158682A93100600B3D25E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		09E23E482BA4D16000D8C049 /* MultiImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiImagePicker.swift; sourceTree = "<group>"; };
+		09E23E4A2BA4D26100D8C049 /* ImportantDocumentsTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportantDocumentsTip.swift; sourceTree = "<group>"; };
+		09E23E4C2BA4D37300D8C049 /* DoctorPhoneTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorPhoneTip.swift; sourceTree = "<group>"; };
 		09E8EB252AE3A70E0013ED66 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		09EDCBE92B3E53E90004DAFC /* SymptomDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomDataManager.swift; sourceTree = "<group>"; };
 		09EDCBEB2B3E5B660004DAFC /* DoseTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoseTransformer.swift; sourceTree = "<group>"; };
@@ -254,8 +260,11 @@
 			isa = PBXGroup;
 			children = (
 				0933A8142AE0758400734501 /* EducationView.swift */,
+				09E23E482BA4D16000D8C049 /* MultiImagePicker.swift */,
 				096A73972B9A3807001A3563 /* EmergencyServicesTip.swift */,
 				096A73952B9A37E1001A3563 /* ResourcesTip.swift */,
+				09E23E4A2BA4D26100D8C049 /* ImportantDocumentsTip.swift */,
+				09E23E4C2BA4D37300D8C049 /* DoctorPhoneTip.swift */,
 				0945E3CC2B43A91F00983001 /* EducationViewContent.swift */,
 				097EA4C62AE303700035B8AE /* ArticleRichLink.swift */,
 				097EA4C82AE3037B0035B8AE /* ArticleView.swift */,
@@ -467,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09C158692A93100600B3D25E /* HomeView.swift in Sources */,
+				09E23E4D2BA4D37300D8C049 /* DoctorPhoneTip.swift in Sources */,
 				0933A81F2AE091FB00734501 /* InsightsView.swift in Sources */,
 				0933A81B2AE091A700734501 /* SymptomsPopUp.swift in Sources */,
 				09EDCBEC2B3E5B660004DAFC /* DoseTransformer.swift in Sources */,
@@ -497,10 +507,12 @@
 				097EA4C92AE3037B0035B8AE /* ArticleView.swift in Sources */,
 				096A73872B9A3595001A3563 /* LastReactionInsight.swift in Sources */,
 				0945E3D62B4528D600983001 /* SymptomDataModel.xcdatamodeld in Sources */,
+				09E23E492BA4D16000D8C049 /* MultiImagePicker.swift in Sources */,
 				096A73852B9A3509001A3563 /* Legend.swift in Sources */,
 				096A73812B9A34A4001A3563 /* LegendItem.swift in Sources */,
 				096A73982B9A3807001A3563 /* EmergencyServicesTip.swift in Sources */,
 				09E8EB262AE3A70E0013ED66 /* ProfileViewModel.swift in Sources */,
+				09E23E4B2BA4D26100D8C049 /* ImportantDocumentsTip.swift in Sources */,
 				0933A81D2AE091C000734501 /* DosingView.swift in Sources */,
 				09AA87AA2AE1C47600E898A5 /* HealthKitManager.swift in Sources */,
 				0945E3CB2B43A3F200983001 /* SectionHeaderView.swift in Sources */,

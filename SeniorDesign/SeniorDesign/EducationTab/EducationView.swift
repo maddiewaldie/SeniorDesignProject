@@ -8,11 +8,24 @@
 import SwiftUI
 import TipKit
 
+struct ImageData: Codable {
+    var imageData: Data
+}
+
 struct EducationView: View {
     // MARK: Variables
     let content = EducationViewContent()
     var resourcesTip = ResourcesTip()
     var esTip = EmergencyServicesTip()
+    var infoTip = ImportantDocumentsTip()
+    var doctorTip = DoctorPhoneTip()
+
+    @State var doctorPhoneNumber: String = ""
+    @State var isShowingImagePicker: Bool = false
+    @State private var selectedImages: [UIImage] = []
+    @State private var storedImageData: [ImageData] = []
+
+    @Environment(\.colorScheme) var colorScheme
 
     // MARK: UI Elements
     var articles: some View {
@@ -111,6 +124,110 @@ struct EducationView: View {
         }
     }
 
+    var doctorClinicInformation: some View {
+        VStack(alignment: .center) {
+            HStack {
+                Text("Doctor / Clinic Contact")
+                    .font(.title3).bold()
+                    .padding()
+                Spacer()
+            }
+            if #available(iOS 17.0, *) {
+                TipView(doctorTip, arrowEdge: .bottom)
+                    .tipCornerRadius(15)
+                    .padding(.leading, 25)
+                    .padding(.trailing, 25)
+            }
+            TextField("Enter Doctor Phone Number", text: $doctorPhoneNumber)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .keyboardType(.numberPad)
+                .frame(width: UIScreen.main.bounds.width - 30, height: 50)
+            Button(action: {
+                if let url = URL(string: "tel://\(doctorPhoneNumber)") {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            }) {
+                Image(systemName: "phone.fill")
+                    .resizable()
+                    .frame(width: 20, height: 20)
+                    .foregroundColor(.black)
+                    .padding(.leading, 20)
+                Text("Doctor Phone Number")
+                    .font(.body)
+                    .bold()
+                    .foregroundColor(.black)
+            }
+            .frame(width: UIScreen.main.bounds.width - 30, height: 50)
+            .background(Color.lightTeal)
+            .cornerRadius(10)
+        }
+    }
+
+    var relevantDocuments: some View {
+        VStack(alignment: .center) {
+            HStack {
+                Text("Important Documents")
+                    .font(.title3).bold()
+                    .padding()
+                Spacer()
+            }
+            if #available(iOS 17.0, *) {
+                TipView(infoTip, arrowEdge: .bottom)
+                    .tipCornerRadius(15)
+                    .padding(.leading, 25)
+                    .padding(.trailing, 25)
+            }
+            Button(action: {
+                isShowingImagePicker = true
+            }) {
+                Text("Select Images")
+                    .font(.body)
+                    .bold()
+                    .foregroundColor(.black)
+            }
+            .frame(width: UIScreen.main.bounds.width - 30, height: 50)
+            .background(Color.lightTeal)
+            .cornerRadius(10)
+            .padding()
+            .sheet(isPresented: $isShowingImagePicker) {
+                MultiImagePicker(selectedImages: $selectedImages)
+            }
+
+            ScrollView {
+                LazyVGrid(columns: Array(repeating: GridItem(), count: 3), spacing: 10) {
+                    ForEach(selectedImages.indices, id: \.self) { index in
+                        VStack {
+                            NavigationLink(destination: Image(uiImage: selectedImages[index])
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .navigationBarTitle("", displayMode: .inline)
+                            ) {
+                                Image(uiImage: selectedImages[index])
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.main.bounds.width / 3 - 15, height: UIScreen.main.bounds.width / 3 - 15)
+                                    .cornerRadius(10)
+                            }
+                            .buttonStyle(PlainButtonStyle())
+
+                            Button(action: {
+                                selectedImages.remove(at: index)
+                            }) {
+                                Image(systemName: "xmark.circle.fill")
+                                    .foregroundColor(.gray)
+                                    .background(Color.lightGrey)
+                                    .clipShape(Circle())
+                                    .padding(1)
+                            }
+                            .frame(width: UIScreen.main.bounds.width / 3 - 15, height: 30, alignment: .center)
+                        }
+                    }
+                }
+                .padding()
+            }
+        }
+    }
+
     // MARK: Education Tab View
     var body: some View {
         VStack(alignment: .leading) {
@@ -126,7 +243,9 @@ struct EducationView: View {
                 }
                 articles
                 emergencyServicesInformation
+                doctorClinicInformation
                 fareInformation
+                relevantDocuments
             }
         }
         .padding(.bottom, 20)
@@ -137,6 +256,38 @@ struct EducationView: View {
                     .datastoreLocation(.applicationDefault)
                 ])
                 Tips.showAllTipsForTesting()
+            }
+        }
+        .onAppear {
+            // Load saved images from UserDefaults
+            if let data = UserDefaults.standard.data(forKey: "selectedImages") {
+                do {
+                    storedImageData = try JSONDecoder().decode([ImageData].self, from: data)
+                    selectedImages = []
+                    // Convert stored data to UIImage
+                    for imageData in storedImageData {
+                        if let image = UIImage(data: imageData.imageData) {
+                            selectedImages.append(image)
+                        }
+                    }
+                } catch {
+                    print("Error decoding images: \(error)")
+                }
+            }
+        }
+        .onDisappear {
+            // Save selected images to UserDefaults
+            do {
+                storedImageData.removeAll()
+                for image in selectedImages {
+                    if let imageData = image.jpegData(compressionQuality: 0.5) {
+                        storedImageData.append(ImageData(imageData: imageData))
+                    }
+                }
+                let encodedData = try JSONEncoder().encode(storedImageData)
+                UserDefaults.standard.set(encodedData, forKey: "selectedImages")
+            } catch {
+                print("Error encoding images: \(error)")
             }
         }
     }
