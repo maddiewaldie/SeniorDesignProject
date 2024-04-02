@@ -134,10 +134,10 @@ struct HomeView: View {
             selectedSymptoms = Set(symptomDataManager.fetchSymptoms(for: selectedDate))
         }) {
             VStack {
-                Text("Log your Symptoms")
+                Text("Log your Symptoms").bold()
                     .foregroundColor(colorScheme == .light ? Color.black : Color.black)
                     .padding(.bottom, 20)
-                Image(systemName: "plus")
+                Image(systemName: "plus").bold()
                     .foregroundColor(colorScheme == .light ? Color.black : Color.black)
             }
             .frame(width: 130, height: 150)

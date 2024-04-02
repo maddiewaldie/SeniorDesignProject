@@ -11,6 +11,7 @@ import Charts
 
 struct DosesForMonthView: View {
     @ObservedObject var healthKitViewModel: HealthKitViewModel
+    @Environment(\.colorScheme) var colorScheme
 
     private var allDates: [Date] {
         let calendar = Calendar.current
@@ -36,14 +37,14 @@ struct DosesForMonthView: View {
             HStack {
                 Text("Doses This Month").bold()
                     .font(.title2)
-                    .foregroundColor(.black)
+                    .foregroundColor(colorScheme == .light ? .black : .black)
                     .padding()
                     .padding(.bottom, 0)
                 Spacer()
             }
             Text("You took \(dosesTaken) doses and skipped \(dosesSkipped) doses this month.")
                 .font(.subheadline)
-                .foregroundColor(.gray)
+                .foregroundColor(colorScheme == .light ? .gray : .darkGrey)
                 .padding(.leading, 10)
                 .padding(.trailing, 10)
             Chart {
@@ -60,7 +61,7 @@ struct DosesForMonthView: View {
                         x: .value("Date", date),
                         y: .value("Allergens", Double(doseCount))
                     )
-                    .foregroundStyle(Color.darkTeal)
+                    .foregroundStyle(colorScheme == .light ? Color.darkTeal : Color.darkerTeal)
                 }
             }
             .frame(height: 200)

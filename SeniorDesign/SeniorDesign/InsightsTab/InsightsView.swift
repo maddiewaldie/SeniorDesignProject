@@ -14,6 +14,7 @@ struct InsightsView: View {
     @ObservedObject var healthKitViewModel: HealthKitViewModel
     @ObservedObject var symptomDataManager = SymptomDataManager()
     @State private var slicesWithLabels: [(Double, Color, String)] = []
+    @Environment(\.colorScheme) var colorScheme
 
     var header: some View {
         HStack {
@@ -47,13 +48,13 @@ struct InsightsView: View {
                                 .padding(.leading, 20)
                                 .padding(.trailing, 20)
                                 .font(.subheadline)
-                                .foregroundColor(.black)
+                                .foregroundColor(colorScheme == .light ? .black : .black)
                             Spacer()
                         }
                         Spacer()
                     }
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 50, maxHeight: .infinity, alignment: .topLeading)
-                    .background(Color.lightBlue)
+                    .background(colorScheme == .light ? Color.lightBlue : Color.darkTeal)
                     .cornerRadius(20)
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
@@ -67,7 +68,7 @@ struct InsightsView: View {
                             HStack {
                                 Text("Symptoms").bold()
                                     .font(.title2)
-                                    .foregroundColor(.black)
+                                    .foregroundColor(colorScheme == .light ? .black : .black)
                                     .padding()
                                 Spacer()
                             }
@@ -79,7 +80,7 @@ struct InsightsView: View {
                         }
                     }
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-                    .background(Color.lightBlue)
+                    .background(colorScheme == .light ? Color.lightBlue : Color.darkTeal)
                     .cornerRadius(20)
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
@@ -91,7 +92,7 @@ struct InsightsView: View {
                         .padding(.bottom, 20)
                     }
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-                    .background(Color.lightBlue)
+                    .background(colorScheme == .light ? Color.lightBlue : Color.darkTeal)
                     .cornerRadius(20)
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
