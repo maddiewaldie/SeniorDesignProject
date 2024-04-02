@@ -15,6 +15,8 @@ struct ArticleRichLink: View {
     var articleContent: String
     var image: String
 
+    @Environment(\.colorScheme) var colorScheme
+
     // MARK: Article Rich Link View
     var body: some View {
         Button(action: {
@@ -32,19 +34,19 @@ struct ArticleRichLink: View {
                         HStack {
                             Text(articleTitle)
                                 .font(.title2.bold())
-                                .foregroundColor(.black)
+                                .foregroundColor(colorScheme == .light ? .black : .white)
                                 .padding(.leading, 20)
                             Spacer()
                         }
                         Text(articleDescription)
                             .font(.body)
-                            .foregroundColor(.black)
+                            .foregroundColor(colorScheme == .light ? .black : .white)
                             .padding(.leading, 20)
                         Spacer()
                     }
                 }
                 .frame(width: UIScreen.main.bounds.width - 30, height: 260)
-                .background(Color.mediumGrey)
+                .background(colorScheme == .light ? Color.mediumGrey : Color.darkGrey)
                 .cornerRadius(20)
             }
         }

@@ -69,7 +69,7 @@ struct EducationView: View {
                     .foregroundColor(.black)
             }
             .frame(width: UIScreen.main.bounds.width - 30, height: 50)
-            .background(Color.lightTeal)
+            .background(colorScheme == .light ? Color.lightTeal : Color.darkTeal)
             .cornerRadius(10)
         }
     }
@@ -99,7 +99,7 @@ struct EducationView: View {
                         .foregroundColor(.black)
                 }
                 .frame(width: (UIScreen.main.bounds.width - 40) / 2, height: 50)
-                .background(Color.lightTeal)
+                .background(colorScheme == .light ? Color.lightTeal : Color.darkTeal)
                 .cornerRadius(10)
 
                 Button(action: {
@@ -118,7 +118,7 @@ struct EducationView: View {
                         .foregroundColor(.black)
                 }
                 .frame(width: (UIScreen.main.bounds.width - 40) / 2, height: 50)
-                .background(Color.lightTeal)
+                .background(colorScheme == .light ? Color.lightTeal : Color.darkTeal)
                 .cornerRadius(10)
             }
         }
@@ -158,7 +158,7 @@ struct EducationView: View {
                     .foregroundColor(.black)
             }
             .frame(width: UIScreen.main.bounds.width - 30, height: 50)
-            .background(Color.lightTeal)
+            .background(colorScheme == .light ? Color.lightTeal : Color.darkTeal)
             .cornerRadius(10)
         }
     }
@@ -186,7 +186,7 @@ struct EducationView: View {
                     .foregroundColor(.black)
             }
             .frame(width: UIScreen.main.bounds.width - 30, height: 50)
-            .background(Color.lightTeal)
+            .background(colorScheme == .light ? Color.lightTeal : Color.darkTeal)
             .cornerRadius(10)
             .padding()
             .sheet(isPresented: $isShowingImagePicker) {
@@ -215,7 +215,7 @@ struct EducationView: View {
                             }) {
                                 Image(systemName: "xmark.circle.fill")
                                     .foregroundColor(.gray)
-                                    .background(Color.lightGrey)
+                                    .background(colorScheme == .light ? Color.lightGrey : Color.darkGrey)
                                     .clipShape(Circle())
                                     .padding(1)
                             }
