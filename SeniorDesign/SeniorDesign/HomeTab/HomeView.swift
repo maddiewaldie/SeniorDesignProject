@@ -28,7 +28,8 @@ struct HomeView: View {
     var symptomsForSelectedDate: [String] {
         return symptomDataManager.fetchSymptoms(for: selectedDate)
     }
-
+    
+    @Environment(\.colorScheme) var colorScheme
 
     // MARK: UI Elements
     var profileButton: some View {
@@ -81,7 +82,7 @@ struct HomeView: View {
             .padding(.leading, 20)
             .padding(.trailing, 20)
             .padding(.bottom, 10)
-            .foregroundColor(.lightTeal)
+            .foregroundColor(colorScheme == .light ? .lightTeal : .darkTeal)
             .overlay(
                 weekCircleViewContent
             )
@@ -91,25 +92,25 @@ struct HomeView: View {
         VStack {
             Text("Day")
                 .font(.body)
-                .foregroundColor(.black)
+                .foregroundColor(colorScheme == .light ? Color.black : Color.black)
                 .bold()
                 .padding(.top, 30)
             Text("\(dayOfTreatment)")
                 .font(.system(size: 70))
-                .foregroundColor(.black)
+                .foregroundColor(colorScheme == .light ? Color.black : Color.black)
                 .bold()
             Text("of Treatment")
                 .font(.body)
-                .foregroundColor(.black)
+                .foregroundColor(colorScheme == .light ? Color.black : Color.black)
                 .bold()
             Button(action: {
                 logDose.toggle()
             }) {
                 Text("Log Dose         ")
-                    .font(.subheadline)
-                    .foregroundColor(Color.white)
+                    .font(.subheadline).bold()
+                    .foregroundColor(colorScheme == .light ? Color.white : Color.white)
                     .padding()
-                    .background(Color.darkTeal)
+                    .background(colorScheme == .light ? Color.darkTeal : Color.darkerTeal)
                     .cornerRadius(30)
             }
             .sheet(isPresented: $logDose) {
@@ -134,13 +135,13 @@ struct HomeView: View {
         }) {
             VStack {
                 Text("Log your Symptoms")
-                    .foregroundColor(.black)
+                    .foregroundColor(colorScheme == .light ? Color.black : Color.black)
                     .padding(.bottom, 20)
                 Image(systemName: "plus")
-                    .foregroundColor(.black)
+                    .foregroundColor(colorScheme == .light ? Color.black : Color.black)
             }
             .frame(width: 130, height: 150)
-            .background(Color.lightTeal)
+            .background(colorScheme == .light ? Color.lightTeal : Color.darkTeal)
             .cornerRadius(20)
         }
         .sheet(isPresented: $logSymptoms) {
@@ -165,7 +166,7 @@ struct HomeView: View {
                             Button(action: {}) {
                                 VStack {
                                     Text(formatSymptomName(symptom))
-                                        .foregroundColor(.black)
+                                        .foregroundColor(colorScheme == .light ? Color.black : Color.black)
                                         .padding(.bottom, 10)
                                     if let emoji = healthKitManager.symptomEmojis[symptom] {
                                         if healthKitManager.symptomImageNeeded(symptom) {
@@ -182,7 +183,7 @@ struct HomeView: View {
                                     }
                                 }
                                 .frame(width: 130, height: 150)
-                                .background(Color.lightTeal)
+                                .background(colorScheme == .light ? Color.lightTeal : Color.darkTeal)
                                 .cornerRadius(20)
                             }
                             .id(symptom)

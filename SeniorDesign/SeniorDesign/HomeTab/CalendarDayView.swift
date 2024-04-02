@@ -11,6 +11,7 @@ struct CalendarDayView: View {
     // MARK: Variables
     @Binding var selectedDate: Date
     @Binding var selectedColorIndex: Int?
+    @Environment(\.colorScheme) var colorScheme
     var date: Date
     var index: Int
 
@@ -36,23 +37,23 @@ struct CalendarDayView: View {
 
     private var circleColor: Color {
         if !isSelectable {
-            return Color.lightGrey
+            return colorScheme == .light ? Color.lightGrey : Color.darkGrey
         }
         if isSelected {
-            return .darkTeal // Color for selected circle
+            return colorScheme == .light ? .darkTeal : .darkerTeal // Color for selected circle
         } else if let selectedColorIndex = selectedColorIndex, selectedColorIndex == index {
-            return .lightTeal // Color for previously tapped circle
+            return colorScheme == .light ? .lightTeal : .darkTeal // Color for previously tapped circle
         } else {
-            return .lightTeal // Default color for other circles
+            return colorScheme == .light ? .lightTeal : .darkTeal // Default color for other circles
         }
     }
 
     private var circleTextColor: Color {
         if !isSelectable {
-            return Color.mediumGrey
+            return colorScheme == .light ? Color.mediumGrey : Color.black
         }
         if isSelected {
-            return Color.white
+            return colorScheme == .light ? Color.white : Color.black
         } else if let selectedColorIndex = selectedColorIndex, selectedColorIndex == index {
             return Color.black
         } else {

@@ -29,6 +29,8 @@ struct DosingPopUp: View {
         Array(profileViewModel.selectedAllergens)
     }
 
+    @Environment(\.colorScheme) var colorScheme
+
     let selectedDate: Date
 
     // MARK: Initializer
@@ -92,7 +94,7 @@ struct DosingPopUp: View {
                     }
                     .frame(width: 80, height: 100)
                     .padding()
-                    .background(profileViewModel.isSelected(allergen) ? Color.darkTeal : Color.lightTeal)
+                    .background(profileViewModel.isSelected(allergen) ? colorScheme == .light ? Color.darkTeal : Color.darkerTeal : colorScheme == .light ? Color.lightTeal : Color.darkTeal)
                     .cornerRadius(20)
                 }
             }

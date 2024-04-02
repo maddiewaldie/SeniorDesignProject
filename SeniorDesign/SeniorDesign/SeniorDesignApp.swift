@@ -35,6 +35,9 @@ struct OITApp: App {
             context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { success, authenticationError in
                 if success {
                     isUnlocked = true
+                    profileViewModel.loadProfileData()
+                    profileImageViewModel.loadProfileImage()
+                    doseViewModel.loadDoses()
                 } else {
                     // Error
                 }
@@ -45,6 +48,9 @@ struct OITApp: App {
             context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { success, authenticationError in
                 if success {
                     isUnlocked = true
+                    profileViewModel.loadProfileData()
+                    profileImageViewModel.loadProfileImage()
+                    doseViewModel.loadDoses()
                 } else {
                     // Error
                 }
@@ -63,6 +69,7 @@ struct OITApp: App {
                     .environmentObject(profileImageViewModel)
                     .onAppear(perform: {
                         profileViewModel.loadProfileData()
+                        profileImageViewModel.loadProfileImage()
                         doseViewModel.loadDoses()
                         if !isUnlocked && profileViewModel.profileData.useFaceID {
                             authenticate()
@@ -80,6 +87,7 @@ struct OITApp: App {
                     .environmentObject(profileImageViewModel)
                     .onAppear {
                         profileViewModel.loadProfileData()
+                        profileImageViewModel.loadProfileImage()
                         doseViewModel.loadDoses()
                     }
             }

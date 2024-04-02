@@ -11,12 +11,14 @@ struct AboutYourDoseView: View {
     // MARK: Variables
     let allergenDoses: DoseRecord
 
+    @Environment(\.colorScheme) var colorScheme
+
     // MARK: UI Elements
     private var header: some View {
         HStack {
             Text("About Your Dose")
                 .font(.headline)
-                .foregroundColor(.black)
+                .foregroundColor(colorScheme == .light ? Color.black : Color.black)
                 .padding(.top, 20)
                 .padding(.leading, 20)
                 .padding(.bottom, 5)
@@ -50,7 +52,7 @@ struct AboutYourDoseView: View {
                             .trimmingCharacters(in: .whitespacesAndNewlines)
                         HStack {
                             Text("\(allergen) • \(formattedDose)")
-                                .foregroundColor(.black)
+                                .foregroundColor(colorScheme == .light ? Color.black : Color.black)
                                 .padding(.leading, 20)
                                 .padding(.bottom, 5)
                             Spacer()
@@ -64,7 +66,7 @@ struct AboutYourDoseView: View {
     private var timeOfDose: some View {
         HStack {
             Text(timeFormatter.string(from: allergenDoses.time!))
-                .foregroundColor(.black)
+                .foregroundColor(colorScheme == .light ? Color.black : Color.black)
                 .padding(.leading, 20)
                 .padding(.bottom, 10)
             Spacer()
@@ -85,7 +87,7 @@ struct AboutYourDoseView: View {
                 timeOfDose
             }
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-            .background(Color.lightTeal)
+            .background(colorScheme == .light ? Color.lightTeal : Color.darkTeal)
             .cornerRadius(20)
             .padding(.leading, 20)
             .padding(.trailing, 20)
@@ -93,7 +95,7 @@ struct AboutYourDoseView: View {
                 Spacer()
                 Image(systemName: "pills.fill")
                     .font(.system(size: 90))
-                    .foregroundColor(.darkTeal)
+                    .foregroundColor(colorScheme == .light ? Color.darkTeal : Color.darkerTeal)
                     .padding(.trailing, 35)
             }
         }

@@ -159,7 +159,7 @@ struct SettingsView: View {
     }
 
     var protectDataWithFaceID: some View {
-        Toggle("Protect data with FaceID", isOn: $profileViewModel.profileData.useFaceID)
+        Toggle("Enable Passcode, TouchID, or FaceID", isOn: $profileViewModel.profileData.useFaceID)
             .toggleStyle(SwitchToggleStyle(tint: .darkTeal))
             .onChange(of: profileViewModel.profileData.useFaceID) { newValue in
                 profileViewModel.saveProfileData()
@@ -206,18 +206,18 @@ struct SettingsView: View {
                         Spacer()
                         Divider()
                             .padding(20)
-                        if appState.hasAppBeenOpenedBefore {
-                            HStack {
-                                Spacer()
-                                Text("Log Out")
-                                    .foregroundColor(.red)
-                                    .onTapGesture {
-                                        // TODO: Add logic to log out
-                                    }
-                                Spacer()
-                            }
-                            Spacer()
-                        }
+//                        if appState.hasAppBeenOpenedBefore {
+//                            HStack {
+//                                Spacer()
+//                                Text("Log Out")
+//                                    .foregroundColor(.red)
+//                                    .onTapGesture {
+//                                        // TODO: Add logic to log out
+//                                    }
+//                                Spacer()
+//                            }
+//                            Spacer()
+//                        }
                     }
                     .padding()
                 }

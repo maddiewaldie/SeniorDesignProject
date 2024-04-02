@@ -10,10 +10,29 @@ struct SymptomsPopUp: View {
     let healthKitManager = HealthKitManager()
     let columns: [GridItem] = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
 
+    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.colorScheme) var colorScheme
+
     // MARK: Initializer
     init(selectedSymptoms: Binding<Set<String>>, selectedDate: Date) {
         self._selectedSymptoms = selectedSymptoms
         self.selectedDate = selectedDate
+    }
+
+    private func foregroundColor(for symptom: HKSampleType) -> Color {
+        if selectedSymptoms.contains(symptom.identifier.description) {
+            return colorScheme == .light ? Color.white : Color.white
+        } else {
+            return colorScheme == .light ? Color.black : Color.black
+        }
+    }
+
+    private func backgroundColor(for symptom: HKSampleType) -> Color {
+        if selectedSymptoms.contains(symptom.identifier.description) {
+            return colorScheme == .light ? Color.darkTeal : Color.darkerTeal
+        } else {
+            return colorScheme == .light ? Color.lightTeal : Color.darkTeal
+        }
     }
 
     // MARK: Symptoms Pop Up View
@@ -28,8 +47,8 @@ struct SymptomsPopUp: View {
                             Text(formatSymptomName(symptom.identifier.description))
                                 .padding(.leading, 10)
                                 .padding(.trailing, 10)
-                                .font(.system(size: 14))
-                                .foregroundColor(selectedSymptoms.contains(symptom.identifier.description) ? Color.white : Color.black)
+                                .font(.system(size: 14)).bold()
+                                .foregroundColor(foregroundColor(for: symptom))
                             if let emoji = healthKitManager.symptomEmojis[symptom.identifier.description] {
                                 if healthKitManager.symptomImageNeeded(symptom.identifier.description) {
                                     Image("\(symptom.identifier.description)")
@@ -39,13 +58,13 @@ struct SymptomsPopUp: View {
                                         .padding(.top, 10)
                                 } else {
                                     Text(emoji)
-                                        .font(.largeTitle)
+                                        .font(.largeTitle).bold()
                                         .padding(.top, 5)
                                 }
                             }
                         }
                         .frame(width: UIScreen.main.bounds.width/3 - 10, height: 150)
-                        .background(selectedSymptoms.contains(symptom.identifier.description) ? Color.darkTeal : Color.lightTeal)
+                        .background(backgroundColor(for: symptom))
                         .cornerRadius(20)
                     }
                 }

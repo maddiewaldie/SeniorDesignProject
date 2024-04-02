@@ -11,8 +11,10 @@ import SwiftUI
 extension Color {
     static var lightGrey: Color { Color(hex: "FAFAFA") }
     static var mediumGrey: Color { Color(hex: "D3D3D3") }
+    static var darkGrey: Color { Color(hex: "222222") }
     static var grey: Color { Color(hex: "D5D5D5") }
     static var darkTeal: Color { Color(hex: "5A8F8F") }
+    static var darkerTeal: Color { Color(hex: "0a5757") }
     static var lightTeal: Color { Color(hex: "C3E2E7") }
     static var lightBlue: Color { Color(hex: "E9F5F9") }
     static var lightYellow: Color { Color(hex: "FFFEC8") }

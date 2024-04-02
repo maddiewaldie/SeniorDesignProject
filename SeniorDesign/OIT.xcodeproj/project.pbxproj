@@ -123,14 +123,14 @@
 		09AA87A92AE1C47600E898A5 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		09AA87AB2AE1C4D800E898A5 /* HealthKitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitViewModel.swift; sourceTree = "<group>"; };
 		09AA87AE2AE1CEBA00E898A5 /* SeniorDesign.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeniorDesign.entitlements; sourceTree = "<group>"; };
-		09C1583B2A930CCD00B3D25E /* SeniorDesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeniorDesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		09C1583B2A930CCD00B3D25E /* OIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C1583E2A930CCD00B3D25E /* SeniorDesignApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeniorDesignApp.swift; sourceTree = "<group>"; };
 		09C158402A930CCD00B3D25E /* TabbedApplicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbedApplicationView.swift; sourceTree = "<group>"; };
 		09C158422A930CCE00B3D25E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09C158452A930CCE00B3D25E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		09C1584B2A930CCE00B3D25E /* SeniorDesignTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeniorDesignTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		09C1584B2A930CCE00B3D25E /* OITTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OITTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C1584F2A930CCE00B3D25E /* SeniorDesignTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeniorDesignTests.swift; sourceTree = "<group>"; };
-		09C158552A930CCE00B3D25E /* SeniorDesignUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeniorDesignUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		09C158552A930CCE00B3D25E /* OITUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OITUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C158592A930CCE00B3D25E /* SeniorDesignUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeniorDesignUITests.swift; sourceTree = "<group>"; };
 		09C1585B2A930CCE00B3D25E /* SeniorDesignUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeniorDesignUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		09C158682A93100600B3D25E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -285,9 +285,9 @@
 		09C1583C2A930CCD00B3D25E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				09C1583B2A930CCD00B3D25E /* SeniorDesign.app */,
-				09C1584B2A930CCE00B3D25E /* SeniorDesignTests.xctest */,
-				09C158552A930CCE00B3D25E /* SeniorDesignUITests.xctest */,
+				09C1583B2A930CCD00B3D25E /* OIT.app */,
+				09C1584B2A930CCE00B3D25E /* OITTests.xctest */,
+				09C158552A930CCE00B3D25E /* OITUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -340,9 +340,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		09C1583A2A930CCD00B3D25E /* SeniorDesign */ = {
+		09C1583A2A930CCD00B3D25E /* OIT */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 09C1585F2A930CCE00B3D25E /* Build configuration list for PBXNativeTarget "SeniorDesign" */;
+			buildConfigurationList = 09C1585F2A930CCE00B3D25E /* Build configuration list for PBXNativeTarget "OIT" */;
 			buildPhases = (
 				09C158372A930CCD00B3D25E /* Sources */,
 				09C158382A930CCD00B3D25E /* Frameworks */,
@@ -352,19 +352,19 @@
 			);
 			dependencies = (
 			);
-			name = SeniorDesign;
+			name = OIT;
 			packageProductDependencies = (
 				099993972B424A5B0064643B /* CareKit */,
 				099993992B424A5B0064643B /* CareKitStore */,
 				0999939B2B424A5B0064643B /* CareKitUI */,
 			);
 			productName = SeniorDesign;
-			productReference = 09C1583B2A930CCD00B3D25E /* SeniorDesign.app */;
+			productReference = 09C1583B2A930CCD00B3D25E /* OIT.app */;
 			productType = "com.apple.product-type.application";
 		};
-		09C1584A2A930CCE00B3D25E /* SeniorDesignTests */ = {
+		09C1584A2A930CCE00B3D25E /* OITTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 09C158622A930CCE00B3D25E /* Build configuration list for PBXNativeTarget "SeniorDesignTests" */;
+			buildConfigurationList = 09C158622A930CCE00B3D25E /* Build configuration list for PBXNativeTarget "OITTests" */;
 			buildPhases = (
 				09C158472A930CCE00B3D25E /* Sources */,
 				09C158482A930CCE00B3D25E /* Frameworks */,
@@ -375,14 +375,14 @@
 			dependencies = (
 				09C1584D2A930CCE00B3D25E /* PBXTargetDependency */,
 			);
-			name = SeniorDesignTests;
+			name = OITTests;
 			productName = SeniorDesignTests;
-			productReference = 09C1584B2A930CCE00B3D25E /* SeniorDesignTests.xctest */;
+			productReference = 09C1584B2A930CCE00B3D25E /* OITTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		09C158542A930CCE00B3D25E /* SeniorDesignUITests */ = {
+		09C158542A930CCE00B3D25E /* OITUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 09C158652A930CCE00B3D25E /* Build configuration list for PBXNativeTarget "SeniorDesignUITests" */;
+			buildConfigurationList = 09C158652A930CCE00B3D25E /* Build configuration list for PBXNativeTarget "OITUITests" */;
 			buildPhases = (
 				09C158512A930CCE00B3D25E /* Sources */,
 				09C158522A930CCE00B3D25E /* Frameworks */,
@@ -393,9 +393,9 @@
 			dependencies = (
 				09C158572A930CCE00B3D25E /* PBXTargetDependency */,
 			);
-			name = SeniorDesignUITests;
+			name = OITUITests;
 			productName = SeniorDesignUITests;
-			productReference = 09C158552A930CCE00B3D25E /* SeniorDesignUITests.xctest */;
+			productReference = 09C158552A930CCE00B3D25E /* OITUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -421,7 +421,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 09C158362A930CCD00B3D25E /* Build configuration list for PBXProject "SeniorDesign" */;
+			buildConfigurationList = 09C158362A930CCD00B3D25E /* Build configuration list for PBXProject "OIT" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -437,9 +437,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				09C1583A2A930CCD00B3D25E /* SeniorDesign */,
-				09C1584A2A930CCE00B3D25E /* SeniorDesignTests */,
-				09C158542A930CCE00B3D25E /* SeniorDesignUITests */,
+				09C1583A2A930CCD00B3D25E /* OIT */,
+				09C1584A2A930CCE00B3D25E /* OITTests */,
+				09C158542A930CCE00B3D25E /* OITUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -548,12 +548,12 @@
 /* Begin PBXTargetDependency section */
 		09C1584D2A930CCE00B3D25E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 09C1583A2A930CCD00B3D25E /* SeniorDesign */;
+			target = 09C1583A2A930CCD00B3D25E /* OIT */;
 			targetProxy = 09C1584C2A930CCE00B3D25E /* PBXContainerItemProxy */;
 		};
 		09C158572A930CCE00B3D25E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 09C1583A2A930CCD00B3D25E /* SeniorDesign */;
+			target = 09C1583A2A930CCD00B3D25E /* OIT */;
 			targetProxy = 09C158562A930CCE00B3D25E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -753,7 +753,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SeniorDesign.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SeniorDesign";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OIT.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OIT";
 			};
 			name = Debug;
 		};
@@ -772,7 +772,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SeniorDesign.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SeniorDesign";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OIT.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OIT";
 			};
 			name = Release;
 		};
@@ -813,7 +813,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		09C158362A930CCD00B3D25E /* Build configuration list for PBXProject "SeniorDesign" */ = {
+		09C158362A930CCD00B3D25E /* Build configuration list for PBXProject "OIT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				09C1585D2A930CCE00B3D25E /* Debug */,
@@ -822,7 +822,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		09C1585F2A930CCE00B3D25E /* Build configuration list for PBXNativeTarget "SeniorDesign" */ = {
+		09C1585F2A930CCE00B3D25E /* Build configuration list for PBXNativeTarget "OIT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				09C158602A930CCE00B3D25E /* Debug */,
@@ -831,7 +831,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		09C158622A930CCE00B3D25E /* Build configuration list for PBXNativeTarget "SeniorDesignTests" */ = {
+		09C158622A930CCE00B3D25E /* Build configuration list for PBXNativeTarget "OITTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				09C158632A930CCE00B3D25E /* Debug */,
@@ -840,7 +840,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		09C158652A930CCE00B3D25E /* Build configuration list for PBXNativeTarget "SeniorDesignUITests" */ = {
+		09C158652A930CCE00B3D25E /* Build configuration list for PBXNativeTarget "OITUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				09C158662A930CCE00B3D25E /* Debug */,
