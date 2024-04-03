@@ -149,7 +149,7 @@ class HealthKitManager {
     }
 
 
-    func loadSymptomsForSelectedDate(selectedDate: Date, symptomDataManager: SymptomDataManager, completion: @escaping () -> Void) {
+    @MainActor func loadSymptomsForSelectedDate(selectedDate: Date, symptomDataManager: SymptomDataManager, completion: @escaping () -> Void) {
         fetchSymptomsForDate(selectedDate) { symptoms in
             symptomDataManager.symptomRecords[selectedDate] = symptoms
             completion()
@@ -191,12 +191,12 @@ class HealthKitManager {
         }
     }
 
-    func saveSymptomsToCoreData(for date: Date, symptoms: [String]) {
+    @MainActor func saveSymptomsToCoreData(for date: Date, symptoms: [String]) {
         let symptomDataManager = SymptomDataManager()
         symptomDataManager.saveSymptoms(for: date, symptoms: symptoms)
     }
 
-    func fetchSymptomsFromCoreData(for date: Date) -> [String] {
+    @MainActor func fetchSymptomsFromCoreData(for date: Date) -> [String] {
         let symptomDataManager = SymptomDataManager()
         return symptomDataManager.fetchSymptoms(for: date)
     }

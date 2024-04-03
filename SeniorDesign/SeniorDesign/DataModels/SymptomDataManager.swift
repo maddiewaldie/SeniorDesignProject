@@ -2,9 +2,10 @@ import SwiftUI
 import CoreData
 
 class SymptomDataManager: ObservableObject {
+    @MainActor
     @Published var symptomRecords: [Date: [String]] = [:]
 
-    func saveSymptoms(for date: Date, symptoms: [String]) {
+    @MainActor func saveSymptoms(for date: Date, symptoms: [String]) {
         // Update the symptom records dictionary with the new symptoms for the given date
         symptomRecords[date] = symptoms
 
@@ -20,7 +21,7 @@ class SymptomDataManager: ObservableObject {
         }
     }
 
-    func fetchSymptoms(for date: Date) -> [String] {
+    @MainActor func fetchSymptoms(for date: Date) -> [String] {
         if let symptoms = symptomRecords[date] {
             // Return symptoms from the dictionary if available
             return symptoms
@@ -46,7 +47,30 @@ class SymptomDataManager: ObservableObject {
     }
     
     // Function to fetch all stored symptoms from Core Data
-    func fetchAllSymptoms() -> [String] {
+    @MainActor func fetchAllSymptoms() -> [String] {
+        let context = persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<SymptomRecord> = SymptomRecord.fetchRequest()
+
+        do {
+            let result = try context.fetch(fetchRequest)
+            var allSymptoms: [String] = []
+
+            // Iterate through fetched records and populate symptomRecords dictionary
+            for record in result {
+                if let date = record.date, let symptoms = record.symptoms as? [String] {
+                    symptomRecords[date] = symptoms
+                    allSymptoms.append(contentsOf: symptoms)
+                }
+            }
+
+            return allSymptoms
+        } catch {
+            print("Failed to fetch all symptoms: \(error.localizedDescription)")
+            return []
+        }
+    }
+
+    func fetchAllSymptomsWithoutRefresh() -> [String] {
         let context = persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<SymptomRecord> = SymptomRecord.fetchRequest()
 
@@ -59,7 +83,6 @@ class SymptomDataManager: ObservableObject {
             return []
         }
     }
-
 
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "SymptomDataModel")

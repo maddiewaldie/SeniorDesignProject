@@ -4,10 +4,8 @@
 //
 //  Created by Maddie on 3/7/24.
 //
-
-import Foundation
 import SwiftUI
-import Charts
+import CareKitUI
 
 struct DosesForMonthView: View {
     @ObservedObject var healthKitViewModel: HealthKitViewModel
@@ -34,60 +32,93 @@ struct DosesForMonthView: View {
     var body: some View {
         let (dosesTaken, dosesSkipped) = countDoses()
         return VStack {
-            HStack {
-                Text("Doses This Month").bold()
-                    .font(.title2)
-                    .foregroundColor(colorScheme == .light ? .black : .black)
-                    .padding()
-                    .padding(.bottom, 0)
-                Spacer()
-            }
-            Text("You took \(dosesTaken) doses and skipped \(dosesSkipped) doses this month.")
-                .font(.subheadline)
-                .foregroundColor(colorScheme == .light ? .gray : .darkGrey)
-                .padding(.leading, 10)
-                .padding(.trailing, 10)
-            Chart {
-                ForEach(allDates, id: \.self) { date in
-                    let doseCount = healthKitViewModel.doseRecords.values
-                        .filter { record in
-                            guard let doseDate = (record as? DoseRecord)?.date else { return false }
-                            let components = Calendar.current.dateComponents([.day, .month, .year], from: doseDate)
-                            return components == Calendar.current.dateComponents([.day, .month, .year], from: date)
-                        }
-                        .count
-
-                    LineMark(
-                        x: .value("Date", date),
-                        y: .value("Allergens", Double(doseCount))
-                    )
-                    .foregroundStyle(colorScheme == .light ? Color.darkTeal : Color.darkerTeal)
-                }
-            }
-            .frame(height: 200)
-            .padding()
-            .chartYAxis {}
+            ChartViewRepresentable(allDates: allDates, healthKitViewModel: healthKitViewModel, colorScheme: colorScheme)
         }
     }
 
     private func countDoses() -> (Int, Int) {
-            var dosesTaken = 0
-            var dosesSkipped = 0
+        var dosesTaken = 0
+        var dosesSkipped = 0
 
-            for date in allDates {
-                if healthKitViewModel.doseRecords.values.contains(where: { record in
-                    if let doseDate = (record as? DoseRecord)?.date {
-                        let components = Calendar.current.dateComponents([.day, .month, .year], from: doseDate)
-                        return components == Calendar.current.dateComponents([.day, .month, .year], from: date)
-                    }
-                    return false
-                }) {
-                    dosesTaken += 1
-                } else {
-                    dosesSkipped += 1
+        for date in allDates {
+            if healthKitViewModel.doseRecords.values.contains(where: { record in
+                if let doseDate = (record as? DoseRecord)?.date {
+                    let components = Calendar.current.dateComponents([.day, .month, .year], from: doseDate)
+                    return components == Calendar.current.dateComponents([.day, .month, .year], from: date)
                 }
+                return false
+            }) {
+                dosesTaken += 1
+            } else {
+                dosesSkipped += 1
             }
-
-            return (dosesTaken, dosesSkipped)
         }
+
+        return (dosesTaken, dosesSkipped)
+    }
+}
+
+struct ChartViewRepresentable: UIViewRepresentable {
+    let allDates: [Date]
+    let healthKitViewModel: HealthKitViewModel
+    let colorScheme: ColorScheme
+
+    func makeUIView(context: Context) -> OCKCartesianChartView {
+        let chartView = OCKCartesianChartView(type: .line)
+
+        // Set the title
+        chartView.headerView.titleLabel.text = "Doses This Month"
+
+        // Set the data series
+        var dataSeries = OCKDataSeries(values: allDates.map { date in
+            let doseCount = Double(healthKitViewModel.doseRecords.values.filter { record in
+                if let doseDate = (record as? DoseRecord)?.date {
+                    let components = Calendar.current.dateComponents([.day, .month, .year], from: doseDate)
+                    return components == Calendar.current.dateComponents([.day, .month, .year], from: date)
+                }
+                return false
+            }.count)
+            // Ensure to return a CGFloat
+            return CGFloat(doseCount)
+        }, title: "Dose Taken", color: UIColor(Color.lightTeal))
+        dataSeries.size = 3
+
+        let (dosesTaken, dosesSkipped) = countDoses()
+        chartView.headerView.detailLabel.text = "You took \(dosesTaken) doses and skipped \(dosesSkipped) doses this month."
+        chartView.graphView.dataSeries = [dataSeries]
+        chartView.graphView.yMaximum = 1
+        chartView.graphView.yMinimum = 0
+        return chartView
+    }
+
+    func updateUIView(_ uiView: OCKCartesianChartView, context: Context) {
+        // Update the view if needed
+    }
+
+    private func countDoses() -> (Int, Int) {
+        var dosesTaken = 0
+        var dosesSkipped = 0
+
+        for date in allDates {
+            if healthKitViewModel.doseRecords.values.contains(where: { record in
+                if let doseDate = (record as? DoseRecord)?.date {
+                    let components = Calendar.current.dateComponents([.day, .month, .year], from: doseDate)
+                    return components == Calendar.current.dateComponents([.day, .month, .year], from: date)
+                }
+                return false
+            }) {
+                dosesTaken += 1
+            } else {
+                dosesSkipped += 1
+            }
+        }
+
+        return (dosesTaken, dosesSkipped)
+    }
+}
+
+struct DosesForMonthView_Previews: PreviewProvider {
+    static var previews: some View {
+        DosesForMonthView(healthKitViewModel: HealthKitViewModel())
+    }
 }

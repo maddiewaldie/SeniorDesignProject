@@ -59,12 +59,27 @@ struct InsightsView: View {
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
                     .padding(.bottom, 20)
+                    SymptomChartRepresentable(symptomDataManager: symptomDataManager)
+                    .frame(minHeight: 200)
+                    .padding(.leading, 20)
+                    .padding(.trailing, 20)
+                    .padding(.bottom, 20)
                     LastReactionInsight(symptomDataManager: symptomDataManager)
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
                     .padding(.bottom, 20)
+                    SymptomChartRepresentable2(symptomDataManager: symptomDataManager)
+                    .frame(minHeight: 200)
+                    .padding(.leading, 20)
+                    .padding(.trailing, 20)
+                    .padding(.bottom, 20)
+                    DosesForMonthView(healthKitViewModel: healthKitViewModel)
+                    .frame(minHeight: 230)
+                    .padding(.leading, 20)
+                    .padding(.trailing, 20)
+                    .padding(.bottom, 20)
                     VStack {
-                        if !symptomDataManager.fetchAllSymptoms().isEmpty {
+                        if !symptomDataManager.fetchAllSymptomsWithoutRefresh().isEmpty {
                             HStack {
                                 Text("Symptoms").bold()
                                     .font(.title2)
@@ -72,9 +87,10 @@ struct InsightsView: View {
                                     .padding()
                                 Spacer()
                             }
-                            PieChart(symptoms: symptomDataManager.fetchAllSymptoms(), slices: $slicesWithLabels)
+                            PieChart(symptoms: symptomDataManager.fetchAllSymptomsWithoutRefresh(), slices: $slicesWithLabels)
                                 .frame(height: 300)
-                                .padding()
+                                .padding(.leading, 20)
+                                .padding(.trailing, 20)
                             Legend(slicesWithLabels: slicesWithLabels)
                                 .padding()
                         }
@@ -84,19 +100,10 @@ struct InsightsView: View {
                     .cornerRadius(20)
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
+                    .padding(.bottom, 20)
                     .onAppear {
-                        self.slicesWithLabels = calculateSlices(symptoms: symptomDataManager.fetchAllSymptoms())
+                        self.slicesWithLabels = calculateSlices(symptoms: symptomDataManager.fetchAllSymptomsWithoutRefresh())
                     }
-                    VStack {
-                        DosesForMonthView(healthKitViewModel: healthKitViewModel)
-                        .padding(.bottom, 20)
-                    }
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-                    .background(colorScheme == .light ? Color.lightBlue : Color.darkTeal)
-                    .cornerRadius(20)
-                    .padding(.leading, 20)
-                    .padding(.trailing, 20)
-                    .padding(.top, 20)
                 }
             }
         }
