@@ -20,6 +20,7 @@ struct LegendItem: View {
                 .fill(color)
                 .frame(width: 10, height: 10)
             Text(label)
+                .font(.system(size: 14)).bold()
                 .foregroundColor(colorScheme == .light ? .black : .black)
         }
         .padding(.horizontal)

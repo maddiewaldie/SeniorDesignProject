@@ -22,7 +22,7 @@
 		0966A7D72AC21F1900D0BFFF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966A7D62AC21F1900D0BFFF /* Extensions.swift */; };
 		096A737F2B9A3460001A3563 /* InsightsTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A737E2B9A3460001A3563 /* InsightsTip.swift */; };
 		096A73812B9A34A4001A3563 /* LegendItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A73802B9A34A4001A3563 /* LegendItem.swift */; };
-		096A73832B9A34E4001A3563 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A73822B9A34E4001A3563 /* PieChart.swift */; };
+		096A73832B9A34E4001A3563 /* SymptomsPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A73822B9A34E4001A3563 /* SymptomsPieChartView.swift */; };
 		096A73852B9A3509001A3563 /* Legend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A73842B9A3509001A3563 /* Legend.swift */; };
 		096A73872B9A3595001A3563 /* LastReactionInsight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A73862B9A3595001A3563 /* LastReactionInsight.swift */; };
 		096A73892B9A35E2001A3563 /* DosesForMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A73882B9A35E2001A3563 /* DosesForMonthView.swift */; };
@@ -37,6 +37,8 @@
 		096A739C2B9A3890001A3563 /* AntihistamineDoseTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A739B2B9A3890001A3563 /* AntihistamineDoseTransformer.swift */; };
 		096A739E2B9A38B5001A3563 /* SelectedAllergensTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A739D2B9A38B5001A3563 /* SelectedAllergensTransformer.swift */; };
 		09742B4F2BA3EE0000A72979 /* ProfileImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09742B4E2BA3EE0000A72979 /* ProfileImageViewModel.swift */; };
+		097E4A112BBE2BED004B05D7 /* SymptomsOverTimeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097E4A102BBE2BED004B05D7 /* SymptomsOverTimeChartView.swift */; };
+		097E4A132BBE2C53004B05D7 /* SymptomsThisWeekChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097E4A122BBE2C53004B05D7 /* SymptomsThisWeekChartView.swift */; };
 		097EA4C72AE303700035B8AE /* ArticleRichLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097EA4C62AE303700035B8AE /* ArticleRichLink.swift */; };
 		097EA4C92AE3037B0035B8AE /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097EA4C82AE3037B0035B8AE /* ArticleView.swift */; };
 		097EA4CB2AE3085F0035B8AE /* AboutYourDoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097EA4CA2AE3085F0035B8AE /* AboutYourDoseView.swift */; };
@@ -98,7 +100,7 @@
 		0966A7D62AC21F1900D0BFFF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		096A737E2B9A3460001A3563 /* InsightsTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsTip.swift; sourceTree = "<group>"; };
 		096A73802B9A34A4001A3563 /* LegendItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendItem.swift; sourceTree = "<group>"; };
-		096A73822B9A34E4001A3563 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
+		096A73822B9A34E4001A3563 /* SymptomsPieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsPieChartView.swift; sourceTree = "<group>"; };
 		096A73842B9A3509001A3563 /* Legend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Legend.swift; sourceTree = "<group>"; };
 		096A73862B9A3595001A3563 /* LastReactionInsight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastReactionInsight.swift; sourceTree = "<group>"; };
 		096A73882B9A35E2001A3563 /* DosesForMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DosesForMonthView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,8 @@
 		096A739B2B9A3890001A3563 /* AntihistamineDoseTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntihistamineDoseTransformer.swift; sourceTree = "<group>"; };
 		096A739D2B9A38B5001A3563 /* SelectedAllergensTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAllergensTransformer.swift; sourceTree = "<group>"; };
 		09742B4E2BA3EE0000A72979 /* ProfileImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageViewModel.swift; sourceTree = "<group>"; };
+		097E4A102BBE2BED004B05D7 /* SymptomsOverTimeChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsOverTimeChartView.swift; sourceTree = "<group>"; };
+		097E4A122BBE2C53004B05D7 /* SymptomsThisWeekChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsThisWeekChartView.swift; sourceTree = "<group>"; };
 		097EA4C62AE303700035B8AE /* ArticleRichLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRichLink.swift; sourceTree = "<group>"; };
 		097EA4C82AE3037B0035B8AE /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 		097EA4CA2AE3085F0035B8AE /* AboutYourDoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutYourDoseView.swift; sourceTree = "<group>"; };
@@ -235,10 +239,12 @@
 			isa = PBXGroup;
 			children = (
 				0933A81E2AE091FB00734501 /* InsightsView.swift */,
+				097E4A122BBE2C53004B05D7 /* SymptomsThisWeekChartView.swift */,
+				097E4A102BBE2BED004B05D7 /* SymptomsOverTimeChartView.swift */,
 				096A73882B9A35E2001A3563 /* DosesForMonthView.swift */,
 				096A73862B9A3595001A3563 /* LastReactionInsight.swift */,
 				096A73842B9A3509001A3563 /* Legend.swift */,
-				096A73822B9A34E4001A3563 /* PieChart.swift */,
+				096A73822B9A34E4001A3563 /* SymptomsPieChartView.swift */,
 				096A73802B9A34A4001A3563 /* LegendItem.swift */,
 				096A737E2B9A3460001A3563 /* InsightsTip.swift */,
 			);
@@ -489,7 +495,7 @@
 				096A73922B9A3761001A3563 /* AllergenWithDoses.swift in Sources */,
 				0933A8192AE0919400734501 /* DosingPopUp.swift in Sources */,
 				096A739C2B9A3890001A3563 /* AntihistamineDoseTransformer.swift in Sources */,
-				096A73832B9A34E4001A3563 /* PieChart.swift in Sources */,
+				096A73832B9A34E4001A3563 /* SymptomsPieChartView.swift in Sources */,
 				097EA4CB2AE3085F0035B8AE /* AboutYourDoseView.swift in Sources */,
 				096A739E2B9A38B5001A3563 /* SelectedAllergensTransformer.swift in Sources */,
 				099993A02B4356480064643B /* DoseViewModel.swift in Sources */,
@@ -518,6 +524,8 @@
 				0945E3CB2B43A3F200983001 /* SectionHeaderView.swift in Sources */,
 				097EA4CD2AE308A40035B8AE /* CalendarDayView.swift in Sources */,
 				096A73892B9A35E2001A3563 /* DosesForMonthView.swift in Sources */,
+				097E4A132BBE2C53004B05D7 /* SymptomsThisWeekChartView.swift in Sources */,
+				097E4A112BBE2BED004B05D7 /* SymptomsOverTimeChartView.swift in Sources */,
 				0966A7D72AC21F1900D0BFFF /* Extensions.swift in Sources */,
 				09EDCBEA2B3E53EA0004DAFC /* SymptomDataManager.swift in Sources */,
 				099B04922B9A82F8000561CD /* ProfileImage.swift in Sources */,

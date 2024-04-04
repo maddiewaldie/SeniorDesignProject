@@ -59,7 +59,7 @@ struct InsightsView: View {
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
                     .padding(.bottom, 20)
-                    SymptomChartRepresentable(symptomDataManager: symptomDataManager)
+                    SymptomsOverTimeChartView(symptomDataManager: symptomDataManager)
                     .frame(minHeight: 200)
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
@@ -68,7 +68,7 @@ struct InsightsView: View {
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
                     .padding(.bottom, 20)
-                    SymptomChartRepresentable2(symptomDataManager: symptomDataManager)
+                    SymptomsThisWeekChartView(symptomDataManager: symptomDataManager)
                     .frame(minHeight: 200)
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
@@ -82,12 +82,12 @@ struct InsightsView: View {
                         if !symptomDataManager.fetchAllSymptomsWithoutRefresh().isEmpty {
                             HStack {
                                 Text("Symptoms").bold()
-                                    .font(.title2)
+                                    .font(.title3)
                                     .foregroundColor(colorScheme == .light ? .black : .black)
                                     .padding()
                                 Spacer()
                             }
-                            PieChart(symptoms: symptomDataManager.fetchAllSymptomsWithoutRefresh(), slices: $slicesWithLabels)
+                            SymptomsPieChartView(symptoms: symptomDataManager.fetchAllSymptomsWithoutRefresh(), slices: $slicesWithLabels)
                                 .frame(height: 300)
                                 .padding(.leading, 20)
                                 .padding(.trailing, 20)

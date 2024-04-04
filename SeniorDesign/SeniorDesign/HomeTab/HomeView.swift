@@ -167,6 +167,9 @@ struct HomeView: View {
                                 VStack {
                                     Text(formatSymptomName(symptom))
                                         .foregroundColor(colorScheme == .light ? Color.black : Color.black)
+                                        .font(.system(size: 14)).bold()
+                                        .padding(.leading, 10)
+                                        .padding(.trailing, 10)
                                         .padding(.bottom, 10)
                                     if let emoji = healthKitManager.symptomEmojis[symptom] {
                                         if healthKitManager.symptomImageNeeded(symptom) {

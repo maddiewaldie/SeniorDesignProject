@@ -30,57 +30,31 @@ struct DosesForMonthView: View {
     }
 
     var body: some View {
-        let (dosesTaken, dosesSkipped) = countDoses()
         return VStack {
-            ChartViewRepresentable(allDates: allDates, healthKitViewModel: healthKitViewModel, colorScheme: colorScheme)
+            DosesForMonthLinePlotView(allDates: allDates, healthKitViewModel: healthKitViewModel, colorScheme: colorScheme)
         }
-    }
-
-    private func countDoses() -> (Int, Int) {
-        var dosesTaken = 0
-        var dosesSkipped = 0
-
-        for date in allDates {
-            if healthKitViewModel.doseRecords.values.contains(where: { record in
-                if let doseDate = (record as? DoseRecord)?.date {
-                    let components = Calendar.current.dateComponents([.day, .month, .year], from: doseDate)
-                    return components == Calendar.current.dateComponents([.day, .month, .year], from: date)
-                }
-                return false
-            }) {
-                dosesTaken += 1
-            } else {
-                dosesSkipped += 1
-            }
-        }
-
-        return (dosesTaken, dosesSkipped)
     }
 }
 
-struct ChartViewRepresentable: UIViewRepresentable {
+struct DosesForMonthLinePlotView: UIViewRepresentable {
     let allDates: [Date]
     let healthKitViewModel: HealthKitViewModel
     let colorScheme: ColorScheme
 
     func makeUIView(context: Context) -> OCKCartesianChartView {
         let chartView = OCKCartesianChartView(type: .line)
-
-        // Set the title
         chartView.headerView.titleLabel.text = "Doses This Month"
 
-        // Set the data series
         var dataSeries = OCKDataSeries(values: allDates.map { date in
             let doseCount = Double(healthKitViewModel.doseRecords.values.filter { record in
-                if let doseDate = (record as? DoseRecord)?.date {
+                if let doseDate = record.date {
                     let components = Calendar.current.dateComponents([.day, .month, .year], from: doseDate)
                     return components == Calendar.current.dateComponents([.day, .month, .year], from: date)
                 }
                 return false
             }.count)
-            // Ensure to return a CGFloat
             return CGFloat(doseCount)
-        }, title: "Dose Taken", color: UIColor(Color.lightTeal))
+        }, title: "Dose Taken", color: colorScheme == .light ? UIColor(.darkTeal) : UIColor(.lightTeal))
         dataSeries.size = 3
 
         let (dosesTaken, dosesSkipped) = countDoses()
@@ -101,7 +75,7 @@ struct ChartViewRepresentable: UIViewRepresentable {
 
         for date in allDates {
             if healthKitViewModel.doseRecords.values.contains(where: { record in
-                if let doseDate = (record as? DoseRecord)?.date {
+                if let doseDate = record.date {
                     let components = Calendar.current.dateComponents([.day, .month, .year], from: doseDate)
                     return components == Calendar.current.dateComponents([.day, .month, .year], from: date)
                 }
