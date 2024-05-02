@@ -113,7 +113,7 @@ struct HomeView: View {
                     .background(colorScheme == .light ? Color.darkTeal : Color.darkerTeal)
                     .cornerRadius(30)
             }
-            .sheet(isPresented: $logDose) {
+            .fullScreenCover(isPresented: $logDose) {
                 DosingPopUp(selectedDate: selectedDate)
                     .environmentObject(doseViewModel)
             }
@@ -144,7 +144,7 @@ struct HomeView: View {
             .background(colorScheme == .light ? Color.lightTeal : Color.darkTeal)
             .cornerRadius(20)
         }
-        .sheet(isPresented: $logSymptoms) {
+        .fullScreenCover(isPresented: $logSymptoms) {
             NavigationStack {
                         SymptomsPopUp(selectedSymptoms: $selectedSymptoms, selectedDate: selectedDate)
                             .navigationBarItems(trailing: Button("Done") {

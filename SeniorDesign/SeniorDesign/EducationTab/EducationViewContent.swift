@@ -8,60 +8,68 @@
 import Foundation
 
 struct EducationViewContent {
-    let anaphylaxisTips = """
-    Anaphylaxis is a severe and potentially life-threatening allergic reaction that can occur suddenly after exposure to an allergen. It involves multiple body systems and can lead to a rapid and severe allergic response. Common signs and symptoms of anaphylaxis include:
+    let anaphylaxisDisclaimer: AttributedString = try! AttributedString(markdown: "⚠️ **Disclaimer:** This information is provided for educational purposes only and should not be construed as medical advice. Always seek the advice of a qualified healthcare professional for any medical concerns or questions regarding anaphylaxis or its treatment.")
 
-    • Skin reactions, such as hives, itching, and flushed or pale skin.
+    let oitDisclaimer: AttributedString = try! AttributedString(markdown: "⚠️ **Disclaimer:** This information is provided for educational purposes only and should not be construed as medical advice. Always seek the advice of a qualified healthcare professional for any medical concerns or questions regarding Oral Immunotherapy or its treatment.")
 
-    • Respiratory difficulties, including wheezing, shortness of breath, or difficulty breathing.
+    let ccDisclaimer: AttributedString = try! AttributedString(markdown: "⚠️ **Disclaimer:** This information is provided for educational purposes only and should not be construed as medical advice. Always seek the advice of a qualified healthcare professional for any medical concerns or questions regarding cross contamination.")
 
-    • Swelling, especially in the face, lips, throat, or tongue.
+    let anaphylaxisTips: AttributedString = try! AttributedString(markdown: """
+        Anaphylaxis is a severe and potentially life-threatening allergic reaction that can occur suddenly after exposure to an allergen. It involves multiple body systems and can lead to a rapid and severe allergic response. 
 
-    • Gastrointestinal symptoms, such as abdominal pain, nausea, vomiting, or diarrhea.
+        Common signs and symptoms of anaphylaxis include:
 
-    • Low blood pressure, which can lead to dizziness, fainting, or loss of consciousness.
+        • Skin reactions, such as hives, itching, and flushed or pale skin.
+        • Respiratory difficulties, including wheezing, shortness of breath, or difficulty breathing.
+        • Swelling, especially in the face, lips, throat, or tongue.
+        • Gastrointestinal symptoms, such as abdominal pain, nausea, vomiting, or diarrhea.
+        • Low blood pressure, which can lead to dizziness, fainting, or loss of consciousness.
 
+        Immediate treatment for anaphylaxis involves the use of epinephrine (adrenaline) through an auto-injector and seeking emergency medical assistance.
 
-    Immediate treatment for anaphylaxis involves the use of epinephrine (adrenaline) through an auto-injector and seeking emergency medical assistance.
+        With OIT, because you're ingesting your allergen(s), the risk of anaphylaxis is higher than usual. It is important to carry an epinephrine autoinjector with you at all times.
 
-    With OIT, because you're ingesting your allergen(s), the risk of anaphylaxis is higher than usual. It is important to carry an epinephrine autoinjector with you at all times.
+        If you or someone experiences symptoms of anaphylaxis, call 911 immediately.
 
-    If you or someone experiences symptoms of anaphylaxis, call 911 immediately.
-    """
+        **Source:** [Mayo Clinic](https://www.mayoclinic.org/diseases-conditions/anaphylaxis/symptoms-causes/syc-20351468)
+        """, options: AttributedString.MarkdownParsingOptions(interpretedSyntax: .inlineOnlyPreservingWhitespace))
 
-    let oitTips = """
-    Oral Immunotherapy (OIT) involves ingesting small, controlled amounts of an allergen to build tolerance over time. It is a treatment option for some individuals with food allergies.
+    let oitTips: AttributedString = try! AttributedString(markdown: """
+        Oral Immunotherapy (OIT) involves ingesting small, controlled amounts of an allergen to build tolerance over time. It is a treatment option for some individuals with food allergies.
 
-    Some tips and best practices for OIT include:
+        Some tips and best practices for OIT include:
 
-    • Avoiding exercise within 2 hours of taking a dose.
-    • Avoiding alcohol consumption near dose times.
-    • Taking doses with food to reduce the likelihood of stomach discomfort.
-    • Being consistent with dose schedules to maintain progress.
-    • Carrying an epinephrine auto-injector at all times.
-    • Informing healthcare providers about ongoing OIT treatment before any medical procedures or surgeries.
+        • Avoiding exercise within 2 hours of taking a dose.
+        • Avoiding alcohol consumption near dose times.
+        • Taking doses with food to reduce the likelihood of stomach discomfort.
+        • Being consistent with dose schedules to maintain progress.
+        • Carrying an epinephrine auto-injector at all times.
+        • Informing healthcare providers about ongoing OIT treatment before any medical procedures or surgeries.
 
-    Remember, OIT should be performed under the guidance and supervision of trained healthcare professionals. Follow their instructions closely and report any concerns or adverse reactions immediately.
-    """
+        Remember, OIT should be performed under the guidance and supervision of trained healthcare professionals. Follow their instructions closely and report any concerns or adverse reactions immediately.
 
-    let crossContaminationTips =
-    """
-    Cross-contamination poses a significant threat to individuals with food allergies, even in the smallest traces. It occurs when allergens unintentionally transfer to safe foods or surfaces during food preparation or handling. The risk lies in these tiny traces, which, if ingested, can lead to severe allergic reactions.
+        **Source:** [American Academy of Allergy Asthma & Immunology](https://www.aaaai.org/conditions-and-treatments/library/allergy-library/oral-immunotherapy)
+        """, options: AttributedString.MarkdownParsingOptions(interpretedSyntax: .inlineOnlyPreservingWhitespace))
 
-    The kitchen is a primary area susceptible to cross-contamination. Shared utensils, cutting boards, and countertops can harbor allergens, posing risks to allergic individuals. Similarly, public spaces like restaurants, schools, or workplaces carry potential cross-contamination risks that demand vigilance.
+    let crossContaminationTips: AttributedString = try! AttributedString(markdown: """
+        Cross-contamination poses a significant threat to individuals with food allergies, even in the smallest traces. It occurs when allergens unintentionally transfer to safe foods or surfaces during food preparation or handling. The risk lies in these tiny traces, which, if ingested, can lead to severe allergic reactions.
 
-    At home, preventing cross-contamination involves meticulous organization. Designate separate areas for allergen-free cooking and use dedicated utensils, cutting boards, and cookware. Implement rigorous cleaning protocols to ensure surfaces, appliances, and hands remain allergen-free during food preparation.
+        The kitchen is a primary area susceptible to cross-contamination. Shared utensils, cutting boards, and countertops can harbor allergens, posing risks to allergic individuals. Similarly, public spaces like restaurants, schools, or workplaces carry potential cross-contamination risks that demand vigilance.
 
-    Restaurants and food establishments present unique challenges. Effective communication with staff about food allergies is crucial. Asking questions about food preparation methods and understanding restaurant protocols for preventing cross-contamination can significantly mitigate risks.
+        At home, preventing cross-contamination involves meticulous organization. Designate separate areas for allergen-free cooking and use dedicated utensils, cutting boards, and cookware. Implement rigorous cleaning protocols to ensure surfaces, appliances, and hands remain allergen-free during food preparation.
 
-    When dealing with packaged foods, thorough label reading is essential. Check food labels for allergen information and be aware of advisory labels like "may contain" to gauge cross-contamination risks.
+        Restaurants and food establishments present unique challenges. Effective communication with staff about food allergies is crucial. Asking questions about food preparation methods and understanding restaurant protocols for preventing cross-contamination can significantly mitigate risks.
 
-    Navigating social settings and eating out requires assertiveness. Choose restaurants with allergy-aware menus and communicate dietary needs. Similarly, in social gatherings, communicate allergy concerns to hosts and inquire about ingredient information.
+        When dealing with packaged foods, thorough label reading is essential. Check food labels for allergen information and be aware of advisory labels like "may contain" to gauge cross-contamination risks.
 
-    Educating others about the significance of cross-contamination prevention is pivotal. Inform family and friends about the importance of allergen safety and advocate for understanding and accommodation in public spaces.
+        Navigating social settings and eating out requires assertiveness. Choose restaurants with allergy-aware menus and communicate dietary needs. Similarly, in social gatherings, communicate allergy concerns to hosts and inquire about ingredient information.
 
-    Emergency preparedness is paramount. Always carry epinephrine auto-injectors and understand their usage. Recognizing allergic reactions promptly and seeking medical assistance when necessary is critical for managing allergic incidents.
+        Educating others about the significance of cross-contamination prevention is pivotal. Inform family and friends about the importance of allergen safety and advocate for understanding and accommodation in public spaces.
 
-    In conclusion, proactive strategies to prevent cross-contamination are vital for individuals with food allergies. By implementing these measures and raising awareness, we can create safer environments and minimize allergic risks significantly.
-    """
+        Emergency preparedness is paramount. Always carry epinephrine auto-injectors and understand their usage. Recognizing allergic reactions promptly and seeking medical assistance when necessary is critical for managing allergic incidents.
+
+        In conclusion, proactive strategies to prevent cross-contamination are vital for individuals with food allergies. By implementing these measures and raising awareness, we can create safer environments and minimize allergic risks significantly.
+
+        **Source:** [Food Allergy Research & Education (FARE)](https://www.foodallergy.org/living-food-allergies/food-allergy-essentials/cross-contact-cross-contamination)
+        """, options: AttributedString.MarkdownParsingOptions(interpretedSyntax: .inlineOnlyPreservingWhitespace))
 }

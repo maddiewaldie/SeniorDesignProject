@@ -10,8 +10,11 @@ import SwiftUI
 struct ArticleView: View {
     // MARK: Variables
     var articleTitle: String
-    var articleDescription: String
+    var articleDescription: AttributedString
+    var articleDisclaimer: AttributedString
     var image: String
+
+    @Environment(\.colorScheme) var colorScheme
 
     // MARK: Article View
     var body: some View {
@@ -31,9 +34,18 @@ struct ArticleView: View {
                     .cornerRadius(20)
                 HStack {
                     Spacer()
-                    Text(articleDescription)
-                        .font(.body)
-                        .padding(20)
+                    VStack {
+                        Text(articleDisclaimer)
+                            .padding(.vertical, 20)
+                            .padding(.horizontal, 20)
+                            .frame(width: UIScreen.main.bounds.width - 30)
+                            .background(Color.lightYellow)
+                            .foregroundColor(.black)
+                            .cornerRadius(20)
+                            .padding(.top, 20)
+                        Text(articleDescription)
+                            .padding(20)
+                    }
                     Spacer()
                 }
                 Spacer()

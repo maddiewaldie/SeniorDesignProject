@@ -30,11 +30,11 @@ struct EducationView: View {
     // MARK: UI Elements
     var articles: some View {
         VStack(alignment: .leading) {
-            ArticleRichLink(articleTitle: "Anaphylaxis", articleDescription: "Learn the signs & symptoms of anaphylaxis.", articleContent: content.anaphylaxisTips, image: "anaphylaxis")
+            ArticleRichLink(articleTitle: "Anaphylaxis", articleDescription: "Learn the signs & symptoms of anaphylaxis.", articleDisclaimer: content.anaphylaxisDisclaimer, articleContent: content.anaphylaxisTips, image: "anaphylaxis")
                 .padding(7)
-            ArticleRichLink(articleTitle: "OIT Best Practices", articleDescription: "Tips and tricks for Oral Immunotherapy.", articleContent: content.oitTips, image: "oit")
+            ArticleRichLink(articleTitle: "OIT Best Practices", articleDescription: "Tips and tricks for Oral Immunotherapy.", articleDisclaimer: content.oitDisclaimer, articleContent: content.oitTips, image: "oit")
                 .padding(7)
-            ArticleRichLink(articleTitle: "Avoiding Cross Contamination", articleDescription: "Tips to help avoid cross contamination.", articleContent: content.crossContaminationTips, image: "crossContamination")
+            ArticleRichLink(articleTitle: "Avoiding Cross Contamination", articleDescription: "Tips to help avoid cross contamination.", articleDisclaimer: content.ccDisclaimer, articleContent: content.crossContaminationTips, image: "crossContamination")
                 .padding(7)
         }
     }
