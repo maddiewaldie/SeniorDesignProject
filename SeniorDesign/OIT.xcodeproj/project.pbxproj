@@ -49,13 +49,14 @@
 		0999939C2B424A5B0064643B /* CareKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0999939B2B424A5B0064643B /* CareKitUI */; };
 		099993A02B4356480064643B /* DoseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999939F2B4356480064643B /* DoseViewModel.swift */; };
 		099B04922B9A82F8000561CD /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099B04912B9A82F8000561CD /* ProfileImage.swift */; };
+		09A090FE2BC77D7A0074AA86 /* HealthKitManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A090FD2BC77D7A0074AA86 /* HealthKitManagerTests.swift */; };
+		09A091002BC77D8B0074AA86 /* HealthKitViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A090FF2BC77D8B0074AA86 /* HealthKitViewModelTests.swift */; };
 		09AA87AA2AE1C47600E898A5 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AA87A92AE1C47600E898A5 /* HealthKitManager.swift */; };
 		09AA87AC2AE1C4D800E898A5 /* HealthKitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AA87AB2AE1C4D800E898A5 /* HealthKitViewModel.swift */; };
-		09C1583F2A930CCD00B3D25E /* SeniorDesignApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1583E2A930CCD00B3D25E /* SeniorDesignApp.swift */; };
+		09C1583F2A930CCD00B3D25E /* OITApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1583E2A930CCD00B3D25E /* OITApp.swift */; };
 		09C158412A930CCD00B3D25E /* TabbedApplicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C158402A930CCD00B3D25E /* TabbedApplicationView.swift */; };
 		09C158432A930CCE00B3D25E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09C158422A930CCE00B3D25E /* Assets.xcassets */; };
 		09C158462A930CCE00B3D25E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09C158452A930CCE00B3D25E /* Preview Assets.xcassets */; };
-		09C158502A930CCE00B3D25E /* SeniorDesignTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1584F2A930CCE00B3D25E /* SeniorDesignTests.swift */; };
 		09C1585A2A930CCE00B3D25E /* SeniorDesignUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C158592A930CCE00B3D25E /* SeniorDesignUITests.swift */; };
 		09C1585C2A930CCE00B3D25E /* SeniorDesignUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1585B2A930CCE00B3D25E /* SeniorDesignUITestsLaunchTests.swift */; };
 		09C158692A93100600B3D25E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C158682A93100600B3D25E /* HomeView.swift */; };
@@ -124,16 +125,17 @@
 		097EA4CE2AE309F60035B8AE /* AddDoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDoseView.swift; sourceTree = "<group>"; };
 		0999939F2B4356480064643B /* DoseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoseViewModel.swift; sourceTree = "<group>"; };
 		099B04912B9A82F8000561CD /* ProfileImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
+		09A090FD2BC77D7A0074AA86 /* HealthKitManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManagerTests.swift; sourceTree = "<group>"; };
+		09A090FF2BC77D8B0074AA86 /* HealthKitViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitViewModelTests.swift; sourceTree = "<group>"; };
 		09AA87A92AE1C47600E898A5 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		09AA87AB2AE1C4D800E898A5 /* HealthKitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitViewModel.swift; sourceTree = "<group>"; };
 		09AA87AE2AE1CEBA00E898A5 /* SeniorDesign.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeniorDesign.entitlements; sourceTree = "<group>"; };
 		09C1583B2A930CCD00B3D25E /* OIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		09C1583E2A930CCD00B3D25E /* SeniorDesignApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeniorDesignApp.swift; sourceTree = "<group>"; };
+		09C1583E2A930CCD00B3D25E /* OITApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OITApp.swift; sourceTree = "<group>"; };
 		09C158402A930CCD00B3D25E /* TabbedApplicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbedApplicationView.swift; sourceTree = "<group>"; };
 		09C158422A930CCE00B3D25E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09C158452A930CCE00B3D25E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		09C1584B2A930CCE00B3D25E /* OITTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OITTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		09C1584F2A930CCE00B3D25E /* SeniorDesignTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeniorDesignTests.swift; sourceTree = "<group>"; };
 		09C158552A930CCE00B3D25E /* OITUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OITUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C158592A930CCE00B3D25E /* SeniorDesignUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeniorDesignUITests.swift; sourceTree = "<group>"; };
 		09C1585B2A930CCE00B3D25E /* SeniorDesignUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeniorDesignUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -243,8 +245,8 @@
 				097E4A102BBE2BED004B05D7 /* SymptomsOverTimeChartView.swift */,
 				096A73882B9A35E2001A3563 /* DosesForMonthView.swift */,
 				096A73862B9A3595001A3563 /* LastReactionInsight.swift */,
-				096A73842B9A3509001A3563 /* Legend.swift */,
 				096A73822B9A34E4001A3563 /* SymptomsPieChartView.swift */,
+				096A73842B9A3509001A3563 /* Legend.swift */,
 				096A73802B9A34A4001A3563 /* LegendItem.swift */,
 				096A737E2B9A3460001A3563 /* InsightsTip.swift */,
 			);
@@ -302,7 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				09AA87AE2AE1CEBA00E898A5 /* SeniorDesign.entitlements */,
-				09C1583E2A930CCD00B3D25E /* SeniorDesignApp.swift */,
+				09C1583E2A930CCD00B3D25E /* OITApp.swift */,
 				09C158402A930CCD00B3D25E /* TabbedApplicationView.swift */,
 				0966A7D62AC21F1900D0BFFF /* Extensions.swift */,
 				096A738C2B9A36BE001A3563 /* DataModels */,
@@ -329,7 +331,8 @@
 		09C1584E2A930CCE00B3D25E /* SeniorDesignTests */ = {
 			isa = PBXGroup;
 			children = (
-				09C1584F2A930CCE00B3D25E /* SeniorDesignTests.swift */,
+				09A090FD2BC77D7A0074AA86 /* HealthKitManagerTests.swift */,
+				09A090FF2BC77D8B0074AA86 /* HealthKitViewModelTests.swift */,
 			);
 			path = SeniorDesignTests;
 			sourceTree = "<group>";
@@ -502,7 +505,7 @@
 				0945E3CD2B43A91F00983001 /* EducationViewContent.swift in Sources */,
 				0966A7D52AC21E0400D0BFFF /* GetSetUpView.swift in Sources */,
 				096A73942B9A379C001A3563 /* DoseRowView.swift in Sources */,
-				09C1583F2A930CCD00B3D25E /* SeniorDesignApp.swift in Sources */,
+				09C1583F2A930CCD00B3D25E /* OITApp.swift in Sources */,
 				0933A8152AE0758400734501 /* EducationView.swift in Sources */,
 				0925CB0F2AC1FE5800032495 /* GetStartedView.swift in Sources */,
 				096A73902B9A373B001A3563 /* DosingViewTip.swift in Sources */,
@@ -538,7 +541,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09C158502A930CCE00B3D25E /* SeniorDesignTests.swift in Sources */,
+				09A090FE2BC77D7A0074AA86 /* HealthKitManagerTests.swift in Sources */,
+				09A091002BC77D8B0074AA86 /* HealthKitViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,6 +757,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B59PGVARAP;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
@@ -772,6 +777,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B59PGVARAP;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
@@ -790,6 +796,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B59PGVARAP;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Maddie.SeniorDesignUITests;
@@ -807,6 +814,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B59PGVARAP;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Maddie.SeniorDesignUITests;

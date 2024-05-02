@@ -157,7 +157,6 @@ struct DosingView: View {
                     .displayFrequency(.immediate),
                     .datastoreLocation(.applicationDefault)
                 ])
-                Tips.showAllTipsForTesting()
             }
         }
     }

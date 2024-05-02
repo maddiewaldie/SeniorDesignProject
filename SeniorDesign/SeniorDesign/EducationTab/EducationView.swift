@@ -255,7 +255,6 @@ struct EducationView: View {
                     .displayFrequency(.immediate),
                     .datastoreLocation(.applicationDefault)
                 ])
-                Tips.showAllTipsForTesting()
             }
         }
         .onAppear {

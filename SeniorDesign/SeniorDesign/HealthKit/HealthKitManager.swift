@@ -112,7 +112,6 @@ class HealthKitManager {
     // MARK: Symptom Functions
     func saveSymptom(_ symptom: String, for date: Date) {
         guard let symptomType = HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier(rawValue: symptom)) else {
-            // TODO: Handle failure to get the symptom type
             return
         }
         
@@ -163,29 +162,6 @@ class HealthKitManager {
                 if success {
                 } else if error != nil {
                     print(error ?? "Error")
-                }
-            }
-        }
-    }
-
-    func saveSymptoms() {
-        let currentDate = Date()
-
-        for symptom in symptoms {
-            guard let symptomType = HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier(rawValue: symptom.identifier)) else {
-                // Handle failure to get the symptom type
-                continue
-            }
-
-            // Create a sample for the symptom at the current date
-            let sample = HKCategorySample(type: symptomType, value: HKCategoryValue.notApplicable.rawValue, start: currentDate, end: currentDate)
-
-            // Save the sample to HealthKit
-            healthStore.save(sample) { success, error in
-                if let error = error {
-                    print("Error saving symptom data for \(symptom.identifier): \(error.localizedDescription)")
-                } else {
-                    print("Symptom data saved successfully for \(symptom.identifier)")
                 }
             }
         }

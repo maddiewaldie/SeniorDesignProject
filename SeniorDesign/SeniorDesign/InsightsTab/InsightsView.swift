@@ -116,7 +116,6 @@ struct InsightsView: View {
                     .displayFrequency(.immediate),
                     .datastoreLocation(.applicationDefault)
                 ])
-                Tips.showAllTipsForTesting()
             }
         }
     }

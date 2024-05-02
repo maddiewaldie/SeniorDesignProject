@@ -50,7 +50,6 @@ class HealthKitViewModel: ObservableObject {
 
         let doseRecordEntity = NSManagedObject(entity: entity, insertInto: context)
         doseRecordEntity.setValue(doseRecord.date, forKey: "date")
-        // Set other properties similarly
 
         do {
             try context.save()
@@ -66,15 +65,10 @@ class HealthKitViewModel: ObservableObject {
 
         do {
             let fetchedRecords = try context.fetch(fetchRequest)
-            // Create a dictionary to store fetched dose records by date
             var doseRecordsByDate: [Date: DoseRecord] = [:]
-
-            // Map fetched dose records to a dictionary using the date as the key
             for record in fetchedRecords {
                 doseRecordsByDate[record.date!] = record
             }
-
-            // Update the doseRecords dictionary with fetched dose records
             self.doseRecords = doseRecordsByDate
         } catch {
             print("Failed to fetch dose records: \(error.localizedDescription)")
