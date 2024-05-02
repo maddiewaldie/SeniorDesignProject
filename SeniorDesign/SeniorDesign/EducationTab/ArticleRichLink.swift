@@ -19,9 +19,8 @@ struct ArticleRichLink: View {
 
     // MARK: Article Rich Link View
     var body: some View {
-        Button(action: {
-            isShowingArticle.toggle()
-        }) {
+        NavigationLink(destination: ArticleView(articleTitle: articleTitle, articleDescription: articleContent, image: image))
+        {
             ZStack(alignment: .bottom) {
                 VStack(alignment: .leading) {
                     VStack(alignment: .leading) {
@@ -50,8 +49,6 @@ struct ArticleRichLink: View {
                 .cornerRadius(20)
             }
         }
-        .sheet(isPresented: $isShowingArticle) {
-            ArticleView(articleTitle: articleTitle, articleDescription: articleContent, image: image)
-        }
+        .buttonStyle(PlainButtonStyle())
     }
 }

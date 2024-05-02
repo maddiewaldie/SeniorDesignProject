@@ -229,7 +229,7 @@ struct DosingPopUp: View {
 
     // MARK: Dosing Pop Up View
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 VStack(alignment: .leading) {
                     timeSectionHeader

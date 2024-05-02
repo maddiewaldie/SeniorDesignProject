@@ -145,7 +145,7 @@ struct HomeView: View {
             .cornerRadius(20)
         }
         .sheet(isPresented: $logSymptoms) {
-                    NavigationView {
+            NavigationStack {
                         SymptomsPopUp(selectedSymptoms: $selectedSymptoms, selectedDate: selectedDate)
                             .navigationBarItems(trailing: Button("Done") {
                                 logSymptoms = false
@@ -200,7 +200,7 @@ struct HomeView: View {
 
     // MARK: Home Tab View
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 header
                 VStack {

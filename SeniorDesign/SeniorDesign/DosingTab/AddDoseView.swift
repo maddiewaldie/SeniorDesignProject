@@ -22,7 +22,7 @@ struct AddDoseView: View {
 
     // MARK: Add Dose View
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 Section(header: Text("Allergen")) {
                     Picker("Select Allergen", selection: $selectedAllergen) {

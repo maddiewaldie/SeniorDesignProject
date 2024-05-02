@@ -17,7 +17,7 @@ struct TabbedApplicationView: View {
     var body: some View {
         TabView {
             // MARK: Home Tab
-            NavigationView {
+            NavigationStack {
                 HomeView()
                     .environmentObject(profileViewModel)
                     .environmentObject(healthKitViewModel)
@@ -29,7 +29,7 @@ struct TabbedApplicationView: View {
             }
             
             // MARK: Insights Tab
-            NavigationView {
+            NavigationStack {
                 InsightsView(healthKitViewModel: healthKitViewModel)
                     .environmentObject(profileViewModel)
                     .environmentObject(healthKitViewModel)
@@ -40,7 +40,7 @@ struct TabbedApplicationView: View {
             }
             
             // MARK: Dosing Tab
-            NavigationView {
+            NavigationStack {
                 DosingView()
                     .environmentObject(profileViewModel)
                     .environmentObject(healthKitViewModel)
@@ -51,7 +51,7 @@ struct TabbedApplicationView: View {
             }
             
             // MARK: Education Tab
-            NavigationView {
+            NavigationStack {
                 EducationView()
                     .environmentObject(profileViewModel)
                     .environmentObject(healthKitViewModel)

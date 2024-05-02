@@ -39,7 +39,7 @@ struct GetStartedView: View {
 
     // MARK: Get Started View
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 ZStack {
                     Color.darkTeal

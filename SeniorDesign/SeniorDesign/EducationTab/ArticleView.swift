@@ -30,6 +30,7 @@ struct ArticleView: View {
                     .background(Color.lightTeal)
                     .cornerRadius(20)
                 HStack {
+                    Spacer()
                     Text(articleDescription)
                         .font(.body)
                         .padding(20)
